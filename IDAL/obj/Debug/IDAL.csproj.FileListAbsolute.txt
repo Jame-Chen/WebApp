@@ -1,0 +1,13 @@
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\IDAL.dll.config
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\IDAL.dll
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\IDAL.pdb
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\EntityFramework.dll
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\Model.dll
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\Model.pdb
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\EntityFramework.xml
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\obj\Debug\IDAL.dll
+D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\obj\Debug\IDAL.pdb
