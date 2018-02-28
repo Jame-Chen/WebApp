@@ -1,0 +1,51 @@
+@using System.Web.Http
+@using WebAPI.Areas.HelpPage.Models
+@model HelpPageApiModel
+
+@{ 
+    var description = Model.ApiDescription;
+    bool hasParameters = description.ParameterDescriptions.Count > 0;
+    bool hasRequestSamples = Model.SampleRequests.Count > 0;
+    bool hasResponseSamples = Model.SampleResponses.Count > 0;
+}
+<h1>@description.HttpMethod.Method @description.RelativePath</h1>
+<div>
+    @if (description.Documentation != null)
+    {
+        <p>@description.Documentation</p>
+    }
+    else
+    {
+        <p>没有可用的文件。</p>
+    }
+
+    @if (hasParameters || hasRequestSamples)
+    {
+        <h2>回应信息</h2>
+        if (hasParameters)
+        {
+            <h3>参数</h3>
+            @Html.DisplayFor(apiModel => apiModel.ApiDescription.ParameterDescriptions, "Parameters")
+        }
+        if (hasRequestSamples)
+        {
+            <h3>响应正文格式</h3>
+            @Html.DisplayFor(apiModel => apiModel.SampleRequests, "Samples")
+        }
+    } 
+
+    @if (hasResponseSamples)
+    {
+        <h2>回应信息</h2>
+        if (description.ResponseDescription.Documentation != null)
+        {
+            <p>@description.ResponseDescription.Documentation</p>
+        }
+        else
+        {
+            <p>没有可用的文件。</p>
+        }
+        <h3>响应正文格式</h3>
+        @Html.DisplayFor(apiModel => apiModel.SampleResponses, "Samples")
+    }
+</div>
