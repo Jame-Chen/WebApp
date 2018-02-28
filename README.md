@@ -1,1 +1,2 @@
-# EFMVCApp
+EntityFramework+Mvc+tt模板做的小示例
+欢迎补充
