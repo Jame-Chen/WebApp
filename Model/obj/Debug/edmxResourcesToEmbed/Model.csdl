@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Student" EntityType="testModel.Student" />
+    <EntitySet Name="Attributes" EntityType="testModel.Attributes" />
+    <AssociationSet Name="StudentAttributes" Association="testModel.StudentAttributes">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Attributes" EntitySet="Attributes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="true" />
+    <Property Name="Sex" Type="Int32" Nullable="true" />
+    <Property Name="Chinese" Type="Decimal" Nullable="false" />
+    <Property Name="Math" Type="Decimal" Nullable="false" />
+    <Property Name="English" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="Attributes" Relationship="testModel.StudentAttributes" FromRole="Student" ToRole="Attributes" />
+  </EntityType>
+  <EntityType Name="Attributes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Student" Relationship="testModel.StudentAttributes" FromRole="Attributes" ToRole="Student" />
+    <Property Name="StudentId" Type="Int32" Nullable="false" />
+    <Property Name="Interest" Type="String" Nullable="true" />
+    <Property Name="Hobbies" Type="String" Nullable="true" />
+  </EntityType>
+  <Association Name="StudentAttributes">
+    <End Type="testModel.Student" Role="Student" Multiplicity="1" />
+    <End Type="testModel.Attributes" Role="Attributes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attributes">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="testModelStoreContainer">
+    <EntitySet Name="Student" EntityType="testModel.Store.Student" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attributes" EntityType="testModel.Store.Attributes" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="StudentAttributes" Association="testModel.Store.StudentAttributes">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Attributes" EntitySet="Attributes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="true" />
+    <Property Name="Sex" Type="int" Nullable="true" />
+    <Property Name="Chinese" Type="decimal" Nullable="false" />
+    <Property Name="Math" Type="decimal" Nullable="false" />
+    <Property Name="English" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Attributes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentId" Type="int" Nullable="false" />
+    <Property Name="Interest" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Hobbies" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <Association Name="StudentAttributes">
+    <End Role="Student" Type="testModel.Store.Student" Multiplicity="1" />
+    <End Role="Attributes" Type="testModel.Store.Attributes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attributes">
+        <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
