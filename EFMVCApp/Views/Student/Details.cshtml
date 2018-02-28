@@ -1,0 +1,98 @@
+﻿@model Model.Student
+
+@{
+    ViewBag.Title = "学生详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bootstrapTable/css/bootstrap-table.css" rel="stylesheet" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .mt {
+            margin-top: 10px;
+        }
+
+        .ml {
+            margin-left: 10px;
+        }
+
+        .field-validation-error {
+            color: red;
+        }
+      
+    </style>
+}
+
+@using (Ajax.BeginForm("Details", "Student", new AjaxOptions { HttpMethod = "post", OnSuccess = "success" }, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div class="form-group mt">
+        @Html.LabelFor(model => model.Name, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", disabled = true })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    </div>
+    <div class="form-group mt">
+        @Html.LabelFor(model => model.Age, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+            @Html.TextBoxFor(model => model.Age, new { @class = "form-control", disabled = true })
+            @Html.ValidationMessageFor(model => model.Age)
+        </div>
+    </div>
+    <div class="form-group mt">
+        @Html.LabelFor(model => model.Sex, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+
+            @Html.TextBoxFor(model => model.Sexs, new { @class = "form-control", disabled = true })
+            @Html.ValidationMessageFor(model => model.Sex)
+        </div>
+    </div>
+
+
+    <div class="form-group mt">
+        @Html.LabelFor(model => model.Chinese, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+            @Html.TextBoxFor(model => model.Chinese, new { @class = "form-control", disabled = true })
+            @Html.ValidationMessageFor(model => model.Chinese)
+        </div>
+    </div>
+    <div class="form-group mt">
+        @Html.LabelFor(model => model.Math, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+            @Html.TextBoxFor(model => model.Math, new { @class = "form-control", disabled = true })
+            @Html.ValidationMessageFor(model => model.Math)
+        </div>
+    </div>
+    <div class="form-group mt">
+        @Html.LabelFor(model => model.English, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+            @Html.TextBoxFor(model => model.English, new { @class = "form-control", disabled = true })
+            @Html.ValidationMessageFor(model => model.English)
+        </div>
+    </div>
+        <div class="form-group mt">
+        @Html.LabelFor(model => model.Attributes, new { @class = "col-xs-4 control-label text-right" })
+        <div class="col-xs-4">
+        @foreach (Model.Attributes item in Model.Attributes)
+        {
+            @item.Hobbies
+        }
+            @*@Html.TextBoxFor(model => model.English, new { @class = "form-control", disabled = true })*@
+            @Html.ValidationMessageFor(model => model.English)
+        </div>
+    </div>
+
+
+   
+}
+
+
+
