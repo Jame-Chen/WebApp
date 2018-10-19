@@ -18,7 +18,7 @@ namespace DAL
             DbContext dbContext = CallContext.GetData("DbContext") as DbContext;
             if (dbContext==null)
             {
-                dbContext = new testEntities(); //如果不存在上下文 创建一个(自定义)EF上下文  并且放在数据内存中去  
+                dbContext = new SchoolEntities(); //如果不存在上下文 创建一个(自定义)EF上下文  并且放在数据内存中去  
                 //dbContext.Configuration.LazyLoadingEnabled = false;
                 CallContext.SetData("DbContext",dbContext);
             }

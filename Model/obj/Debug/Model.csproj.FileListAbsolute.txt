@@ -9,3 +9,14 @@ D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\Model\bin\Debug\zh-Hans\Ent
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\Model\obj\Debug\Model.dll
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\Model\obj\Debug\Model.pdb
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\Model.dll.config
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\Model.dll
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\Model.pdb
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\EFMVCApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\Model\obj\Debug\Model.dll
+C:\Users\Administrator\EFMVCApp\Model\obj\Debug\Model.pdb

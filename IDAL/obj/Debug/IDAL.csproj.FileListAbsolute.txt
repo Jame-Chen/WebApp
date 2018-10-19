@@ -11,3 +11,16 @@ D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\bin\Debug\zh-Hans\Enti
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\obj\Debug\IDAL.dll
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\IDAL\obj\Debug\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\IDAL.dll.config
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\IDAL.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\Model.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\Model.pdb
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\EFMVCApp\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\IDAL\obj\Debug\IDAL.dll
+C:\Users\Administrator\EFMVCApp\IDAL\obj\Debug\IDAL.pdb

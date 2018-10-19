@@ -14,11 +14,15 @@ using Model;
 namespace IBLL
 {
 		
-	public interface IAttributesService:IBaseService<Attributes>
+	public interface IClassTabService:IBaseService<ClassTab>
     {
     }
 		
-	public interface IStudentService:IBaseService<Student>
+	public interface IStudentsService:IBaseService<Students>
+    {
+    }
+		
+	public interface IUsersService:IBaseService<Users>
     {
     }
 	    

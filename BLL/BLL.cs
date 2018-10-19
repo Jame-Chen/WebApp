@@ -15,19 +15,27 @@ using IBLL;
 namespace BLL
 {
 		
-    public partial  class AttributesService:BaseService<Attributes>,IAttributesService
+    public partial  class ClassTabService:BaseService<ClassTab>,IClassTabService
     {
         public override void SetCurrentRepository()
         {
-            CurrentRepository = DbSessionFactory.GetCurrentDbSession().AttributesRepository;
+            CurrentRepository = DbSessionFactory.GetCurrentDbSession().ClassTabRepository;
         }
     }
 		
-    public partial  class StudentService:BaseService<Student>,IStudentService
+    public partial  class StudentsService:BaseService<Students>,IStudentsService
     {
         public override void SetCurrentRepository()
         {
-            CurrentRepository = DbSessionFactory.GetCurrentDbSession().StudentRepository;
+            CurrentRepository = DbSessionFactory.GetCurrentDbSession().StudentsRepository;
+        }
+    }
+		
+    public partial  class UsersService:BaseService<Users>,IUsersService
+    {
+        public override void SetCurrentRepository()
+        {
+            CurrentRepository = DbSessionFactory.GetCurrentDbSession().UsersRepository;
         }
     }
 	    

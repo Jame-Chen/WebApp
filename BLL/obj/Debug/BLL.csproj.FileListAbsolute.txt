@@ -15,3 +15,22 @@ D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\BLL\obj\Debug\BLL.csprojRes
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\BLL\obj\Debug\BLL.dll
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\BLL\obj\Debug\BLL.pdb
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\BLL\bin\Debug\BLL.dll.config
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\BLL.dll.config
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\BLL.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\BLL.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\DAL.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\IBLL.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\IDAL.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\Model.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\DAL.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\IBLL.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\Model.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\EFMVCApp\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\BLL\obj\Debug\BLL.dll
+C:\Users\Administrator\EFMVCApp\BLL\obj\Debug\BLL.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\Newtonsoft.Json.xml

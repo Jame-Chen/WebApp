@@ -14,19 +14,27 @@ namespace DAL
 	//统一管理上下文的各种操作
     public partial class DbSession : IDbSession
     {  
-				public IAttributesRepository AttributesRepository
+				public IClassTabRepository ClassTabRepository
         {
             get
             {
-                return new AttributesRepository();
+                return new ClassTabRepository();
             }
         }
 
-				public IStudentRepository StudentRepository
+				public IStudentsRepository StudentsRepository
         {
             get
             {
-                return new StudentRepository();
+                return new StudentsRepository();
+            }
+        }
+
+				public IUsersRepository UsersRepository
+        {
+            get
+            {
+                return new UsersRepository();
             }
         }
 

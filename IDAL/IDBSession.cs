@@ -14,9 +14,11 @@ namespace IDAL
 	//统一管理上下文的各种操作
     public interface IDbSession
     {  
-				IAttributesRepository AttributesRepository{ get; }
+				IClassTabRepository ClassTabRepository{ get; }
 
-				IStudentRepository StudentRepository{ get; }
+				IStudentsRepository StudentsRepository{ get; }
+
+				IUsersRepository UsersRepository{ get; }
 
 		
         int Save();       

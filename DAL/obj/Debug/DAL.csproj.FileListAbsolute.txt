@@ -13,3 +13,18 @@ D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\DAL\bin\Debug\zh-Hans\Entit
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\DAL\obj\Debug\DAL.dll
 D:\我的文档\Visual Studio 2013\Projects\EFMVCApp\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\DAL.dll.config
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\DAL.dll
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\DAL.pdb
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\IDAL.dll
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\Model.dll
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\Model.pdb
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\EFMVCApp\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\DAL\obj\Debug\DAL.dll
+C:\Users\Administrator\EFMVCApp\DAL\obj\Debug\DAL.pdb

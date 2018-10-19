@@ -13,11 +13,15 @@ using IDAL;
 namespace DAL
 {
 	
-	public partial class AttributesRepository : BaseRepository<Attributes>,IAttributesRepository
+	public partial class ClassTabRepository : BaseRepository<ClassTab>,IClassTabRepository
     {
     }
 	
-	public partial class StudentRepository : BaseRepository<Student>,IStudentRepository
+	public partial class StudentsRepository : BaseRepository<Students>,IStudentsRepository
+    {
+    }
+	
+	public partial class UsersRepository : BaseRepository<Users>,IUsersRepository
     {
     }
 	    
