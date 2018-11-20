@@ -1,56 +1,166 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="SchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="ClassTab">
+<Schema Namespace="sysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="sysEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TB_Department" EntityType="sysModel.TB_Department" />
+    <EntitySet Name="TB_Menu" EntityType="sysModel.TB_Menu" />
+    <EntitySet Name="TB_MenuRole" EntityType="sysModel.TB_MenuRole" />
+    <EntitySet Name="TB_Role" EntityType="sysModel.TB_Role" />
+    <EntitySet Name="TB_UserRole" EntityType="sysModel.TB_UserRole" />
+    <EntitySet Name="TB_Users" EntityType="sysModel.TB_Users" />
+    <AssociationSet Name="FK_TB_USERS_REFERENCE_TB_DEPAR" Association="sysModel.FK_TB_USERS_REFERENCE_TB_DEPAR">
+      <End Role="TB_Department" EntitySet="TB_Department" />
+      <End Role="TB_Users" EntitySet="TB_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_MENU" Association="sysModel.FK_TB_MENUR_REFERENCE_TB_MENU">
+      <End Role="TB_Menu" EntitySet="TB_Menu" />
+      <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_ROLE" Association="sysModel.FK_TB_MENUR_REFERENCE_TB_ROLE">
+      <End Role="TB_Role" EntitySet="TB_Role" />
+      <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_ROLE" Association="sysModel.FK_TB_USERR_REFERENCE_TB_ROLE">
+      <End Role="TB_Role" EntitySet="TB_Role" />
+      <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_USERS" Association="sysModel.FK_TB_USERR_REFERENCE_TB_USERS">
+      <End Role="TB_Users" EntitySet="TB_Users" />
+      <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TB_Department">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="department_id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Students" Relationship="Self.FK_Students_ToClassTab" FromRole="ClassTab" ToRole="Students" />
+    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="department_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Users" Relationship="sysModel.FK_TB_USERS_REFERENCE_TB_DEPAR" FromRole="TB_Department" ToRole="TB_Users" />
   </EntityType>
-  <EntityType Name="Students">
+  <EntityType Name="TB_Menu">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="menu_id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Age" Type="Int32" />
-    <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-    <Property Name="Chinese" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="Math" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="English" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="PictruePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="ClassId" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="ClassTab" Relationship="Self.FK_Students_ToClassTab" FromRole="Students" ToRole="ClassTab" />
+    <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="menu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="menu_url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="menu_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="sort_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_MenuRole" Relationship="sysModel.FK_TB_MENUR_REFERENCE_TB_MENU" FromRole="TB_Menu" ToRole="TB_MenuRole" />
   </EntityType>
-  <EntityType Name="Users">
+  <EntityType Name="TB_MenuRole">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="Int32" />
+    <Property Name="menu_id" Type="Int32" />
+    <Property Name="role_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="button_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Menu" Relationship="sysModel.FK_TB_MENUR_REFERENCE_TB_MENU" FromRole="TB_MenuRole" ToRole="TB_Menu" />
+    <NavigationProperty Name="TB_Role" Relationship="sysModel.FK_TB_MENUR_REFERENCE_TB_ROLE" FromRole="TB_MenuRole" ToRole="TB_Role" />
   </EntityType>
-  <Association Name="FK_Students_ToClassTab">
-    <End Role="ClassTab" Type="Self.ClassTab" Multiplicity="1" />
-    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+  <EntityType Name="TB_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <Property Name="modifytime" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="TB_MenuRole" Relationship="sysModel.FK_TB_MENUR_REFERENCE_TB_ROLE" FromRole="TB_Role" ToRole="TB_MenuRole" />
+    <NavigationProperty Name="TB_UserRole" Relationship="sysModel.FK_TB_USERR_REFERENCE_TB_ROLE" FromRole="TB_Role" ToRole="TB_UserRole" />
+  </EntityType>
+  <EntityType Name="TB_UserRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="role_id" Type="Int32" />
+    <Property Name="user_id" Type="Int32" />
+    <NavigationProperty Name="TB_Role" Relationship="sysModel.FK_TB_USERR_REFERENCE_TB_ROLE" FromRole="TB_UserRole" ToRole="TB_Role" />
+    <NavigationProperty Name="TB_Users" Relationship="sysModel.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_UserRole" ToRole="TB_Users" />
+  </EntityType>
+  <EntityType Name="TB_Users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="department_id" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="createtime" Type="DateTime" Precision="0" />
+    <Property Name="modifytime" Type="DateTime" Precision="0" />
+    <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TB_Department" Relationship="sysModel.FK_TB_USERS_REFERENCE_TB_DEPAR" FromRole="TB_Users" ToRole="TB_Department" />
+    <NavigationProperty Name="TB_UserRole" Relationship="sysModel.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_Users" ToRole="TB_UserRole" />
+  </EntityType>
+  <Association Name="FK_TB_USERS_REFERENCE_TB_DEPAR">
+    <End Type="sysModel.TB_Department" Role="TB_Department" Multiplicity="0..1" />
+    <End Type="sysModel.TB_Users" Role="TB_Users" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ClassTab">
-        <PropertyRef Name="Id" />
+      <Principal Role="TB_Department">
+        <PropertyRef Name="department_id" />
       </Principal>
-      <Dependent Role="Students">
-        <PropertyRef Name="ClassId" />
+      <Dependent Role="TB_Users">
+        <PropertyRef Name="department_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="SchoolEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ClassTab" EntityType="Self.ClassTab" />
-    <EntitySet Name="Students" EntityType="Self.Students" />
-    <EntitySet Name="Users" EntityType="Self.Users" />
-    <AssociationSet Name="FK_Students_ToClassTab" Association="Self.FK_Students_ToClassTab">
-      <End Role="ClassTab" EntitySet="ClassTab" />
-      <End Role="Students" EntitySet="Students" />
-    </AssociationSet>
-  </EntityContainer>
+  <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
+    <End Type="sysModel.TB_Menu" Role="TB_Menu" Multiplicity="0..1" />
+    <End Type="sysModel.TB_MenuRole" Role="TB_MenuRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Menu">
+        <PropertyRef Name="menu_id" />
+      </Principal>
+      <Dependent Role="TB_MenuRole">
+        <PropertyRef Name="menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_MENUR_REFERENCE_TB_ROLE">
+    <End Type="sysModel.TB_Role" Role="TB_Role" Multiplicity="0..1" />
+    <End Type="sysModel.TB_MenuRole" Role="TB_MenuRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="TB_MenuRole">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_USERR_REFERENCE_TB_ROLE">
+    <End Type="sysModel.TB_Role" Role="TB_Role" Multiplicity="0..1" />
+    <End Type="sysModel.TB_UserRole" Role="TB_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="TB_UserRole">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_USERR_REFERENCE_TB_USERS">
+    <End Type="sysModel.TB_Users" Role="TB_Users" Multiplicity="0..1" />
+    <End Type="sysModel.TB_UserRole" Role="TB_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="TB_UserRole">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

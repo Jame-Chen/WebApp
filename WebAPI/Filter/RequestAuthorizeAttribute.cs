@@ -4,12 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using BLL;
+using System.Web.Http.Controllers;
+using System.Net.Http;
+using System.Net;
+using Model;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace WebAPI.Filter
 {
     public class RequestAuthorizeAttribute : AuthorizeAttribute
     {
-        UsersService us = new UsersService();
+        TB_UsersService us = new TB_UsersService();
         //重写基类的验证方式，加入我们自定义的Ticket验证
         public override void OnAuthorization(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
@@ -42,6 +48,16 @@ namespace WebAPI.Filter
                     HandleUnauthorizedRequest(actionContext);
                 };
             }
+        }
+
+        protected override void HandleUnauthorizedRequest(HttpActionContext filterContext)
+        {
+            base.HandleUnauthorizedRequest(filterContext);
+            var response = filterContext.Response = filterContext.Response ?? new HttpResponseMessage();
+            response.StatusCode = HttpStatusCode.OK;
+            Result obj = new Result() { Code = "401", Msg = "token失效,请重新登录!" };
+            string str = JsonConvert.SerializeObject(obj);
+            response.Content = new StringContent(str, Encoding.UTF8, "application/json");
         }
     }
 }

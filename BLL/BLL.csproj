@@ -66,6 +66,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{bfecc282-31b9-4fbf-890d-edf1ce4ae106}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{4b1f5fbd-ef78-4790-8995-4fb1950602f5}</Project>
       <Name>DAL</Name>

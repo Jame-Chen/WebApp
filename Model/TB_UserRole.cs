@@ -12,11 +12,13 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class TB_UserRole
     {
-        public int Id { get; set; }
-        public string LoginName { get; set; }
-        public string UserName { get; set; }
-        public string PassWord { get; set; }
+        public int id { get; set; }
+        public Nullable<int> role_id { get; set; }
+        public Nullable<int> user_id { get; set; }
+    
+        public virtual TB_Role TB_Role { get; set; }
+        public virtual TB_Users TB_Users { get; set; }
     }
 }

@@ -12,18 +12,26 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
-    public partial class ClassTab
+    public partial class TB_Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ClassTab()
+        public TB_Users()
         {
-            this.Students = new HashSet<Students>();
+            this.TB_UserRole = new HashSet<TB_UserRole>();
         }
     
-        public int Id { get; set; }
-        public string ClassName { get; set; }
+        public int user_id { get; set; }
+        public string user_name { get; set; }
+        public string user_password { get; set; }
+        public string fullname { get; set; }
+        public Nullable<int> department_id { get; set; }
+        public string status { get; set; }
+        public Nullable<System.DateTime> createtime { get; set; }
+        public Nullable<System.DateTime> modifytime { get; set; }
+        public string remark { get; set; }
     
+        public virtual TB_Department TB_Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Students> Students { get; set; }
+        public virtual ICollection<TB_UserRole> TB_UserRole { get; set; }
     }
 }

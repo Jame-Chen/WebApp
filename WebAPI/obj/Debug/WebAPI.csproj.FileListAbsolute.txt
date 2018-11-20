@@ -153,3 +153,5 @@ C:\Users\Administrator\EFMVCApp\WebAPI\bin\zh-Hans\System.Web.Optimization.resou
 C:\Users\Administrator\EFMVCApp\WebAPI\obj\Debug\WebAPI.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\EFMVCApp\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\Administrator\EFMVCApp\WebAPI\obj\Debug\WebAPI.pdb
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\Common.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\Common.pdb

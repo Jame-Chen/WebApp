@@ -14,15 +14,27 @@ using Model;
 namespace IBLL
 {
 		
-	public interface IClassTabService:IBaseService<ClassTab>
+	public interface ITB_DepartmentService:IBaseService<TB_Department>
     {
     }
 		
-	public interface IStudentsService:IBaseService<Students>
+	public interface ITB_MenuService:IBaseService<TB_Menu>
     {
     }
 		
-	public interface IUsersService:IBaseService<Users>
+	public interface ITB_MenuRoleService:IBaseService<TB_MenuRole>
+    {
+    }
+		
+	public interface ITB_RoleService:IBaseService<TB_Role>
+    {
+    }
+		
+	public interface ITB_UserRoleService:IBaseService<TB_UserRole>
+    {
+    }
+		
+	public interface ITB_UsersService:IBaseService<TB_Users>
     {
     }
 	    

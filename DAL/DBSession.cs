@@ -14,27 +14,51 @@ namespace DAL
 	//统一管理上下文的各种操作
     public partial class DbSession : IDbSession
     {  
-				public IClassTabRepository ClassTabRepository
+				public ITB_DepartmentRepository TB_DepartmentRepository
         {
             get
             {
-                return new ClassTabRepository();
+                return new TB_DepartmentRepository();
             }
         }
 
-				public IStudentsRepository StudentsRepository
+				public ITB_MenuRepository TB_MenuRepository
         {
             get
             {
-                return new StudentsRepository();
+                return new TB_MenuRepository();
             }
         }
 
-				public IUsersRepository UsersRepository
+				public ITB_MenuRoleRepository TB_MenuRoleRepository
         {
             get
             {
-                return new UsersRepository();
+                return new TB_MenuRoleRepository();
+            }
+        }
+
+				public ITB_RoleRepository TB_RoleRepository
+        {
+            get
+            {
+                return new TB_RoleRepository();
+            }
+        }
+
+				public ITB_UserRoleRepository TB_UserRoleRepository
+        {
+            get
+            {
+                return new TB_UserRoleRepository();
+            }
+        }
+
+				public ITB_UsersRepository TB_UsersRepository
+        {
+            get
+            {
+                return new TB_UsersRepository();
             }
         }
 
