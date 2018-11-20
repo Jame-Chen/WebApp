@@ -253,5 +253,76 @@ namespace BLL
             }
             return result;
         }
+        /// <summary>
+        /// 根据ID获取用户
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <returns></returns>
+        public Result GetUserByID(int user_id)
+        {
+            Result result = new Result();
+            try
+            {
+                if (user_id == null)
+                {
+                    result.Code = "400";
+                    result.Msg = "ID不能为空!";
+                }
+                else
+                {
+                    if (LoadEntities(s => s.user_id == user_id).Any())
+                    {
+                        result.Data = LoadEntities(s => s.user_id == user_id).FirstOrDefault();
+                        result.Code = "200";
+                        result.Msg = "查询成功!";
+                    }
+                    else
+                    {
+                        result.Code = "400";
+                        result.Msg = "该用户不存在!";
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                result.Code = "500";
+                result.Msg = e.Message;
+            }
+            return result;
+        }
+        /// <summary>
+        /// 根据条件查询用户
+        /// </summary>
+        /// <param name="Page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="UserName"></param>
+        /// <param name="DepID"></param>
+        /// <returns></returns>
+        public Result GetUserByWhere(int Page, int pageSize, string UserName, int? DepID)
+        {
+            Result result = new Result();
+            try
+            {
+                int total = 0;
+                var query = LoadPageEntities(Page, pageSize, out total, s => true, true, o => o.createtime);
+                if (!string.IsNullOrEmpty(UserName))
+                {
+                    query = query.Where(w => w.user_name.Contains(UserName));
+                }
+                if (DepID != null)
+                {
+                    query = query.Where(w => w.department_id == DepID);
+                }
+                result.Code = "200";
+                result.Msg = "查询成功!";
+                result.Data = query.ToList();
+            }
+            catch (Exception e)
+            {
+                result.Code = "500";
+                result.Msg = e.Message;
+            }
+            return result;
+        }
     }
 }

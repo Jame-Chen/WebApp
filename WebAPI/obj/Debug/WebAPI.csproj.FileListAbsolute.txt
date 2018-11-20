@@ -155,3 +155,9 @@ C:\Users\Administrator\EFMVCApp\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\Administrator\EFMVCApp\WebAPI\obj\Debug\WebAPI.pdb
 C:\Users\Administrator\EFMVCApp\WebAPI\bin\Common.dll
 C:\Users\Administrator\EFMVCApp\WebAPI\bin\Common.pdb
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\Swagger.Net.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\Swashbuckle.Core.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\WebActivator.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\WebActivatorEx.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\Swagger.Net.pdb
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\Swagger.Net.xml

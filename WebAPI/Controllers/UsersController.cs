@@ -74,5 +74,26 @@ namespace WebAPI.Controllers
         {
             return us.DelUser(users);
         }
+        /// <summary>
+        /// 根据ID获取用户
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <returns></returns>
+        public Result GetUserByID(int user_id)
+        {
+            return us.GetUserByID(user_id);
+        }
+        /// <summary>
+        /// 根据条件查询用户
+        /// </summary>
+        /// <param name="Page"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="UserName"></param>
+        /// <param name="DepID"></param>
+        /// <returns></returns>
+        public Result GetUserByWhere(int Page, int pageSize, string UserName, int? DepID)
+        {
+            return us.GetUserByWhere(Page, pageSize, UserName, DepID);
+        }
     }
 }
