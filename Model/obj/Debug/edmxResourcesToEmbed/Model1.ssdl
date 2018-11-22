@@ -6,7 +6,7 @@
     </Key>
     <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="department_name" Type="varchar" MaxLength="50" />
-    <Property Name="parent_id" Type="varchar" MaxLength="50" />
+    <Property Name="parent_id" Type="int" />
     <Property Name="department_level" Type="varchar" MaxLength="10" />
     <Property Name="status" Type="varchar" MaxLength="10" />
   </EntityType>

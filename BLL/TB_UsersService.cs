@@ -298,7 +298,7 @@ namespace BLL
         /// <param name="UserName"></param>
         /// <param name="DepID"></param>
         /// <returns></returns>
-        public Result GetUserByWhere(int Page, int pageSize, string UserName, int? DepID)
+        public Result GetUserByWhere(int Page, int pageSize, string UserName, string DepID)
         {
             Result result = new Result();
             try
@@ -309,9 +309,9 @@ namespace BLL
                 {
                     query = query.Where(w => w.user_name.Contains(UserName));
                 }
-                if (DepID != null)
+                if (!string.IsNullOrEmpty(DepID))
                 {
-                    query = query.Where(w => w.department_id == DepID);
+                    query = query.Where(w => w.department_id == Convert.ToInt32(DepID));
                 }
                 result.Code = "200";
                 result.Msg = "查询成功!";

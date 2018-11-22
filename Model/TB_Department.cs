@@ -22,7 +22,7 @@ namespace Model
     
         public int department_id { get; set; }
         public string department_name { get; set; }
-        public string parent_id { get; set; }
+        public Nullable<int> parent_id { get; set; }
         public string department_level { get; set; }
         public string status { get; set; }
     

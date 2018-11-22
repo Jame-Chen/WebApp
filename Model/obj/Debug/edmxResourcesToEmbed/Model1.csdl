@@ -34,7 +34,7 @@
     </Key>
     <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="parent_id" Type="Int32" />
     <Property Name="department_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TB_Users" Relationship="sysModel.FK_TB_USERS_REFERENCE_TB_DEPAR" FromRole="TB_Department" ToRole="TB_Users" />

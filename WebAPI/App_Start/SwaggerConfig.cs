@@ -33,7 +33,7 @@ namespace WebAPI
                         // additional fields by chaining methods off SingleApiVersion.
                         //
                         c.SingleApiVersion("v1", "WebAPI");
-
+                        c.IncludeXmlComments(GetXmlCommentsPath());
                         // If you want the output Swagger docs to be indented properly, enable the "PrettyPrint" option.
                         //
                         //c.PrettyPrint();
@@ -58,13 +58,12 @@ namespace WebAPI
                         // you'll need to implement a custom IDocumentFilter and/or IOperationFilter to set these properties
                         // according to your specific authorization implementation
                         //
-                        //c.BasicAuth("basic")
-                        //    .Description("Basic HTTP Authentication");
+                        //c.BasicAuth("OAuth2").Description("Basic HTTP Authentication");
                         //
 						// NOTE: You must also configure 'EnableApiKeySupport' below in the SwaggerUI section
-                        //c.ApiKey("apiKey")
+                        //c.ApiKey("BasicAuth")
                         //    .Description("API Key Authentication")
-                        //    .Name("apiKey")
+                        //    .Name("BasicAuth")
                         //    .In("header");
                         //
                         //c.OAuth2("oauth2")
@@ -248,8 +247,13 @@ namespace WebAPI
                         // If your API supports ApiKey, you can override the default values.
                         // "apiKeyIn" can either be "query" or "header"
                         //
-                        //c.EnableApiKeySupport("apiKey", "header");
+                        c.EnableApiKeySupport("Authorization", "header");
                     });
+        }
+
+        private static string GetXmlCommentsPath()
+        {
+            return string.Format("{0}/App_Data/WebAPI.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

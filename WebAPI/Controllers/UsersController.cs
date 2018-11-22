@@ -91,7 +91,7 @@ namespace WebAPI.Controllers
         /// <param name="UserName"></param>
         /// <param name="DepID"></param>
         /// <returns></returns>
-        public Result GetUserByWhere(int Page, int pageSize, string UserName, int? DepID)
+        public Result GetUserByWhere(int Page, int pageSize, string UserName, string DepID)
         {
             return us.GetUserByWhere(Page, pageSize, UserName, DepID);
         }
