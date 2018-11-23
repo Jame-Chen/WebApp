@@ -203,6 +203,7 @@
     <Content Include="SwaggerUI\images\wordnik_api.png" />
     <Content Include="SwaggerUI\index.html" />
     <Content Include="SwaggerUI\lib\.DS_Store" />
+    <None Include="Properties\PublishProfiles\WebApiRelease.pubxml" />
     <None Include="T4MVC.tt.settings.xml" />
     <Content Include="SwaggerUI\lib\backbone-min.js" />
     <Content Include="SwaggerUI\lib\handlebars.runtime-1.0.0.beta.6.js" />

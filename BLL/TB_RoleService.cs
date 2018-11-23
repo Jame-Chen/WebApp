@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
- public partial   class TB_RoleService
+    public partial class TB_RoleService
     {
         /// <summary>
         /// 添加角色
@@ -26,7 +26,7 @@ namespace BLL
                 }
                 else
                 {
-               
+
                     Roles.createtime = DateTime.Now;
                     result.Data = AddEntity(Roles);
                     result.Code = "200";
@@ -59,7 +59,7 @@ namespace BLL
                 {
                     if (LoadEntities(s => s.role_id == Roles.role_id).Any())
                     {
-                    
+
                         Roles.modifytime = DateTime.Now;
                         UpdateEntity(Roles);
                         result.Code = "200";
@@ -168,12 +168,12 @@ namespace BLL
             try
             {
                 int total = 0;
-                var query = LoadPageEntities(Page, pageSize, out total, s => true, true, o => o.createtime);
+                var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 1 ? 10 : pageSize, out total, s => true, true, o => o.createtime);
                 if (!string.IsNullOrEmpty(RoleName))
                 {
                     query = query.Where(w => w.role_name.Contains(RoleName));
                 }
-               
+
                 result.Code = "200";
                 result.Msg = "查询成功!";
                 result.Data = query.ToList();

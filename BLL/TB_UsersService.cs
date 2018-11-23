@@ -13,7 +13,7 @@ namespace BLL
 {
     public partial class TB_UsersService
     {
-
+        TB_UserRoleService tus = new TB_UserRoleService();
         //校验用户名密码
         public bool ValidateUser(string LoginName, string PassWord)
         {
@@ -304,7 +304,7 @@ namespace BLL
             try
             {
                 int total = 0;
-                var query = LoadPageEntities(Page, pageSize, out total, s => true, true, o => o.createtime);
+                var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.createtime);
                 if (!string.IsNullOrEmpty(UserName))
                 {
                     query = query.Where(w => w.user_name.Contains(UserName));
@@ -324,5 +324,7 @@ namespace BLL
             }
             return result;
         }
+
+      
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   public partial class TB_MenuService
+    public partial class TB_MenuService
     {
         /// <summary>
         /// 添加菜单
@@ -60,7 +60,7 @@ namespace BLL
                     if (LoadEntities(s => s.menu_id == Menus.menu_id).Any())
                     {
 
-                       
+
                         UpdateEntity(Menus);
                         result.Code = "200";
                         result.Msg = "修改成功!";
@@ -168,7 +168,7 @@ namespace BLL
             try
             {
                 int total = 0;
-                var query = LoadPageEntities(Page, pageSize, out total, s => true, true, o => o.sort_order);
+                var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.sort_order);
                 if (!string.IsNullOrEmpty(MenuName))
                 {
                     query = query.Where(w => w.menu_name.Contains(MenuName));

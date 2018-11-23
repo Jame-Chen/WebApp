@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TB_Department">
+    <Key>
+      <PropertyRef Name="department_id" />
+    </Key>
+    <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="department_name" Type="varchar" MaxLength="50" />
+    <Property Name="parent_id" Type="int" />
+    <Property Name="department_level" Type="varchar" MaxLength="10" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="TB_Menu">
+    <Key>
+      <PropertyRef Name="menu_id" />
+    </Key>
+    <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="menu_name" Type="varchar" MaxLength="50" />
+    <Property Name="menu_url" Type="varchar" MaxLength="50" />
+    <Property Name="parent_id" Type="varchar" MaxLength="50" />
+    <Property Name="menu_level" Type="varchar" MaxLength="10" />
+    <Property Name="sort_order" Type="varchar" MaxLength="50" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+    <Property Name="remark" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TB_MenuRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="menu_id" Type="int" />
+    <Property Name="role_type" Type="varchar" MaxLength="10" />
+    <Property Name="button_id" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TB_Role">
+    <Key>
+      <PropertyRef Name="role_id" />
+    </Key>
+    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_name" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="500" />
+    <Property Name="createtime" Type="date" />
+    <Property Name="modifytime" Type="date" />
+  </EntityType>
+  <EntityType Name="TB_UserRole">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="role_id" Type="int" />
+    <Property Name="user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="TB_Users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="50" />
+    <Property Name="user_password" Type="varchar" MaxLength="50" />
+    <Property Name="fullname" Type="varchar" MaxLength="50" />
+    <Property Name="department_id" Type="int" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+    <Property Name="createtime" Type="date" />
+    <Property Name="modifytime" Type="date" />
+    <Property Name="remark" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
+    <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
+    <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Menu">
+        <PropertyRef Name="menu_id" />
+      </Principal>
+      <Dependent Role="TB_MenuRole">
+        <PropertyRef Name="menu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_MENUR_REFERENCE_TB_ROLE">
+    <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
+    <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="TB_MenuRole">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_USERR_REFERENCE_TB_ROLE">
+    <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
+    <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Role">
+        <PropertyRef Name="role_id" />
+      </Principal>
+      <Dependent Role="TB_UserRole">
+        <PropertyRef Name="role_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TB_USERR_REFERENCE_TB_USERS">
+    <End Role="TB_Users" Type="Self.TB_Users" Multiplicity="0..1" />
+    <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TB_Users">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="TB_UserRole">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="sysModelStoreContainer">
+    <EntitySet Name="TB_Department" EntityType="Self.TB_Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Menu" EntityType="Self.TB_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_MenuRole" EntityType="Self.TB_MenuRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Role" EntityType="Self.TB_Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_UserRole" EntityType="Self.TB_UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TB_Users" EntityType="Self.TB_Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_MENU" Association="Self.FK_TB_MENUR_REFERENCE_TB_MENU">
+      <End Role="TB_Menu" EntitySet="TB_Menu" />
+      <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_ROLE" Association="Self.FK_TB_MENUR_REFERENCE_TB_ROLE">
+      <End Role="TB_Role" EntitySet="TB_Role" />
+      <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_ROLE" Association="Self.FK_TB_USERR_REFERENCE_TB_ROLE">
+      <End Role="TB_Role" EntitySet="TB_Role" />
+      <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_USERS" Association="Self.FK_TB_USERR_REFERENCE_TB_USERS">
+      <End Role="TB_Users" EntitySet="TB_Users" />
+      <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -35,7 +35,11 @@ namespace WebAPI
             //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new  CamelCasePropertyNamesContractResolver();
             // 对 JSON 数据使用混合大小写。跟属性名同样的大小.输出
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new DefaultContractResolver();
-
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(
+               new Newtonsoft.Json.Converters.IsoDateTimeConverter()
+               {
+                   DateTimeFormat = "yyyy-MM-dd hh:mm:ss"
+               });
         }
     }
 }

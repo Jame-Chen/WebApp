@@ -19,6 +19,7 @@ namespace WebAPI.Controllers
     public class RoleController : ApiController
     {
         TB_RoleService ts = new TB_RoleService();
+        TB_MenuRoleService tms = new TB_MenuRoleService();
         /// <summary>
         /// 添加角色
         /// </summary>
@@ -69,6 +70,16 @@ namespace WebAPI.Controllers
         public Result GetRoleByWhere(int Page, int pageSize, string RoleName)
         {
             return ts.GetRoleByWhere(Page, pageSize, RoleName);
+        }
+        /// <summary>
+        /// 分配菜单
+        /// </summary>
+        /// <param name="role_id"></param>
+        /// <param name="menus"></param>
+        /// <returns></returns>
+        public Result AssignmentMenu(int role_id, int[] menus)
+        {
+            return tms.AssignmentMenu(role_id, menus);
         }
     }
 }

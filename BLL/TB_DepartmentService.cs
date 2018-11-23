@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-   public partial class TB_DepartmentService
+    public partial class TB_DepartmentService
     {
         /// <summary>
         /// 添加部门
         /// </summary>
         /// <param name="Departments"></param>
         /// <returns></returns>
-       public Result AddDepartment(TB_Department Departments)
+        public Result AddDepartment(TB_Department Departments)
         {
             Result result = new Result();
             try
@@ -60,7 +60,7 @@ namespace BLL
                     if (LoadEntities(s => s.department_id == Departments.department_id).Any())
                     {
 
-                       
+
                         UpdateEntity(Departments);
                         result.Code = "200";
                         result.Msg = "修改成功!";
@@ -168,7 +168,7 @@ namespace BLL
             try
             {
                 int total = 0;
-                var query = LoadPageEntities(Page, pageSize, out total, s => true, true, o => o.department_id);
+                var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.department_id);
                 if (!string.IsNullOrEmpty(DepartmentName))
                 {
                     query = query.Where(w => w.department_name.Contains(DepartmentName));

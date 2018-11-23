@@ -20,6 +20,7 @@ namespace WebAPI.Controllers
     public class UsersController : ApiController
     {
         TB_UsersService us = new TB_UsersService();
+        TB_UserRoleService tus = new TB_UserRoleService();
         /// <summary>
         /// 登录
         /// </summary>
@@ -91,9 +92,19 @@ namespace WebAPI.Controllers
         /// <param name="UserName"></param>
         /// <param name="DepID"></param>
         /// <returns></returns>
-        public Result GetUserByWhere(int Page, int pageSize, string UserName, string DepID)
+        public Result GetUserByWhere(int Page, int pageSize,string UserName, string DepID)
         {
             return us.GetUserByWhere(Page, pageSize, UserName, DepID);
+        }
+        /// <summary>
+        /// 分配角色
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="roles">int[]数组</param>
+        /// <returns></returns>
+        public Result AssigningRoles(int user_id, int[] roles)
+        {
+            return tus.AssigningRoles(user_id, roles);
         }
     }
 }

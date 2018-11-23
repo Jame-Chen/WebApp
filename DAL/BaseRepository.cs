@@ -54,7 +54,6 @@ namespace DAL
                     db.Entry(entity).Property(p.Name).IsModified = true;
                 }
             }
-            db.SaveChanges();
         }
 
         /// <summary>

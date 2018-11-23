@@ -118,6 +118,14 @@
             <param name="DepID"></param>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.RoleController.AssignmentMenu(System.Int32,System.Int32[])">
+            <summary>
+            分配菜单
+            </summary>
+            <param name="role_id"></param>
+            <param name="menus"></param>
+            <returns></returns>
+        </member>
         <member name="M:WebAPI.Controllers.UsersController.Login(System.String,System.String)">
             <summary>
             登录
@@ -169,6 +177,14 @@
             <param name="pageSize"></param>
             <param name="UserName"></param>
             <param name="DepID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.AssigningRoles(System.Int32,System.Int32[])">
+            <summary>
+            分配角色
+            </summary>
+            <param name="user_id"></param>
+            <param name="roles">int[]数组</param>
             <returns></returns>
         </member>
     </members>
