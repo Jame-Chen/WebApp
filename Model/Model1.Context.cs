@@ -18,6 +18,7 @@ namespace Model
         public sysEntities()
             : base("name=sysEntities")
         {
+          
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
