@@ -60,6 +60,7 @@
     <EntitySetMapping Name="TB_Users">
       <EntityTypeMapping TypeName="sysModel.TB_Users">
         <MappingFragment StoreEntitySet="TB_Users">
+          <ScalarProperty Name="url" ColumnName="url" />
           <ScalarProperty Name="remark" ColumnName="remark" />
           <ScalarProperty Name="modifytime" ColumnName="modifytime" />
           <ScalarProperty Name="createtime" ColumnName="createtime" />

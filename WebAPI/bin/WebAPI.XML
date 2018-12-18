@@ -187,5 +187,21 @@
             <param name="roles">int[]数组</param>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.UsersController.UploadAvatar(System.Int32)">
+            <summary>
+            上传用户照片
+            </summary>
+            <param name="user_id"></param>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WebAPI.Filter.SwaggerFileUploadFilter">
+            <summary>
+            Swagger 上传文件过滤器
+            </summary>
+            <summary>
+            swagger file upload parameter filter
+            </summary>
+        </member>
     </members>
 </doc>

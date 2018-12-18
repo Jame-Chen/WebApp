@@ -2,3 +2,7 @@ C:\Users\Administrator\EFMVCApp\Common\bin\Release\Common.dll
 C:\Users\Administrator\EFMVCApp\Common\bin\Release\Common.pdb
 C:\Users\Administrator\EFMVCApp\Common\obj\Release\Common.dll
 C:\Users\Administrator\EFMVCApp\Common\obj\Release\Common.pdb
+C:\Users\Administrator\EFMVCApp\Common\bin\Release\System.Net.Http.Extensions.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Release\System.Net.Http.Primitives.dll
+C:\Users\Administrator\EFMVCApp\Common\obj\Release\Common.csprojResolveAssemblyReference.cache

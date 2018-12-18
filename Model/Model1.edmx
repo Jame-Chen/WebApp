@@ -69,6 +69,7 @@
           <Property Name="createtime" Type="date" />
           <Property Name="modifytime" Type="date" />
           <Property Name="remark" Type="varchar" MaxLength="1000" />
+          <Property Name="url" Type="varchar" MaxLength="200" />
         </EntityType>
         <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
           <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
@@ -248,6 +249,7 @@
           <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TB_Department" Relationship="sysModel.FK_TB_USERS_REFERENCE_TB_DEPAR" FromRole="TB_Users" ToRole="TB_Department" />
           <NavigationProperty Name="TB_UserRole" Relationship="sysModel.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_Users" ToRole="TB_UserRole" />
+          <Property Name="url" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_TB_USERS_REFERENCE_TB_DEPAR">
           <End Type="sysModel.TB_Department" Role="TB_Department" Multiplicity="0..1" />
@@ -374,6 +376,7 @@
           <EntitySetMapping Name="TB_Users">
             <EntityTypeMapping TypeName="sysModel.TB_Users">
               <MappingFragment StoreEntitySet="TB_Users">
+                <ScalarProperty Name="url" ColumnName="url" />
                 <ScalarProperty Name="remark" ColumnName="remark" />
                 <ScalarProperty Name="modifytime" ColumnName="modifytime" />
                 <ScalarProperty Name="createtime" ColumnName="createtime" />

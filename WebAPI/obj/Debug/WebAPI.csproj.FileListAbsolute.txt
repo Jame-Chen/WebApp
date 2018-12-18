@@ -161,3 +161,5 @@ C:\Users\Administrator\EFMVCApp\WebAPI\bin\WebActivator.dll
 C:\Users\Administrator\EFMVCApp\WebAPI\bin\WebActivatorEx.dll
 C:\Users\Administrator\EFMVCApp\WebAPI\bin\Swagger.Net.pdb
 C:\Users\Administrator\EFMVCApp\WebAPI\bin\Swagger.Net.xml
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\log4net.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\log4net.xml

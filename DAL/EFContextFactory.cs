@@ -20,6 +20,7 @@ namespace DAL
             {
                 dbContext = new sysEntities(); //如果不存在上下文 创建一个(自定义)EF上下文  并且放在数据内存中去  
                 //dbContext.Configuration.LazyLoadingEnabled = false;
+                
                 CallContext.SetData("DbContext",dbContext);
             }
 

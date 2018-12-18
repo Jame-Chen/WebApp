@@ -12,6 +12,12 @@ using System.Web;
 using Common;
 using WebAPI.Filter;
 using System.Text;
+using System.Data.Entity.Validation;
+using System.IO;
+using System.Threading.Tasks;
+using System.Web.Hosting;
+using IDAL;
+using DAL;
 
 namespace WebAPI.Controllers
 {
@@ -92,7 +98,7 @@ namespace WebAPI.Controllers
         /// <param name="UserName"></param>
         /// <param name="DepID"></param>
         /// <returns></returns>
-        public Result GetUserByWhere(int Page, int pageSize,string UserName, string DepID)
+        public Result GetUserByWhere(int Page = 1, int pageSize = 10, string UserName = null, string DepID = null)
         {
             return us.GetUserByWhere(Page, pageSize, UserName, DepID);
         }
@@ -106,5 +112,69 @@ namespace WebAPI.Controllers
         {
             return tus.AssigningRoles(user_id, roles);
         }
+        /// <summary>
+        /// 上传用户照片
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        public async Task<Result> UploadAvatar([SwaggerFileUpload]int user_id)
+        {
+            Result result = new Result();
+            try
+            {
+                if (!Request.Content.IsMimeMultipartContent())
+                {
+                    result.Code = "500";
+                    result.Msg = "不识别的媒体类型!";
+                    return result;
+                }
+                string uploadFolderPath = HttpContext.Current.Server.MapPath("~/Upload");
+
+                //如果路径不存在，创建路径
+                if (!Directory.Exists(uploadFolderPath))
+                {
+                    Directory.CreateDirectory(uploadFolderPath);
+                }
+                List<string> files = new List<string>();
+                string guid = Guid.NewGuid().ToString("N");
+                var provider = new WithExtensionMultipartFormDataStreamProvider(uploadFolderPath, guid);
+
+                await Request.Content.ReadAsMultipartAsync(provider);
+                string url = "";
+                foreach (var file in provider.FileData)
+                {
+                    files.Add(Path.GetFileName(file.LocalFileName));
+                    url += "/Upload/" + Path.GetFileName(file.LocalFileName) + "|";
+                }
+                url = url.Substring(0, url.Length - 1);
+                TB_Users user = us.LoadEntities(s => s.user_id == user_id).FirstOrDefault();
+                user.url = url;
+                us._dbSession.Save();
+                result.Code = "200";
+                result.Msg = "上传成功!";
+                result.Data = "";
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var validationErrors in e.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        //   logger.Error("UploadAvatar:" + validationErrors.Entry.Entity.GetType().FullName + "," + validationError.PropertyName + "," + validationError.ErrorMessage);
+                    }
+                }
+                result.Code = "500";
+                result.Msg = e.Message;
+                //   logger.Error(e.Message);
+            }
+            return result;
+            //  return UploadAvatar(user_id, files);
+        }
+
+
+
+
     }
 }

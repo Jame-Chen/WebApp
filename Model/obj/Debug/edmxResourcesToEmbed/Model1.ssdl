@@ -64,6 +64,7 @@
     <Property Name="createtime" Type="date" />
     <Property Name="modifytime" Type="date" />
     <Property Name="remark" Type="varchar" MaxLength="1000" />
+    <Property Name="url" Type="varchar" MaxLength="200" />
   </EntityType>
   <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
     <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />

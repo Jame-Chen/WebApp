@@ -8,12 +8,27 @@ using System.Web.Security;
 using System.Web;
 using Newtonsoft.Json;
 using Common;
+using System.IO;
+using log4net;
+using log4net.Config;
+using System.Data.Entity.Validation;
 
 namespace BLL
 {
     public partial class TB_UsersService
     {
         TB_UserRoleService tus = new TB_UserRoleService();
+        ILog logger;
+        public TB_UsersService()
+        {
+            InitLog4Net();
+            logger = LogManager.GetLogger(typeof(TB_UsersService));
+        }
+        private static void InitLog4Net()
+        {
+            var logCfg = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config");
+            XmlConfigurator.ConfigureAndWatch(logCfg);
+        }
         //校验用户名密码
         public bool ValidateUser(string LoginName, string PassWord)
         {
@@ -104,6 +119,7 @@ namespace BLL
             {
                 r.Code = "500";
                 r.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return r;
         }
@@ -141,6 +157,7 @@ namespace BLL
             {
                 r.Code = "500";
                 r.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return r;
         }
@@ -173,6 +190,7 @@ namespace BLL
             {
                 result.Code = "500";
                 result.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return result;
         }
@@ -213,6 +231,7 @@ namespace BLL
             {
                 result.Code = "500";
                 result.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return result;
         }
@@ -250,6 +269,7 @@ namespace BLL
             {
                 result.Code = "500";
                 result.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return result;
         }
@@ -263,7 +283,7 @@ namespace BLL
             Result result = new Result();
             try
             {
-                if (user_id == null)
+                if (user_id == 0)
                 {
                     result.Code = "400";
                     result.Msg = "ID不能为空!";
@@ -287,6 +307,7 @@ namespace BLL
             {
                 result.Code = "500";
                 result.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return result;
         }
@@ -321,10 +342,54 @@ namespace BLL
             {
                 result.Code = "500";
                 result.Msg = e.Message;
+                logger.Error(e.Message);
             }
             return result;
         }
+        /// <summary>
+        /// 上传用户照片
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public Result UploadAvatar(int user_id, HttpFileCollection file)
+        {
+            Result result = new Result();
+            try
+            {
+                // 文件上传后的保存路径
+                string filePath = HttpContext.Current.Server.MapPath("~/Uploads/");
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
+                string fileName = Path.GetFileName(file[0].FileName);// 原始文件名称
+                string fileExtension = Path.GetExtension(fileName); // 文件扩展名
+                string saveName = Guid.NewGuid().ToString() + fileExtension; // 保存文件名称
 
-      
+                file[0].SaveAs(filePath + saveName);
+                TB_Users user = LoadEntities(s => s.user_id == user_id).FirstOrDefault();
+                user.url = "/Uploads/" + saveName;
+                _dbSession.Save();
+               
+                result.Code = "200";
+                result.Msg = "上传成功!";
+                result.Data = fileName;
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var validationErrors in e.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        logger.Error("UploadAvatar:" + validationErrors.Entry.Entity.GetType().FullName + "," + validationError.PropertyName + "," + validationError.ErrorMessage);
+                    }
+                }
+                result.Code = "500";
+                result.Msg = e.Message;
+                logger.Error(e.Message);
+            }
+            return result;
+        }
     }
 }

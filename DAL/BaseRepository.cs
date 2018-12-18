@@ -31,6 +31,7 @@ namespace DAL
         /// <returns></returns>
         public T AddEntity(T entity)
         {
+           
             //EF 4.0
             //db.CreateObectSet<T>().AddObject(entity);
 

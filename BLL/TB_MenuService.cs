@@ -127,7 +127,7 @@ namespace BLL
             Result result = new Result();
             try
             {
-                if (menu_id == null)
+                if (menu_id == 0)
                 {
                     result.Code = "400";
                     result.Msg = "ID不能为空!";

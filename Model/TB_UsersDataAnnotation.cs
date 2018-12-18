@@ -33,6 +33,6 @@ namespace Model
         public Nullable<System.DateTime> createtime { get; set; }
         public Nullable<System.DateTime> modifytime { get; set; }
         public string remark { get; set; }
-
+        public string url { get; set; }
     }
 }

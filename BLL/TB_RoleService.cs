@@ -127,7 +127,7 @@ namespace BLL
             Result result = new Result();
             try
             {
-                if (role_id == null)
+                if (role_id == 0)
                 {
                     result.Code = "400";
                     result.Msg = "ID不能为空!";
