@@ -31,7 +31,6 @@ namespace Model
         public string remark { get; set; }
         public string url { get; set; }
     
-        public virtual TB_Department TB_Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TB_UserRole> TB_UserRole { get; set; }
     }

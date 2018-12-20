@@ -13,6 +13,14 @@ using IDAL;
 namespace DAL
 {
 	
+	public partial class AttributesRepository : BaseRepository<Attributes>,IAttributesRepository
+    {
+    }
+	
+	public partial class StudentRepository : BaseRepository<Student>,IStudentRepository
+    {
+    }
+	
 	public partial class TB_DepartmentRepository : BaseRepository<TB_Department>,ITB_DepartmentRepository
     {
     }

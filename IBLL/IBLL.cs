@@ -14,6 +14,14 @@ using Model;
 namespace IBLL
 {
 		
+	public interface IAttributesService:IBaseService<Attributes>
+    {
+    }
+		
+	public interface IStudentService:IBaseService<Student>
+    {
+    }
+		
 	public interface ITB_DepartmentService:IBaseService<TB_Department>
     {
     }

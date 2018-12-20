@@ -14,19 +14,10 @@ namespace Model
     
     public partial class TB_Department
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TB_Department()
-        {
-            this.TB_Users = new HashSet<TB_Users>();
-        }
-    
         public int department_id { get; set; }
         public string department_name { get; set; }
         public Nullable<int> parent_id { get; set; }
         public string department_level { get; set; }
         public string status { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TB_Users> TB_Users { get; set; }
     }
 }

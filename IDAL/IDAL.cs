@@ -12,6 +12,14 @@ using Model;
 namespace IDAL
 {
 		
+	public interface IAttributesRepository : IBaseRepository<Attributes>
+    {
+    }
+		
+	public interface IStudentRepository : IBaseRepository<Student>
+    {
+    }
+		
 	public interface ITB_DepartmentRepository : IBaseRepository<TB_Department>
     {
     }

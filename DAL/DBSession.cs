@@ -1,5 +1,5 @@
-﻿//TT模板命名空间
-//生成的文件后缀名为.cs
+﻿ //TT模板命名空间
+	//生成的文件后缀名为.cs
 
 //使用TT模板自动生成的代码片段
 using System;
@@ -11,10 +11,26 @@ using IDAL;
 
 namespace DAL
 {
-    //统一管理上下文的各种操作
+	//统一管理上下文的各种操作
     public partial class DbSession : IDbSession
-    {
-        public ITB_DepartmentRepository TB_DepartmentRepository
+    {  
+				public IAttributesRepository AttributesRepository
+        {
+            get
+            {
+                return new AttributesRepository();
+            }
+        }
+
+				public IStudentRepository StudentRepository
+        {
+            get
+            {
+                return new StudentRepository();
+            }
+        }
+
+				public ITB_DepartmentRepository TB_DepartmentRepository
         {
             get
             {
@@ -22,7 +38,7 @@ namespace DAL
             }
         }
 
-        public ITB_MenuRepository TB_MenuRepository
+				public ITB_MenuRepository TB_MenuRepository
         {
             get
             {
@@ -30,7 +46,7 @@ namespace DAL
             }
         }
 
-        public ITB_MenuRoleRepository TB_MenuRoleRepository
+				public ITB_MenuRoleRepository TB_MenuRoleRepository
         {
             get
             {
@@ -38,7 +54,7 @@ namespace DAL
             }
         }
 
-        public ITB_RoleRepository TB_RoleRepository
+				public ITB_RoleRepository TB_RoleRepository
         {
             get
             {
@@ -46,7 +62,7 @@ namespace DAL
             }
         }
 
-        public ITB_UserRoleRepository TB_UserRoleRepository
+				public ITB_UserRoleRepository TB_UserRoleRepository
         {
             get
             {
@@ -54,7 +70,7 @@ namespace DAL
             }
         }
 
-        public ITB_UsersRepository TB_UsersRepository
+				public ITB_UsersRepository TB_UsersRepository
         {
             get
             {
@@ -62,10 +78,10 @@ namespace DAL
             }
         }
 
-
-        public int Save()
+		
+           public  int Save()
         {
-            return EFContextFactory.GetCurrentDbContext().SaveChanges();
+            return  EFContextFactory.GetCurrentDbContext().SaveChanges();
         }
 
 

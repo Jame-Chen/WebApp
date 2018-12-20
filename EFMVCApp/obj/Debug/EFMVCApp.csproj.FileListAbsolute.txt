@@ -94,3 +94,8 @@ C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\zh-Hans\System.Web.WebPages.Razor.r
 C:\Users\Administrator\EFMVCApp\EFMVCApp\obj\Debug\EFMVCApp.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\EFMVCApp\EFMVCApp\obj\Debug\EFMVCApp.dll
 C:\Users\Administrator\EFMVCApp\EFMVCApp\obj\Debug\EFMVCApp.pdb
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\log4net.dll
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\Common.dll
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\System.Net.Http.Formatting.dll
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\log4net.xml
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\Common.pdb

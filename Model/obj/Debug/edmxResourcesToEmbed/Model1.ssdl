@@ -1,5 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attributes">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stuid" Type="int" />
+    <Property Name="Hobbies" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="10" />
+    <Property Name="Sex" Type="int" />
+    <Property Name="Chinese" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Math" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="English" Type="decimal" Precision="5" Scale="2" />
+  </EntityType>
   <EntityType Name="TB_Department">
     <Key>
       <PropertyRef Name="department_id" />
@@ -66,6 +86,18 @@
     <Property Name="remark" Type="varchar" MaxLength="1000" />
     <Property Name="url" Type="varchar" MaxLength="200" />
   </EntityType>
+  <Association Name="FK_Attributes_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Attributes" Type="Self.Attributes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Attributes">
+        <PropertyRef Name="stuid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
     <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
     <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
@@ -115,12 +147,18 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="sysModelStoreContainer">
+    <EntitySet Name="Attributes" EntityType="Self.Attributes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Department" EntityType="Self.TB_Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Menu" EntityType="Self.TB_Menu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_MenuRole" EntityType="Self.TB_MenuRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Role" EntityType="Self.TB_Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_UserRole" EntityType="Self.TB_UserRole" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TB_Users" EntityType="Self.TB_Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Attributes_Student" Association="Self.FK_Attributes_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Attributes" EntitySet="Attributes" />
+    </AssociationSet>
     <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_MENU" Association="Self.FK_TB_MENUR_REFERENCE_TB_MENU">
       <End Role="TB_Menu" EntitySet="TB_Menu" />
       <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
