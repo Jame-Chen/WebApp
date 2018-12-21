@@ -215,7 +215,7 @@ namespace BLL
                     {
                         users.user_password = EncryptionMD5.EncryptString(users.user_password);
                         users.modifytime = DateTime.Now;
-                        UpdateEntity(users);
+                        _dbSession.Save();
                         result.Code = "200";
                         result.Msg = "修改成功!";
                     }

@@ -17,15 +17,15 @@ namespace Model
     public class TB_UsersDataAnnotation
     {
         public string user_id { get; set; }
-        [Required(ErrorMessage = "不能为空！")]
+    
         [RegularExpression(@"^[\u4E00-\u9FA5\uf900-\ufa2d\w\.\s]{5,25}$", ErrorMessage = "*5-25位拼音或数字")]
         [MaxLength(50)]
         [MinLength(5)]
         public string user_name { get; set; }
-        [Required(ErrorMessage = "不能为空！")]
+   
         [StringLength(50, MinimumLength = 5, ErrorMessage = "*5-50位字符")]
         public string user_password { get; set; }
-        [Required(ErrorMessage = "不能为空！")]
+      
         [StringLength(25, MinimumLength = 5, ErrorMessage = "*5-25位字符")]
         public string fullname { get; set; }
         public string department_id { get; set; }

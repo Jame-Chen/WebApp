@@ -24,7 +24,11 @@ namespace WebAPI.Filter
                     var state = modelState[key];
                     if (state.Errors.Any())
                     {
-                        error = state.Errors.First().ErrorMessage;
+                        error = key + ":" + state.Errors.First().ErrorMessage;
+                        if ( state.Errors.First().Exception!=null)
+                        {
+                            error+= "|" + state.Errors.First().Exception.Message;
+                        }
                         break;
                     }
                 }
