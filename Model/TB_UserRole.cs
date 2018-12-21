@@ -12,13 +12,30 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// TB_UserRole
+    /// </summary>
+    [Serializable]
     public partial class TB_UserRole
     {
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int id { get; set; }
-        public Nullable<int> role_id { get; set; }
-        public Nullable<int> user_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? role_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? user_id { get; set; }
     
-        public virtual TB_Role TB_Role { get; set; }
-        public virtual TB_Users TB_Users { get; set; }
+         public virtual TB_Role TB_Role { get; set; }
+         public virtual TB_Users TB_Users { get; set; }
     }
 }

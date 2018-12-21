@@ -12,15 +12,42 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// TB_MenuRole
+    /// </summary>
+    [Serializable]
     public partial class TB_MenuRole
     {
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int id { get; set; }
-        public Nullable<int> role_id { get; set; }
-        public Nullable<int> menu_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? role_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? menu_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(10)]
+        [StringLength(10)]
         public string role_type { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string button_id { get; set; }
     
-        public virtual TB_Menu TB_Menu { get; set; }
-        public virtual TB_Role TB_Role { get; set; }
+         public virtual TB_Menu TB_Menu { get; set; }
+         public virtual TB_Role TB_Role { get; set; }
     }
 }

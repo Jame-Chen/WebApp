@@ -12,12 +12,41 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// TB_Department
+    /// </summary>
+    [Serializable]
     public partial class TB_Department
     {
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int department_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string department_name { get; set; }
-        public Nullable<int> parent_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? parent_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(10)]
+        [StringLength(10)]
         public string department_level { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(10)]
+        [StringLength(10)]
         public string status { get; set; }
     }
 }

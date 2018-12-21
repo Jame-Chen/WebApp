@@ -12,11 +12,27 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// Attributes
+    /// </summary>
+    [Serializable]
     public partial class Attributes
     {
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(25)]
+        [StringLength(25)]
         public string Hobbies { get; set; }
     
-        public virtual Student Student { get; set; }
+         public virtual Student Student { get; set; }
     }
 }

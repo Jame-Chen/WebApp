@@ -12,24 +12,64 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// TB_Menu
+    /// </summary>
+    [Serializable]
     public partial class TB_Menu
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TB_Menu()
-        {
-            this.TB_MenuRole = new HashSet<TB_MenuRole>();
-        }
-    
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int menu_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string menu_name { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string menu_url { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string parent_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(10)]
+        [StringLength(10)]
         public string menu_level { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string sort_order { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(10)]
+        [StringLength(10)]
         public string status { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(1000)]
+        [StringLength(1000)]
         public string remark { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TB_MenuRole> TB_MenuRole { get; set; }
+       
+         public virtual ICollection<TB_MenuRole> TB_MenuRole { get; set; }
     }
 }

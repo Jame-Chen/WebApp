@@ -12,24 +12,46 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// TB_Role
+    /// </summary>
+    [Serializable]
     public partial class TB_Role
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TB_Role()
-        {
-            this.TB_MenuRole = new HashSet<TB_MenuRole>();
-            this.TB_UserRole = new HashSet<TB_UserRole>();
-        }
-    
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int role_id { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(50)]
+        [StringLength(50)]
         public string role_name { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(500)]
+        [StringLength(500)]
         public string description { get; set; }
-        public Nullable<System.DateTime> createtime { get; set; }
-        public Nullable<System.DateTime> modifytime { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        public System.DateTime? createtime { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [DataType(DataType.DateTime)]
+        public System.DateTime? modifytime { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TB_MenuRole> TB_MenuRole { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TB_UserRole> TB_UserRole { get; set; }
+       
+         public virtual ICollection<TB_MenuRole> TB_MenuRole { get; set; }
+       
+         public virtual ICollection<TB_UserRole> TB_UserRole { get; set; }
     }
 }

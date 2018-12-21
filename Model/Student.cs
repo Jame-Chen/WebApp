@@ -12,23 +12,48 @@ namespace Model
     using System;
     using System.Collections.Generic;
     
+    using System.ComponentModel.DataAnnotations;
+    
+    /// <summary>
+    /// Student
+    /// </summary>
+    [Serializable]
     public partial class Student
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Student()
-        {
-            this.Attributes = new HashSet<Attributes>();
-        }
-    
+            /// <summary>
+        /// 
+        /// </summary>
+        [Required(ErrorMessage = "请输入{0}")]
+        [Key]
         public int Id { get; set; }
-        public Nullable<int> Age { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? Age { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        [MaxLength(10)]
+        [StringLength(10)]
         public string Name { get; set; }
-        public Nullable<int> Sex { get; set; }
-        public Nullable<decimal> Chinese { get; set; }
-        public Nullable<decimal> Math { get; set; }
-        public Nullable<decimal> English { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public int? Sex { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public decimal? Chinese { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public decimal? Math { get; set; }
+            /// <summary>
+        /// 
+        /// </summary>
+        public decimal? English { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Attributes> Attributes { get; set; }
+       
+         public virtual ICollection<Attributes> Attributes { get; set; }
     }
 }

@@ -17,13 +17,26 @@ if (!typeMapper.VerifyCaseInsensitiveTypeUniqueness(typeMapper.GetAllGlobalItems
 }
 
 WriteHeader(codeStringGenerator, fileManager);
-
+string summary=string.Empty; 
 foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection))
 {
     fileManager.StartNewFile(entity.Name + ".cs");
     BeginNamespace(code);
+	 if(entity.Documentation !=null && entity.Documentation.Summary!=null)
+	 {
+            summary=entity.Documentation.Summary;
+            }
+        else{
+            summary=entity.Name;
+            }
 #>
-<#=codeStringGenerator.UsingDirectives(inHeader: false)#>
+<#=codeStringGenerator.UsingDirectives(inHeader:false)#>
+using System.ComponentModel.DataAnnotations;
+
+/// <summary>
+/// <#=summary#>
+/// </summary>
+[Serializable]
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 {
 <#
@@ -31,45 +44,65 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
     var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
     var complexProperties = typeMapper.GetComplexProperties(entity);
 
-    if (propertiesWithDefaultValues.Any() || collectionNavigationProperties.Any() || complexProperties.Any())
-    {
-#>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public <#=code.Escape(entity)#>()
-    {
-<#
-        foreach (var edmProperty in propertiesWithDefaultValues)
-        {
-#>
-        this.<#=code.Escape(edmProperty)#> = <#=typeMapper.CreateLiteral(edmProperty.DefaultValue)#>;
-<#
-        }
 
-        foreach (var navigationProperty in collectionNavigationProperties)
-        {
-#>
-        this.<#=code.Escape(navigationProperty)#> = new HashSet<<#=typeMapper.GetTypeName(navigationProperty.ToEndMember.GetEntityType())#>>();
-<#
-        }
-
-        foreach (var complexProperty in complexProperties)
-        {
-#>
-        this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
-<#
-        }
-#>
-    }
-
-<#
-    }
 
     var simpleProperties = typeMapper.GetSimpleProperties(entity);
     if (simpleProperties.Any())
     {
         foreach (var edmProperty in simpleProperties)
         {
+		  if (edmProperty.Documentation != null && edmProperty.Documentation.Summary != null)
+                {
+                    if(!entity.KeyMembers.Contains(edmProperty.Name))
+                        summary=edmProperty.Documentation.Summary.ToLower().Replace("id","名称");
+                    else
+                        summary=edmProperty.Documentation.Summary;
+                }
+                else
+                {
+                    summary="";
+                }
 #>
+    <#                //if(edmProperty.Name.ToLower() == "id")
+                // continue;var a=edmProperty.Nullable;
+                
+                var keyName=""; 
+                if(entity.KeyMembers.Contains(edmProperty.Name))          
+                    keyName="[Key]";
+                var required="";
+                if(!edmProperty.Nullable)
+                    required="[Required(ErrorMessage = \"请输入{0}\")]";
+                string facetName = "MaxLength";
+                var lengthDes="";
+                var stringLengthDes="";
+                int maxLength = 0; 
+                if (code.Escape(edmProperty.TypeUsage).ToLower().Contains("string") && Int32.TryParse(edmProperty.TypeUsage.Facets[facetName].Value.ToString(), out maxLength)){
+                    lengthDes="[MaxLength("+maxLength+")]";
+                    stringLengthDes="[StringLength("+maxLength+")]";
+                }
+                var dataType="";
+                if (code.Escape(edmProperty.TypeUsage).ToLower().Contains("datetime"))
+                    dataType="[DataType(DataType.DateTime)]";
+                else if (edmProperty.Name.ToLower().Contains("password"))
+                    dataType="[DataType(DataType.Password)]";
+  
+    #>
+    /// <summary>
+    /// <#=                    summary#>
+    /// </summary>
+<#                if(!string.IsNullOrWhiteSpace(required)){ #>
+    <#=                        required #>
+<#                    } if(!string.IsNullOrWhiteSpace(summary)){ #>
+    <#=                        "[Display(Name = \""+summary+"\")]" #>
+<#                    } if(!string.IsNullOrWhiteSpace(lengthDes)){ #>
+    <#=                        lengthDes #>
+<#                    } if(!string.IsNullOrWhiteSpace(stringLengthDes)){ #>
+    <#=                        stringLengthDes #>
+<#                    } if(!string.IsNullOrWhiteSpace(dataType)){ #>
+    <#=                        dataType #>
+<#                    } if(!string.IsNullOrWhiteSpace(keyName)){ #>
+    <#=                        keyName #>
+<#                } #>
     <#=codeStringGenerator.Property(edmProperty)#>
 <#
         }
@@ -99,7 +132,7 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
             if (navigationProperty.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many)
             {
 #>
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+   
 <#
             }
 #>
@@ -298,7 +331,7 @@ public class CodeStringGenerator
         var endType = _typeMapper.GetTypeName(navProp.ToEndMember.GetEntityType());
         return string.Format(
             CultureInfo.InvariantCulture,
-            "{0} {1} {2} {{ {3}get; {4}set; }}",
+            " {0} {1} {2} {{ {3}get; {4}set; }}",
             AccessibilityAndVirtual(Accessibility.ForNavigationProperty(navProp)),
             navProp.ToEndMember.RelationshipMultiplicity == RelationshipMultiplicity.Many ? ("ICollection<" + endType + ">") : endType,
             _code.Escape(navProp),
@@ -515,7 +548,8 @@ public class TypeMapper
             typeName = FixNamespaces(typeName);
 
             return clrType.IsValueType && isNullable == true ?
-                String.Format(CultureInfo.InvariantCulture, "Nullable<{0}>", typeName) :
+               // String.Format(CultureInfo.InvariantCulture, "Nullable<{0}>", typeName) :
+				 String.Format(CultureInfo.InvariantCulture, "{0}?", typeName) :
                 typeName;
         }
 
