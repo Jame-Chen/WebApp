@@ -59,9 +59,7 @@ namespace BLL
                 {
                     if (LoadEntities(s => s.department_id == Departments.department_id).Any())
                     {
-
-
-                        _dbSession.Save();
+                        UpdateEntity(Departments);
                         result.Code = "200";
                         result.Msg = "修改成功!";
                     }

@@ -74,7 +74,7 @@ namespace DAL
         /// <returns></returns>
         public IQueryable<T> LoadEntities(Func<T, bool> whereLambda)
         {
-            return db.Set<T>().Where(whereLambda).AsQueryable();
+            return db.Set<T>().AsNoTracking().Where(whereLambda).AsQueryable();
         }
 
         /// <summary>

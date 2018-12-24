@@ -59,8 +59,6 @@ namespace BLL
                 {
                     if (LoadEntities(s => s.menu_id == Menus.menu_id).Any())
                     {
-
-
                         UpdateEntity(Menus);
                         result.Code = "200";
                         result.Msg = "修改成功!";

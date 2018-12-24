@@ -61,7 +61,7 @@ namespace BLL
                     {
 
                         Roles.modifytime = DateTime.Now;
-                        _dbSession.Save();
+                        UpdateEntity(Roles);
                         result.Code = "200";
                         result.Msg = "修改成功!";
                     }

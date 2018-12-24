@@ -215,7 +215,7 @@ namespace BLL
                     {
                         users.user_password = EncryptionMD5.EncryptString(users.user_password);
                         users.modifytime = DateTime.Now;
-                        _dbSession.Save();
+                        UpdateEntity(users);
                         result.Code = "200";
                         result.Msg = "修改成功!";
                     }
@@ -368,11 +368,11 @@ namespace BLL
                 string saveName = Guid.NewGuid().ToString() + fileExtension; // 保存文件名称
 
                 file[0].SaveAs(filePath + saveName);
-                   
+
                 TB_Users user = LoadEntities(s => s.user_id == user_id).FirstOrDefault();
                 user.url = "/Uploads/" + saveName;
                 _dbSession.Save();
-               
+
                 result.Code = "200";
                 result.Msg = "上传成功!";
                 result.Data = fileName;
