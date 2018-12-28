@@ -195,6 +195,20 @@
             <param name="file"></param>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.UsersController.P_User(System.Int32)">
+            <summary>
+            存储过程查询
+            </summary>
+            <param name="user_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.P_EdtUser(System.Int32)">
+            <summary>
+            自定义执行sql语句
+            </summary>
+            <param name="user_id"></param>
+            <returns></returns>
+        </member>
         <member name="T:WebAPI.Filter.SwaggerFileUploadFilter">
             <summary>
             Swagger 上传文件过滤器

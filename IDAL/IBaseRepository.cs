@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,5 +20,10 @@ namespace IDAL
         IQueryable<T> LoadPageEntities<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda);
 
         IQueryable<T> LoadPageEntitiesWithNavigateProperites<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda, Dictionary<string, bool> navigateProperties);
+      
+         int ExcuteSqlCommand(string strSql, params System.Data.Common.DbParameter[] parameters);
+
+         DbRawSqlQuery<T> SqlQuery(string strSql, params System.Data.Common.DbParameter[] parameters);
+   
     }
 }

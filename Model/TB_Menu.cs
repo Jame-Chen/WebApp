@@ -13,60 +13,67 @@ namespace Model
     using System.Collections.Generic;
     
     using System.ComponentModel.DataAnnotations;
-    
     /// <summary>
     /// TB_Menu
     /// </summary>
     [Serializable]
     public partial class TB_Menu
     {
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 菜单ID
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
+        [Display(Name = "菜单ID")]
         [Key]
         public int menu_id { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 菜单名称
         /// </summary>
-        [MaxLength(50)]
-        [StringLength(50)]
+        [Display(Name = "菜单名称")]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string menu_name { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 菜单url
         /// </summary>
-        [MaxLength(50)]
-        [StringLength(50)]
+        [Display(Name = "菜单url")]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string menu_url { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 父级名称
         /// </summary>
-        [MaxLength(50)]
-        [StringLength(50)]
+        [Display(Name = "父级名称")]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string parent_id { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 菜单等级
         /// </summary>
-        [MaxLength(10)]
-        [StringLength(10)]
+        [Display(Name = "菜单等级")]
+        [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
+        [StringLength(10,ErrorMessage="最多只能输入10个字符")]
         public string menu_level { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 排序字段
         /// </summary>
-        [MaxLength(50)]
-        [StringLength(50)]
+        [Display(Name = "排序字段")]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string sort_order { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 状态
         /// </summary>
-        [MaxLength(10)]
-        [StringLength(10)]
+        [Display(Name = "状态")]
+        [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
+        [StringLength(10,ErrorMessage="最多只能输入10个字符")]
         public string status { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 备注
         /// </summary>
-        [MaxLength(1000)]
-        [StringLength(1000)]
+        [Display(Name = "备注")]
+        [MaxLength(1000,ErrorMessage="最多只能输入1000个字符")]
+        [StringLength(1000,ErrorMessage="最多只能输入1000个字符")]
         public string remark { get; set; }
     
        

@@ -13,39 +13,43 @@ namespace Model
     using System.Collections.Generic;
     
     using System.ComponentModel.DataAnnotations;
-    
     /// <summary>
     /// TB_Role
     /// </summary>
     [Serializable]
     public partial class TB_Role
     {
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 角色ID
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
+        [Display(Name = "角色ID")]
         [Key]
         public int role_id { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 角色名称
         /// </summary>
-        [MaxLength(50)]
-        [StringLength(50)]
+        [Display(Name = "角色名称")]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string role_name { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 描述
         /// </summary>
-        [MaxLength(500)]
-        [StringLength(500)]
+        [Display(Name = "描述")]
+        [MaxLength(500,ErrorMessage="最多只能输入500个字符")]
+        [StringLength(500,ErrorMessage="最多只能输入500个字符")]
         public string description { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 创建时间
         /// </summary>
+        [Display(Name = "创建时间")]
         [DataType(DataType.DateTime)]
         public System.DateTime? createtime { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 修改时间
         /// </summary>
+        [Display(Name = "修改时间")]
         [DataType(DataType.DateTime)]
         public System.DateTime? modifytime { get; set; }
     

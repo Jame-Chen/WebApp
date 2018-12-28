@@ -33,22 +33,22 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.Id)
     <div class="form-group mt">
-        @Html.LabelFor(model => model.Name, new { @class = "col-xs-4 control-label text-right" })
-        <div class="col-xs-4">
+        @Html.LabelFor(model => model.Name, new { @class = "col-xs-6 control-label text-right" })
+        <div class="col-xs-6">
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Name)
         </div>
     </div>
     <div class="form-group mt">
-        @Html.LabelFor(model => model.Age, new { @class = "col-xs-4 control-label text-right" })
-        <div class="col-xs-4">
+        @Html.LabelFor(model => model.Age, new { @class = "col-xs-6 control-label text-right" })
+        <div class="col-xs-6">
             @Html.TextBoxFor(model => model.Age, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Age)
         </div>
     </div>
     <div class="form-group mt">
-        @Html.LabelFor(model => model.Sex, new { @class = "col-xs-4 control-label text-right" })
-        <div class="col-xs-4">
+        @Html.LabelFor(model => model.Sex, new { @class = "col-xs-6 control-label text-right" })
+        <div class="col-xs-6">
          
             @Html.DropDownListFor(model => model.Sex, (List<SelectListItem>)ViewBag.SexList, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Sex)
@@ -57,22 +57,22 @@
 
 
     <div class="form-group mt">
-        @Html.LabelFor(model => model.Chinese, new { @class = "col-xs-4 control-label text-right" })
-        <div class="col-xs-4">
+        @Html.LabelFor(model => model.Chinese, new { @class = "col-xs-6 control-label text-right" })
+        <div class="col-xs-6">
             @Html.TextBoxFor(model => model.Chinese, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Chinese)
         </div>
     </div>
     <div class="form-group mt">
-        @Html.LabelFor(model => model.Math, new { @class = "col-xs-4 control-label text-right" })
-        <div class="col-xs-4">
+        @Html.LabelFor(model => model.Math, new { @class = "col-xs-6 control-label text-right" })
+        <div class="col-xs-6">
             @Html.TextBoxFor(model => model.Math, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Math)
         </div>
     </div>
     <div class="form-group mt">
-        @Html.LabelFor(model => model.English, new { @class = "col-xs-4 control-label text-right" })
-        <div class="col-xs-4">
+        @Html.LabelFor(model => model.English, new { @class = "col-xs-6 control-label text-right" })
+        <div class="col-xs-6">
             @Html.TextBoxFor(model => model.English, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.English)
         </div>

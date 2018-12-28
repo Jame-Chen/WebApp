@@ -178,8 +178,28 @@ namespace WebAPI.Controllers
             return us.UploadAvatar(user_id, fileCollection);
         }
 
+        /// <summary>
+        /// 存储过程查询
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public Result P_User(int user_id) {
+            return us.P_User(user_id);
+        }
 
 
-
+        /// <summary>
+        /// 自定义执行sql语句
+        /// </summary>
+        /// <param name="user_id"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [AllowAnonymous]
+        public Result P_EdtUser(int user_id)
+        {
+            return us.P_EdtUser(user_id);
+        }
     }
 }

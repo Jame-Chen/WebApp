@@ -13,40 +13,44 @@ namespace Model
     using System.Collections.Generic;
     
     using System.ComponentModel.DataAnnotations;
-    
     /// <summary>
     /// TB_Department
     /// </summary>
     [Serializable]
     public partial class TB_Department
     {
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 部门ID
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
+        [Display(Name = "部门ID")]
         [Key]
         public int department_id { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 部门名称
         /// </summary>
-        [MaxLength(50)]
-        [StringLength(50)]
+        [Display(Name = "部门名称")]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string department_name { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 父级名称
         /// </summary>
+        [Display(Name = "父级名称")]
         public int? parent_id { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 部门等级
         /// </summary>
-        [MaxLength(10)]
-        [StringLength(10)]
+        [Display(Name = "部门等级")]
+        [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
+        [StringLength(10,ErrorMessage="最多只能输入10个字符")]
         public string department_level { get; set; }
-            /// <summary>
-        /// 
+        /// <summary>
+        /// 状态
         /// </summary>
-        [MaxLength(10)]
-        [StringLength(10)]
+        [Display(Name = "状态")]
+        [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
+        [StringLength(10,ErrorMessage="最多只能输入10个字符")]
         public string status { get; set; }
     }
 }

@@ -32,7 +32,6 @@ foreach (var entity in typeMapper.GetItemsToGenerate<EntityType>(itemCollection)
 #>
 <#=codeStringGenerator.UsingDirectives(inHeader:false)#>
 using System.ComponentModel.DataAnnotations;
-
 /// <summary>
 /// <#=summary#>
 /// </summary>
@@ -63,7 +62,7 @@ using System.ComponentModel.DataAnnotations;
                     summary="";
                 }
 #>
-    <#                //if(edmProperty.Name.ToLower() == "id")
+    <#        //if(edmProperty.Name.ToLower() == "id")
                 // continue;var a=edmProperty.Nullable;
                 
                 var keyName=""; 
@@ -77,8 +76,8 @@ using System.ComponentModel.DataAnnotations;
                 var stringLengthDes="";
                 int maxLength = 0; 
                 if (code.Escape(edmProperty.TypeUsage).ToLower().Contains("string") && Int32.TryParse(edmProperty.TypeUsage.Facets[facetName].Value.ToString(), out maxLength)){
-                    lengthDes="[MaxLength("+maxLength+")]";
-                    stringLengthDes="[StringLength("+maxLength+")]";
+                    lengthDes="[MaxLength("+maxLength+",ErrorMessage=\"最多只能输入"+maxLength+"个字符\")]";
+                    stringLengthDes="[StringLength("+maxLength+",ErrorMessage=\"最多只能输入"+maxLength+"个字符\")]";
                 }
                 var dataType="";
                 if (code.Escape(edmProperty.TypeUsage).ToLower().Contains("datetime"))
@@ -86,9 +85,8 @@ using System.ComponentModel.DataAnnotations;
                 else if (edmProperty.Name.ToLower().Contains("password"))
                     dataType="[DataType(DataType.Password)]";
   
-    #>
-    /// <summary>
-    /// <#=                    summary#>
+    #>/// <summary>
+    /// <#=summary#>
     /// </summary>
 <#                if(!string.IsNullOrWhiteSpace(required)){ #>
     <#=                        required #>

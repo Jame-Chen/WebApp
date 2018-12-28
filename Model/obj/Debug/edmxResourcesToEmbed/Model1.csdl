@@ -17,35 +17,107 @@
     <Key>
       <PropertyRef Name="department_id" />
     </Key>
-    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="parent_id" Type="Int32" />
-    <Property Name="department_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+      <Documentation>
+        <Summary>部门ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>部门名称</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="parent_id" Type="Int32">
+      <Documentation>
+        <Summary>父级ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="department_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>部门等级</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>状态</Summary>
+      </Documentation>
+    </Property>
   </EntityType>
   <EntityType Name="TB_Menu">
     <Key>
       <PropertyRef Name="menu_id" />
     </Key>
-    <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="menu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="menu_url" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="menu_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="sort_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+      <Documentation>
+        <Summary>菜单ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="menu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>菜单名称</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="menu_url" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>菜单URL</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>父级ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="menu_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>菜单等级</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="sort_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>排序字段</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>状态</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>备注</Summary>
+      </Documentation>
+    </Property>
     <NavigationProperty Name="TB_MenuRole" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_MENU" FromRole="TB_Menu" ToRole="TB_MenuRole" />
   </EntityType>
   <EntityType Name="TB_MenuRole">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="role_id" Type="Int32" />
-    <Property Name="menu_id" Type="Int32" />
-    <Property Name="role_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="button_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+      <Documentation>
+        <Summary>主键</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="role_id" Type="Int32">
+      <Documentation>
+        <Summary>角色ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="menu_id" Type="Int32">
+      <Documentation>
+        <Summary>菜单ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="role_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>角色类型</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="button_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>按钮ID</Summary>
+      </Documentation>
+    </Property>
     <NavigationProperty Name="TB_Menu" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_MENU" FromRole="TB_MenuRole" ToRole="TB_Menu" />
     <NavigationProperty Name="TB_Role" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_ROLE" FromRole="TB_MenuRole" ToRole="TB_Role" />
   </EntityType>
@@ -53,11 +125,31 @@
     <Key>
       <PropertyRef Name="role_id" />
     </Key>
-    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-    <Property Name="createtime" Type="DateTime" Precision="0" />
-    <Property Name="modifytime" Type="DateTime" Precision="0" />
+    <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+      <Documentation>
+        <Summary>角色ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>角色名称</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false">
+      <Documentation>
+        <Summary>描述</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="createtime" Type="DateTime" Precision="0">
+      <Documentation>
+        <Summary>创建时间</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="modifytime" Type="DateTime" Precision="0">
+      <Documentation>
+        <Summary>修改时间</Summary>
+      </Documentation>
+    </Property>
     <NavigationProperty Name="TB_MenuRole" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_ROLE" FromRole="TB_Role" ToRole="TB_MenuRole" />
     <NavigationProperty Name="TB_UserRole" Relationship="Self.FK_TB_USERR_REFERENCE_TB_ROLE" FromRole="TB_Role" ToRole="TB_UserRole" />
   </EntityType>
@@ -65,9 +157,21 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="role_id" Type="Int32" />
-    <Property Name="user_id" Type="Int32" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+      <Documentation>
+        <Summary>主键</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="role_id" Type="Int32">
+      <Documentation>
+        <Summary>角色ID</Summary>
+      </Documentation>
+    </Property>
+    <Property Name="user_id" Type="Int32">
+      <Documentation>
+        <Summary>用户ID</Summary>
+      </Documentation>
+    </Property>
     <NavigationProperty Name="TB_Role" Relationship="Self.FK_TB_USERR_REFERENCE_TB_ROLE" FromRole="TB_UserRole" ToRole="TB_Role" />
     <NavigationProperty Name="TB_Users" Relationship="Self.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_UserRole" ToRole="TB_Users" />
   </EntityType>

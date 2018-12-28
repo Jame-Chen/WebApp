@@ -12,6 +12,9 @@ using System.IO;
 using log4net;
 using log4net.Config;
 using System.Data.Entity.Validation;
+using System.Data.Common;
+using System.Data.SqlClient;
+using System.Data.Entity.Infrastructure;
 
 namespace BLL
 {
@@ -386,6 +389,56 @@ namespace BLL
                         logger.Error("UploadAvatar:" + validationErrors.Entry.Entity.GetType().FullName + "," + validationError.PropertyName + "," + validationError.ErrorMessage);
                     }
                 }
+                result.Code = "500";
+                result.Msg = e.Message;
+                logger.Error(e.Message);
+            }
+            return result;
+        }
+
+        public Result P_User(int user_id)
+        {
+            Result result = new Result();
+            try
+            {
+                string pro = "exec p_user @user_id";
+                SqlParameter[] param = new SqlParameter[]{
+                new SqlParameter{ParameterName="@user_id",Value=user_id}
+                };
+                DbRawSqlQuery<TB_Users> ret = CurrentRepository.SqlQuery(pro, param);
+
+                result.Code = "200";
+                result.Msg = "查询成功!";
+                result.Data = ret.ToList();
+            }
+            catch (Exception e)
+            {
+
+                result.Code = "500";
+                result.Msg = e.Message;
+                logger.Error(e.Message);
+            }
+            return result;
+        }
+
+        public Result P_EdtUser(int user_id)
+        {
+            Result result = new Result();
+            try
+            {
+                string sql = "update tb_users set remark='1' where user_id=@user_id";
+                SqlParameter[] param = new SqlParameter[]{
+                new SqlParameter{ParameterName="@user_id",Value=user_id}
+                };
+                int ret = CurrentRepository.ExcuteSqlCommand(sql, param);
+
+                result.Code = "200";
+                result.Msg = "操作成功!";
+                result.Data = ret;
+            }
+            catch (Exception e)
+            {
+
                 result.Code = "500";
                 result.Msg = e.Message;
                 logger.Error(e.Message);

@@ -13,42 +13,41 @@ namespace Model
     using System.Collections.Generic;
     
     using System.ComponentModel.DataAnnotations;
-    
     /// <summary>
     /// Student
     /// </summary>
     [Serializable]
     public partial class Student
     {
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
         [Key]
         public int Id { get; set; }
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         public int? Age { get; set; }
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
-        [MaxLength(10)]
-        [StringLength(10)]
+        [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
+        [StringLength(10,ErrorMessage="最多只能输入10个字符")]
         public string Name { get; set; }
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         public int? Sex { get; set; }
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         public decimal? Chinese { get; set; }
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         public decimal? Math { get; set; }
-            /// <summary>
+        /// <summary>
         /// 
         /// </summary>
         public decimal? English { get; set; }

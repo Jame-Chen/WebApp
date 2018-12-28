@@ -13,79 +13,78 @@ namespace Model
     using System.Collections.Generic;
     
     using System.ComponentModel.DataAnnotations;
-    
     /// <summary>
     /// TB_Users
     /// </summary>
     [Serializable]
     public partial class TB_Users
     {
-            /// <summary>
+        /// <summary>
         /// 用户ID
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
         [Display(Name = "用户ID")]
         [Key]
         public int user_id { get; set; }
-            /// <summary>
+        /// <summary>
         /// 用户名
         /// </summary>
         [Display(Name = "用户名")]
-        [MaxLength(50)]
-        [StringLength(50)]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string user_name { get; set; }
-            /// <summary>
+        /// <summary>
         /// 密码
         /// </summary>
         [Display(Name = "密码")]
-        [MaxLength(50)]
-        [StringLength(50)]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         [DataType(DataType.Password)]
         public string user_password { get; set; }
-            /// <summary>
+        /// <summary>
         /// 全名
         /// </summary>
         [Display(Name = "全名")]
-        [MaxLength(50)]
-        [StringLength(50)]
+        [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
+        [StringLength(50,ErrorMessage="最多只能输入50个字符")]
         public string fullname { get; set; }
-            /// <summary>
+        /// <summary>
         /// 部门名称
         /// </summary>
         [Display(Name = "部门名称")]
         public int? department_id { get; set; }
-            /// <summary>
+        /// <summary>
         /// 状态
         /// </summary>
         [Display(Name = "状态")]
-        [MaxLength(10)]
-        [StringLength(10)]
+        [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
+        [StringLength(10,ErrorMessage="最多只能输入10个字符")]
         public string status { get; set; }
-            /// <summary>
+        /// <summary>
         /// 创建时间
         /// </summary>
         [Display(Name = "创建时间")]
         [DataType(DataType.DateTime)]
         public System.DateTime? createtime { get; set; }
-            /// <summary>
+        /// <summary>
         /// 修改时间
         /// </summary>
         [Display(Name = "修改时间")]
         [DataType(DataType.DateTime)]
         public System.DateTime? modifytime { get; set; }
-            /// <summary>
+        /// <summary>
         /// 备注
         /// </summary>
         [Display(Name = "备注")]
-        [MaxLength(1000)]
-        [StringLength(1000)]
+        [MaxLength(1000,ErrorMessage="最多只能输入1000个字符")]
+        [StringLength(1000,ErrorMessage="最多只能输入1000个字符")]
         public string remark { get; set; }
-            /// <summary>
+        /// <summary>
         /// 图片url
         /// </summary>
         [Display(Name = "图片url")]
-        [MaxLength(200)]
-        [StringLength(200)]
+        [MaxLength(200,ErrorMessage="最多只能输入200个字符")]
+        [StringLength(200,ErrorMessage="最多只能输入200个字符")]
         public string url { get; set; }
     
        
