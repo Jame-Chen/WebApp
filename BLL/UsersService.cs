@@ -12,10 +12,12 @@ namespace BLL
 {
     public partial class UsersService
     {
+       
         //校验用户名密码
         public bool ValidateUser(string LoginName, string PassWord)
         {
             IQueryable<Users> user = LoadEntities(s => s.LoginName == LoginName && s.PassWord == PassWord);
+          
             if (user.Count() > 0)
             {
                 return true;
