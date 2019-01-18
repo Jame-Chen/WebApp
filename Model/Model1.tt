@@ -38,11 +38,35 @@ using System.ComponentModel.DataAnnotations;
 [Serializable]
 <#=codeStringGenerator.EntityClassOpening(entity)#>
 {
+public <#=code.Escape(entity)#>()
+    {
 <#
-    var propertiesWithDefaultValues = typeMapper.GetPropertiesWithDefaultValues(entity);
-    var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
+  var propertiesWithDefaultValues = typeMapper.GetPropertiesWithDefaultValues(entity);
+      var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
     var complexProperties = typeMapper.GetComplexProperties(entity);
+        foreach (var edmProperty in propertiesWithDefaultValues)
+        {
+#>
+        this.<#=code.Escape(edmProperty)#> = <#=typeMapper.CreateLiteral(edmProperty.DefaultValue)#>;
+<#
+        }
 
+        foreach (var navigationProperty in collectionNavigationProperties)
+        {
+#>
+        this.<#=code.Escape(navigationProperty)#> = new HashSet<<#=typeMapper.GetTypeName(navigationProperty.ToEndMember.GetEntityType())#>>();
+<#
+        }
+
+        foreach (var complexProperty in complexProperties)
+        {
+#>
+        this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
+<#
+        }
+#>
+    }
+<#
 
 
     var simpleProperties = typeMapper.GetSimpleProperties(entity);

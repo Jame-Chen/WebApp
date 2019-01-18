@@ -19,6 +19,11 @@ namespace Model
     [Serializable]
     public partial class TB_Role
     {
+    public TB_Role()
+        {
+            this.TB_MenuRole = new HashSet<TB_MenuRole>();
+            this.TB_UserRole = new HashSet<TB_UserRole>();
+        }
         /// <summary>
         /// 角色ID
         /// </summary>

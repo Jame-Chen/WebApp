@@ -19,6 +19,10 @@ namespace Model
     [Serializable]
     public partial class Student
     {
+    public Student()
+        {
+            this.Attributes = new HashSet<Attributes>();
+        }
         /// <summary>
         /// 
         /// </summary>

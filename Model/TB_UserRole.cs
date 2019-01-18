@@ -19,6 +19,9 @@ namespace Model
     [Serializable]
     public partial class TB_UserRole
     {
+    public TB_UserRole()
+        {
+        }
         /// <summary>
         /// 主键
         /// </summary>
