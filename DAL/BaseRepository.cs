@@ -48,12 +48,16 @@ namespace DAL
         public void UpdateEntity(T entity)
         {
             db.Set<T>().Attach(entity);
+            db.Entry(entity).State = EntityState.Modified;
             foreach (System.Reflection.PropertyInfo p in entity.GetType().GetProperties())
             {
                 string type = p.PropertyType.Name.ToString();
-                if (p.GetValue(entity) != null && type != "ICollection`1")
+                if (p.GetValue(entity) == null)
                 {
-                    db.Entry(entity).Property(p.Name).IsModified = true;
+                    if (db.Entry(entity).Property(p.Name).IsModified)
+                    {
+                        db.Entry(entity).Property(p.Name).IsModified = false;
+                    }
                 }
             }
         }
