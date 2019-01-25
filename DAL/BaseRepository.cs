@@ -52,6 +52,10 @@ namespace DAL
             foreach (System.Reflection.PropertyInfo p in entity.GetType().GetProperties())
             {
                 string type = p.PropertyType.Name.ToString();
+                if (p.Name == type)
+                {
+                    continue;
+                }
                 if (p.GetValue(entity) == null)
                 {
                     if (db.Entry(entity).Property(p.Name).IsModified)
