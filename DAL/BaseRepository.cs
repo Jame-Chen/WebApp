@@ -77,9 +77,22 @@ namespace DAL
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadEntities(Func<T, bool> whereLambda)
+       public IQueryable<T> LoadEntities(Func<T, bool> whereLambda, bool idTracking = false, bool CreationEnabled = false)
         {
-            return db.Set<T>().AsNoTracking().Where(whereLambda).AsQueryable();
+            if (CreationEnabled)
+            {
+                db.Configuration.ProxyCreationEnabled = false;
+            }
+            IQueryable<T> query = null;
+            if (idTracking)
+            {
+                query = db.Set<T>().Where(whereLambda).AsQueryable();
+            }
+            else
+            {
+                query = db.Set<T>().AsNoTracking().Where(whereLambda).AsQueryable();
+            }
+            return query;
         }
 
         /// <summary>
