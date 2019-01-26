@@ -48,12 +48,20 @@ namespace DAL
         public void UpdateEntity(T entity)
         {
             db.Set<T>().Attach(entity);
+            db.Entry(entity).State = EntityState.Modified;
             foreach (System.Reflection.PropertyInfo p in entity.GetType().GetProperties())
             {
                 string type = p.PropertyType.Name.ToString();
-                if (p.GetValue(entity) != null && type != "ICollection`1")
+                if (p.Name == type)
                 {
-                    db.Entry(entity).Property(p.Name).IsModified = true;
+                    continue;
+                }
+                if (p.GetValue(entity) == null)
+                {
+                    if (db.Entry(entity).Property(p.Name).IsModified)
+                    {
+                        db.Entry(entity).Property(p.Name).IsModified = false;
+                    }
                 }
             }
         }
@@ -73,9 +81,22 @@ namespace DAL
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadEntities(Func<T, bool> whereLambda)
+       public IQueryable<T> LoadEntities(Func<T, bool> whereLambda, bool idTracking = false, bool CreationEnabled = false)
         {
-            return db.Set<T>().AsNoTracking().Where(whereLambda).AsQueryable();
+            if (CreationEnabled)
+            {
+                db.Configuration.ProxyCreationEnabled = false;
+            }
+            IQueryable<T> query = null;
+            if (idTracking)
+            {
+                query = db.Set<T>().Where(whereLambda).AsQueryable();
+            }
+            else
+            {
+                query = db.Set<T>().AsNoTracking().Where(whereLambda).AsQueryable();
+            }
+            return query;
         }
 
         /// <summary>

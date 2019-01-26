@@ -19,6 +19,9 @@ namespace Model
     [Serializable]
     public partial class TB_MenuRole
     {
+    public TB_MenuRole()
+        {
+        }
         /// <summary>
         /// 主键
         /// </summary>

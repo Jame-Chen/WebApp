@@ -19,6 +19,9 @@ namespace Model
     [Serializable]
     public partial class TB_Department
     {
+    public TB_Department()
+        {
+        }
         /// <summary>
         /// 部门ID
         /// </summary>

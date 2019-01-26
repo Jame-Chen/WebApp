@@ -19,6 +19,9 @@ namespace Model
     [Serializable]
     public partial class Attributes
     {
+    public Attributes()
+        {
+        }
         /// <summary>
         /// 
         /// </summary>

@@ -18,7 +18,7 @@ namespace WebAPI
                 .EnableSwagger(c =>
                     {
                         c.OperationFilter<SwaggerFileUploadFilter>();
-                        c.SingleApiVersion("v1", "WebAPI");
+                        c.SingleApiVersion("v1", "ºó¶Ë½Ó¿ÚWebAPI");
                         c.IncludeXmlComments(GetXmlCommentsPath());
                     })
                 .EnableSwaggerUi(c =>
