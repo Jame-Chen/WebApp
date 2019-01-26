@@ -1,0 +1,13 @@
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\IDAL.dll.config
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\IDAL.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\EntityFramework.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\Model.dll
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\Model.pdb
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\EntityFramework.xml
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Release\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\EFMVCApp\IDAL\obj\Release\IDAL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\IDAL\obj\Release\IDAL.dll
+C:\Users\Administrator\EFMVCApp\IDAL\obj\Release\IDAL.pdb

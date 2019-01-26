@@ -27,19 +27,20 @@
 
 <div class="container-fluid">
     <div class="row mt">
+        <div class="form-horizontal">
+            <div class="form-group">
 
-        <div class="form-group">
+                <label class="col-xs-2 control-label text-right">姓名：</label>
+                <div class="col-xs-2">
+                    <input type="text" id="Name" class="form-control" value="" />
+                </div>
 
-            <label class="col-xs-2 control-label text-right">姓名：</label>
-            <div class="col-xs-2">
-                <input type="text" id="Name" class="form-control" value="" />
+                <div class="col-xs-8">
+                    <a href="#" class=" btn btn-info" onclick="query();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;查询</a>
+                </div>
+
+
             </div>
-
-            <div class="col-xs-8">
-                <a href="#" class=" btn btn-info" onclick="query();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;查询</a>
-            </div>
-
-
         </div>
     </div>
 
@@ -197,12 +198,10 @@
                 }],
 
                 onLoadSuccess: function (data) {
-                    if (data.code=="-1") {
-                        alert(data.msg);
-                    }
+                    console.log(data);
                 },
                 onLoadError: function (data) {
-                    alert("数据加载失败！" );
+                    alert("数据加载失败！");
                 }
 
             });
@@ -242,10 +241,10 @@
         }
 
         function edt() {
-           
+
             var row = $table.bootstrapTable('getSelections');
             if (row.length == 1) {
-           
+
                 layer.open({
                     type: 2,
                     title: '修改学生',

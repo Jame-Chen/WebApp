@@ -12,15 +12,35 @@ using Model;
 namespace IDAL
 {
 		
-	public interface IClassTabRepository : IBaseRepository<ClassTab>
+	public interface IAttributesRepository : IBaseRepository<Attributes>
     {
     }
 		
-	public interface IStudentsRepository : IBaseRepository<Students>
+	public interface IStudentRepository : IBaseRepository<Student>
     {
     }
 		
-	public interface IUsersRepository : IBaseRepository<Users>
+	public interface ITB_DepartmentRepository : IBaseRepository<TB_Department>
+    {
+    }
+		
+	public interface ITB_MenuRepository : IBaseRepository<TB_Menu>
+    {
+    }
+		
+	public interface ITB_MenuRoleRepository : IBaseRepository<TB_MenuRole>
+    {
+    }
+		
+	public interface ITB_RoleRepository : IBaseRepository<TB_Role>
+    {
+    }
+		
+	public interface ITB_UserRoleRepository : IBaseRepository<TB_UserRole>
+    {
+    }
+		
+	public interface ITB_UsersRepository : IBaseRepository<TB_Users>
     {
     }
 	    

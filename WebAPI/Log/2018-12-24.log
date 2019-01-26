@@ -1,0 +1,9 @@
+2018-12-24 10:11:21,788 [12] ERROR BLL.TB_UsersService - ObjectStateManager 中已存在具有同一键的对象。ObjectStateManager 无法跟踪具有相同键的多个对象。
+ BLL.TB_UsersServicename2018-12-24 11:05:36,735 [13] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename2018-12-24 11:06:54,695 [16] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename2018-12-24 11:07:00,657 [15] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename2018-12-24 11:07:35,008 [17] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename2018-12-24 11:08:23,450 [30] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename2018-12-24 11:13:14,202 [49] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename2018-12-24 11:19:46,561 [41] ERROR BLL.TB_UsersService - 对一个或多个实体的验证失败。有关详细信息，请参阅“EntityValidationErrors”属性。
+ BLL.TB_UsersServicename

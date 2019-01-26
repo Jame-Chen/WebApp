@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Model;
 using IDAL;
 using System.Data;
+using System.Data.Entity.Infrastructure;
 
 namespace DAL
 {
@@ -31,6 +32,7 @@ namespace DAL
         /// <returns></returns>
         public T AddEntity(T entity)
         {
+
             //EF 4.0
             //db.CreateObectSet<T>().AddObject(entity);
 
@@ -46,7 +48,14 @@ namespace DAL
         public void UpdateEntity(T entity)
         {
             db.Set<T>().Attach(entity);
-            db.Entry<T>(entity).State = EntityState.Modified;
+            foreach (System.Reflection.PropertyInfo p in entity.GetType().GetProperties())
+            {
+                string type = p.PropertyType.Name.ToString();
+                if (p.GetValue(entity) != null && type != "ICollection`1")
+                {
+                    db.Entry(entity).Property(p.Name).IsModified = true;
+                }
+            }
         }
 
         /// <summary>
@@ -66,7 +75,7 @@ namespace DAL
         /// <returns></returns>
         public IQueryable<T> LoadEntities(Func<T, bool> whereLambda)
         {
-            return db.Set<T>().Where(whereLambda).AsQueryable();
+            return db.Set<T>().AsNoTracking().Where(whereLambda).AsQueryable();
         }
 
         /// <summary>
@@ -143,6 +152,26 @@ namespace DAL
                 }
             }
             return temp.AsQueryable();
+        }
+        /// <summary>
+        /// 执行sql语句
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public int ExcuteSqlCommand(string strSql, params System.Data.Common.DbParameter[] parameters)
+        {
+            return db.Database.ExecuteSqlCommand(strSql, parameters);
+        }
+        /// <summary>
+        /// sql查询语句
+        /// </summary>
+        /// <param name="strSql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        public DbRawSqlQuery<T> SqlQuery(string strSql, params System.Data.Common.DbParameter[] parameters)
+        {
+            return db.Database.SqlQuery<T>(strSql, parameters);
         }
     }
 }

@@ -43,9 +43,5 @@ namespace DAL
         }
 
 
-        public int ExcuteSqlCommand(string strSql, params System.Data.Common.DbParameter[] parameters)
-        {
-            return EFContextFactory.GetCurrentDbContext().Database.ExecuteSqlCommand(strSql, parameters);
-        }
     }
 }

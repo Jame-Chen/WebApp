@@ -1,0 +1,8 @@
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\Common.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\Common.pdb
+C:\Users\Administrator\EFMVCApp\Common\obj\Debug\Common.dll
+C:\Users\Administrator\EFMVCApp\Common\obj\Debug\Common.pdb
+C:\Users\Administrator\EFMVCApp\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\System.Net.Http.Primitives.dll

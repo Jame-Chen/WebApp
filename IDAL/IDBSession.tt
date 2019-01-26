@@ -33,6 +33,6 @@ namespace IDAL
 
         int Save();       
 
-        int ExcuteSqlCommand(string strSql, params System.Data.Common.DbParameter[] parameters);
+        
     }
 }

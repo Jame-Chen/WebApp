@@ -4,138 +4,617 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ClassTab">
+      <Schema Namespace="sysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attributes">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ClassName" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stuid" Type="int" />
+          <Property Name="Hobbies" Type="nvarchar" MaxLength="25" />
         </EntityType>
-        <EntityType Name="Students">
+        <EntityType Name="Student">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StudentName" Type="nvarchar" MaxLength="50" />
           <Property Name="Age" Type="int" />
-          <Property Name="Sex" Type="nvarchar" MaxLength="1" />
-          <Property Name="Chinese" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="Math" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="English" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="PictruePath" Type="varchar" MaxLength="100" />
-          <Property Name="ClassId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="10" />
+          <Property Name="Sex" Type="int" />
+          <Property Name="Chinese" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Math" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="English" Type="decimal" Precision="5" Scale="2" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="TB_Department">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="department_id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="LoginName" Type="varchar" MaxLength="50" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="PassWord" Type="varchar" MaxLength="100" />
+          <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_name" Type="varchar" MaxLength="50" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="department_level" Type="varchar" MaxLength="10" />
+          <Property Name="status" Type="varchar" MaxLength="10" />
         </EntityType>
-        <EntityContainer Name="SchoolModelStoreContainer">
-          <EntitySet Name="ClassTab" EntityType="Self.ClassTab" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
-    <!-- CSDL content -->
-    <edmx:ConceptualModels>
-      <Schema Namespace="SchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="SchoolEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ClassTab" EntityType="SchoolModel.ClassTab" />
-          <EntitySet Name="Students" EntityType="SchoolModel.Students" />
-          <EntitySet Name="Users" EntityType="SchoolModel.Users" />
-          <AssociationSet Name="ClassTabStudents" Association="SchoolModel.ClassTabStudents">
-            <End Role="ClassTab" EntitySet="ClassTab" />
-            <End Role="Students" EntitySet="Students" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="ClassTab">
+        <EntityType Name="TB_Menu">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="menu_id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Students" Relationship="SchoolModel.ClassTabStudents" FromRole="ClassTab" ToRole="Students" />
+          <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="menu_name" Type="varchar" MaxLength="50" />
+          <Property Name="menu_url" Type="varchar" MaxLength="50" />
+          <Property Name="parent_id" Type="varchar" MaxLength="50" />
+          <Property Name="menu_level" Type="varchar" MaxLength="10" />
+          <Property Name="sort_order" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="10" />
+          <Property Name="remark" Type="varchar" MaxLength="1000" />
         </EntityType>
-        <EntityType Name="Students">
+        <EntityType Name="TB_MenuRole">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="StudentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Age" Type="Int32" />
-          <Property Name="Sex" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
-          <Property Name="Chinese" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Math" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="English" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PictruePath" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ClassId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ClassTab" Relationship="SchoolModel.ClassTabStudents" FromRole="Students" ToRole="ClassTab" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="menu_id" Type="int" />
+          <Property Name="role_type" Type="varchar" MaxLength="10" />
+          <Property Name="button_id" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="TB_Role">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="role_id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="LoginName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="500" />
+          <Property Name="createtime" Type="date" />
+          <Property Name="modifytime" Type="date" />
         </EntityType>
-        <Association Name="ClassTabStudents">
-          <End Type="SchoolModel.ClassTab" Role="ClassTab" Multiplicity="1" />
-          <End Type="SchoolModel.Students" Role="Students" Multiplicity="*" />
+        <EntityType Name="TB_UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="user_id" Type="int" />
+        </EntityType>
+        <EntityType Name="TB_Users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" />
+          <Property Name="user_password" Type="varchar" MaxLength="50" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" />
+          <Property Name="department_id" Type="int" />
+          <Property Name="status" Type="varchar" MaxLength="10" />
+          <Property Name="createtime" Type="date" />
+          <Property Name="modifytime" Type="date" />
+          <Property Name="remark" Type="varchar" MaxLength="1000" />
+          <Property Name="url" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Attributes_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Attributes" Type="Self.Attributes" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ClassTab">
+            <Principal Role="Student">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="ClassId" />
+            <Dependent Role="Attributes">
+              <PropertyRef Name="stuid" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
+          <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
+          <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Menu">
+              <PropertyRef Name="menu_id" />
+            </Principal>
+            <Dependent Role="TB_MenuRole">
+              <PropertyRef Name="menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_MENUR_REFERENCE_TB_ROLE">
+          <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
+          <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="TB_MenuRole">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_USERR_REFERENCE_TB_ROLE">
+          <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
+          <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="TB_UserRole">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_USERR_REFERENCE_TB_USERS">
+          <End Role="TB_Users" Type="Self.TB_Users" Multiplicity="0..1" />
+          <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="TB_UserRole">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sysModelStoreContainer">
+          <EntitySet Name="Attributes" EntityType="Self.Attributes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Department" EntityType="Self.TB_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Menu" EntityType="Self.TB_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_MenuRole" EntityType="Self.TB_MenuRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Role" EntityType="Self.TB_Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_UserRole" EntityType="Self.TB_UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_Users" EntityType="Self.TB_Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attributes_Student" Association="Self.FK_Attributes_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Attributes" EntitySet="Attributes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_MENU" Association="Self.FK_TB_MENUR_REFERENCE_TB_MENU">
+            <End Role="TB_Menu" EntitySet="TB_Menu" />
+            <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_ROLE" Association="Self.FK_TB_MENUR_REFERENCE_TB_ROLE">
+            <End Role="TB_Role" EntitySet="TB_Role" />
+            <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_ROLE" Association="Self.FK_TB_USERR_REFERENCE_TB_ROLE">
+            <End Role="TB_Role" EntitySet="TB_Role" />
+            <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_USERS" Association="Self.FK_TB_USERR_REFERENCE_TB_USERS">
+            <End Role="TB_Users" EntitySet="TB_Users" />
+            <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Sex" Type="Int32" />
+          <Property Name="Chinese" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Math" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="English" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="Attributes" Relationship="sysModel.FK_Attributes_Student" FromRole="Student" ToRole="Attributes" />
+        </EntityType>
+        <EntityType Name="TB_Department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+            <Documentation>
+              <Summary>部门ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="department_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>部门名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="parent_id" Type="Int32">
+            <Documentation>
+              <Summary>父级ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="department_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>部门等级</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>状态</Summary>
+            </Documentation>
+          </Property>
+        </EntityType>
+        <EntityType Name="TB_Menu">
+          <Key>
+            <PropertyRef Name="menu_id" />
+          </Key>
+          <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+            <Documentation>
+              <Summary>菜单ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="menu_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>菜单名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="menu_url" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>菜单URL</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>父级ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="menu_level" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>菜单等级</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="sort_order" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>排序字段</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="TB_MenuRole" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_MENU" FromRole="TB_Menu" ToRole="TB_MenuRole" />
+        </EntityType>
+        <EntityType Name="TB_MenuRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+            <Documentation>
+              <Summary>主键</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="role_id" Type="Int32">
+            <Documentation>
+              <Summary>角色ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="menu_id" Type="Int32">
+            <Documentation>
+              <Summary>菜单ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="role_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>角色类型</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="button_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>按钮ID</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="TB_Menu" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_MENU" FromRole="TB_MenuRole" ToRole="TB_Menu" />
+          <NavigationProperty Name="TB_Role" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_ROLE" FromRole="TB_MenuRole" ToRole="TB_Role" />
+        </EntityType>
+        <EntityType Name="TB_Role">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+            <Documentation>
+              <Summary>角色ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>角色名称</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="description" Type="String" MaxLength="500" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>描述</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="createtime" Type="DateTime" Precision="0">
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="modifytime" Type="DateTime" Precision="0">
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="TB_MenuRole" Relationship="Self.FK_TB_MENUR_REFERENCE_TB_ROLE" FromRole="TB_Role" ToRole="TB_MenuRole" />
+          <NavigationProperty Name="TB_UserRole" Relationship="Self.FK_TB_USERR_REFERENCE_TB_ROLE" FromRole="TB_Role" ToRole="TB_UserRole" />
+        </EntityType>
+        <EntityType Name="TB_UserRole">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+            <Documentation>
+              <Summary>主键</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="role_id" Type="Int32">
+            <Documentation>
+              <Summary>角色ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="user_id" Type="Int32">
+            <Documentation>
+              <Summary>用户ID</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="TB_Role" Relationship="Self.FK_TB_USERR_REFERENCE_TB_ROLE" FromRole="TB_UserRole" ToRole="TB_Role" />
+          <NavigationProperty Name="TB_Users" Relationship="Self.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_UserRole" ToRole="TB_Users" />
+        </EntityType>
+        <EntityType Name="TB_Users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity">
+            <Documentation>
+              <Summary>用户ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>用户名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="user_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>密码</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>全名</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="department_id" Type="Int32">
+            <Documentation>
+              <Summary>部门ID</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>状态</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="createtime" Type="DateTime" Precision="0">
+            <Documentation>
+              <Summary>创建时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="modifytime" Type="DateTime" Precision="0">
+            <Documentation>
+              <Summary>修改时间</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="remark" Type="String" MaxLength="1000" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>备注</Summary>
+            </Documentation>
+          </Property>
+          <Property Name="url" Type="String" MaxLength="200" FixedLength="false" Unicode="false">
+            <Documentation>
+              <Summary>图片url</Summary>
+            </Documentation>
+          </Property>
+          <NavigationProperty Name="TB_UserRole" Relationship="Self.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_Users" ToRole="TB_UserRole" />
+        </EntityType>
+        <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
+          <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
+          <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Menu">
+              <PropertyRef Name="menu_id" />
+            </Principal>
+            <Dependent Role="TB_MenuRole">
+              <PropertyRef Name="menu_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_MENUR_REFERENCE_TB_ROLE">
+          <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
+          <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="TB_MenuRole">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_USERR_REFERENCE_TB_ROLE">
+          <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
+          <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Role">
+              <PropertyRef Name="role_id" />
+            </Principal>
+            <Dependent Role="TB_UserRole">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TB_USERR_REFERENCE_TB_USERS">
+          <End Role="TB_Users" Type="Self.TB_Users" Multiplicity="0..1" />
+          <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_Users">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="TB_UserRole">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="sysEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="TB_Department" EntityType="Self.TB_Department" />
+          <EntitySet Name="TB_Menu" EntityType="Self.TB_Menu" />
+          <EntitySet Name="TB_MenuRole" EntityType="Self.TB_MenuRole" />
+          <EntitySet Name="TB_Role" EntityType="Self.TB_Role" />
+          <EntitySet Name="TB_UserRole" EntityType="Self.TB_UserRole" />
+          <EntitySet Name="TB_Users" EntityType="Self.TB_Users" />
+          <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_MENU" Association="Self.FK_TB_MENUR_REFERENCE_TB_MENU">
+            <End Role="TB_Menu" EntitySet="TB_Menu" />
+            <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_ROLE" Association="Self.FK_TB_MENUR_REFERENCE_TB_ROLE">
+            <End Role="TB_Role" EntitySet="TB_Role" />
+            <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_ROLE" Association="Self.FK_TB_USERR_REFERENCE_TB_ROLE">
+            <End Role="TB_Role" EntitySet="TB_Role" />
+            <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_USERS" Association="Self.FK_TB_USERR_REFERENCE_TB_USERS">
+            <End Role="TB_Users" EntitySet="TB_Users" />
+            <End Role="TB_UserRole" EntitySet="TB_UserRole" />
+          </AssociationSet>
+          <EntitySet Name="Attributes" EntityType="sysModel.Attributes" />
+          <AssociationSet Name="FK_Attributes_Student" Association="sysModel.FK_Attributes_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Attributes" EntitySet="Attributes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Attributes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hobbies" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Student" Relationship="sysModel.FK_Attributes_Student" FromRole="Attributes" ToRole="Student" />
+        </EntityType>
+        <Association Name="FK_Attributes_Student">
+          <End Type="sysModel.Student" Role="Student" Multiplicity="0..1" />
+          <End Type="sysModel.Attributes" Role="Attributes" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SchoolModelStoreContainer" CdmEntityContainer="SchoolEntities">
-          <EntitySetMapping Name="ClassTab">
-            <EntityTypeMapping TypeName="SchoolModel.ClassTab">
-              <MappingFragment StoreEntitySet="ClassTab">
-                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+        <EntityContainerMapping StorageEntityContainer="sysModelStoreContainer" CdmEntityContainer="sysEntities">
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="sysModel.Student">
+              <MappingFragment StoreEntitySet="Student">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Students">
-            <EntityTypeMapping TypeName="SchoolModel.Students">
-              <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="ClassId" ColumnName="ClassId" />
-                <ScalarProperty Name="PictruePath" ColumnName="PictruePath" />
-                <ScalarProperty Name="English" ColumnName="English" />
-                <ScalarProperty Name="Math" ColumnName="Math" />
-                <ScalarProperty Name="Chinese" ColumnName="Chinese" />
-                <ScalarProperty Name="Sex" ColumnName="Sex" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
-                <ScalarProperty Name="StudentName" ColumnName="StudentName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Chinese" ColumnName="Chinese" />
+                <ScalarProperty Name="Math" ColumnName="Math" />
+                <ScalarProperty Name="English" ColumnName="English" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="SchoolModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+          <EntitySetMapping Name="TB_Department">
+            <EntityTypeMapping TypeName="sysModel.TB_Department">
+              <MappingFragment StoreEntitySet="TB_Department">
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="department_level" ColumnName="department_level" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TB_Menu">
+            <EntityTypeMapping TypeName="sysModel.TB_Menu">
+              <MappingFragment StoreEntitySet="TB_Menu">
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="menu_name" ColumnName="menu_name" />
+                <ScalarProperty Name="menu_url" ColumnName="menu_url" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="menu_level" ColumnName="menu_level" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_MenuRole">
+            <EntityTypeMapping TypeName="sysModel.TB_MenuRole">
+              <MappingFragment StoreEntitySet="TB_MenuRole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="menu_id" ColumnName="menu_id" />
+                <ScalarProperty Name="role_type" ColumnName="role_type" />
+                <ScalarProperty Name="button_id" ColumnName="button_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Role">
+            <EntityTypeMapping TypeName="sysModel.TB_Role">
+              <MappingFragment StoreEntitySet="TB_Role">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="modifytime" ColumnName="modifytime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_UserRole">
+            <EntityTypeMapping TypeName="sysModel.TB_UserRole">
+              <MappingFragment StoreEntitySet="TB_UserRole">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_Users">
+            <EntityTypeMapping TypeName="sysModel.TB_Users">
+              <MappingFragment StoreEntitySet="TB_Users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+                <ScalarProperty Name="modifytime" ColumnName="modifytime" />
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="url" ColumnName="url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attributes">
+            <EntityTypeMapping TypeName="sysModel.Attributes">
+              <MappingFragment StoreEntitySet="Attributes">
+                <ScalarProperty Name="Hobbies" ColumnName="Hobbies" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Attributes_Student" TypeName="sysModel.FK_Attributes_Student" StoreEntitySet="Attributes">
+            <EndProperty Name="Attributes">
+              <ScalarProperty Name="id" ColumnName="id" />
+            </EndProperty>
+            <EndProperty Name="Student">
+              <ScalarProperty Name="Id" ColumnName="stuid" />
+            </EndProperty>
+            <Condition ColumnName="stuid" IsNull="false" />
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -151,7 +630,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
       </DesignerInfoPropertySet>

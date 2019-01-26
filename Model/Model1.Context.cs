@@ -13,10 +13,10 @@ namespace Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SchoolEntities : DbContext
+    public partial class sysEntities : DbContext
     {
-        public SchoolEntities()
-            : base("name=SchoolEntities")
+        public sysEntities()
+            : base("name=sysEntities")
         {
         }
     
@@ -25,8 +25,13 @@ namespace Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ClassTab> ClassTab { get; set; }
-        public virtual DbSet<Students> Students { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Student> Student { get; set; }
+        public virtual DbSet<TB_Department> TB_Department { get; set; }
+        public virtual DbSet<TB_Menu> TB_Menu { get; set; }
+        public virtual DbSet<TB_MenuRole> TB_MenuRole { get; set; }
+        public virtual DbSet<TB_Role> TB_Role { get; set; }
+        public virtual DbSet<TB_UserRole> TB_UserRole { get; set; }
+        public virtual DbSet<TB_Users> TB_Users { get; set; }
+        public virtual DbSet<Attributes> Attributes { get; set; }
     }
 }

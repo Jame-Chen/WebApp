@@ -14,15 +14,25 @@ namespace IDAL
 	//统一管理上下文的各种操作
     public interface IDbSession
     {  
-				IClassTabRepository ClassTabRepository{ get; }
+				IAttributesRepository AttributesRepository{ get; }
 
-				IStudentsRepository StudentsRepository{ get; }
+				IStudentRepository StudentRepository{ get; }
 
-				IUsersRepository UsersRepository{ get; }
+				ITB_DepartmentRepository TB_DepartmentRepository{ get; }
+
+				ITB_MenuRepository TB_MenuRepository{ get; }
+
+				ITB_MenuRoleRepository TB_MenuRoleRepository{ get; }
+
+				ITB_RoleRepository TB_RoleRepository{ get; }
+
+				ITB_UserRoleRepository TB_UserRoleRepository{ get; }
+
+				ITB_UsersRepository TB_UsersRepository{ get; }
 
 		
         int Save();       
 
-        int ExcuteSqlCommand(string strSql, params System.Data.Common.DbParameter[] parameters);
+        
     }
 }

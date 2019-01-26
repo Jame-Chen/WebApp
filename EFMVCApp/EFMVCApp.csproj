@@ -117,7 +117,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +131,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\sys.mdf" />
+    <Content Include="App_Data\sys_log.ldf">
+      <DependentUpon>sys.mdf</DependentUpon>
+    </Content>
     <Content Include="bootstrapTable\css\bootstrap-table.css" />
     <Content Include="bootstrapTable\js\bootstrap-table-zh-CN.min.js" />
     <Content Include="bootstrapTable\js\bootstrap-table.min.js" />

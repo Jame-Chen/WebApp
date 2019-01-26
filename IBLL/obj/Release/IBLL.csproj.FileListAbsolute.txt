@@ -1,0 +1,12 @@
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\IBLL.dll
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\IBLL.pdb
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\IDAL.dll
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\Model.dll
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\EntityFramework.dll
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\Model.pdb
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\EntityFramework.xml
+C:\Users\Administrator\EFMVCApp\IBLL\bin\Release\zh-Hans\EntityFramework.resources.dll
+C:\Users\Administrator\EFMVCApp\IBLL\obj\Release\IBLL.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\EFMVCApp\IBLL\obj\Release\IBLL.dll
+C:\Users\Administrator\EFMVCApp\IBLL\obj\Release\IBLL.pdb
