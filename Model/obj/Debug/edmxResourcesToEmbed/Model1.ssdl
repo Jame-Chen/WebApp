@@ -85,6 +85,7 @@
     <Property Name="modifytime" Type="date" />
     <Property Name="remark" Type="varchar" MaxLength="1000" />
     <Property Name="url" Type="varchar" MaxLength="200" />
+    <Property Name="role_id" Type="int" />
   </EntityType>
   <Association Name="FK_Attributes_Student">
     <End Role="Student" Type="Self.Student" Multiplicity="0..1" />

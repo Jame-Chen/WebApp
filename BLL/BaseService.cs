@@ -62,9 +62,9 @@ namespace BLL
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadEntities(Func<T, bool> whereLambda)
+        public IQueryable<T> LoadEntities(Func<T, bool> whereLambda, bool idTracking = false, bool CreationEnabled = false)
         {
-            return CurrentRepository.LoadEntities(whereLambda);
+            return CurrentRepository.LoadEntities(whereLambda, idTracking, CreationEnabled);
         }
 
         /// <summary>

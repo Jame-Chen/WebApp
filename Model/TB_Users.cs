@@ -90,6 +90,10 @@ namespace Model
         [MaxLength(200,ErrorMessage="最多只能输入200个字符")]
         [StringLength(200,ErrorMessage="最多只能输入200个字符")]
         public string url { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? role_id { get; set; }
     
        
          public virtual ICollection<TB_UserRole> TB_UserRole { get; set; }

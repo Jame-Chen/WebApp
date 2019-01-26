@@ -201,5 +201,15 @@ namespace WebAPI.Controllers
         {
             return us.P_EdtUser(user_id);
         }
+
+        /// <summary>
+        /// 获取用户角色名
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public Result GetUserRoleName() {
+            return us.GetUserRoleName();
+        }
     }
 }

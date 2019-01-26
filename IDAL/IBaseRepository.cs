@@ -15,7 +15,7 @@ namespace IDAL
 
         void DeleteEntity(T entity);
 
-        IQueryable<T> LoadEntities(Func<T, bool> whereLambda);
+        IQueryable<T> LoadEntities(Func<T, bool> whereLambda, bool idTracking = false, bool CreationEnabled = false);
 
         IQueryable<T> LoadPageEntities<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda);
 

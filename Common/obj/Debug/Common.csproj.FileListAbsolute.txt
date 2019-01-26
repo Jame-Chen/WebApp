@@ -6,3 +6,14 @@ C:\Users\Administrator\EFMVCApp\Common\obj\Debug\Common.csprojResolveAssemblyRef
 C:\Users\Administrator\EFMVCApp\Common\bin\Debug\System.Net.Http.Extensions.dll
 C:\Users\Administrator\EFMVCApp\Common\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\Administrator\EFMVCApp\Common\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\bin\Debug\Common.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\bin\Debug\Common.pdb
+C:\Users\Admin\Downloads\EFMNVCApp\Common\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.csprojAssemblyReference.cache
+C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.csproj.CopyComplete
+C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.dll
+C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.pdb

@@ -209,6 +209,12 @@
             <param name="user_id"></param>
             <returns></returns>
         </member>
+        <member name="M:WebAPI.Controllers.UsersController.GetUserRoleName">
+            <summary>
+            获取用户角色名
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:WebAPI.Filter.SwaggerFileUploadFilter">
             <summary>
             Swagger 上传文件过滤器
