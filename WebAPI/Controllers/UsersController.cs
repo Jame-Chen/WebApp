@@ -84,6 +84,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="user_id"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         public Result GetUserByID(int user_id)
         {
             return us.GetUserByID(user_id);
@@ -211,5 +212,7 @@ namespace WebAPI.Controllers
         public Result GetUserRoleName() {
             return us.GetUserRoleName();
         }
+
+
     }
 }

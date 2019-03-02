@@ -296,9 +296,21 @@ namespace BLL
                 {
                     if (LoadEntities(s => s.user_id == user_id).Any())
                     {
-                        result.Data = LoadEntities(s => s.user_id == user_id).FirstOrDefault();
+                        var user = LoadEntities(s => s.user_id == user_id);
+                        var userrole = tus.LoadEntities(l => true);
+                        var role = trole.LoadEntities(l => true);
+                        var query = userrole.Join(user, a => a.user_id, b => b.user_id, (a, b) => new
+                        {
+                            a.role_id,
+                            user = b
+                        }).GroupJoin(role, a => a.role_id, b => b.role_id, (a, b) => new
+                        {
+                            a.user,
+                            rolename = b.Any() ? b.FirstOrDefault().role_name : ""
+                        });
+                        result.Data = query.FirstOrDefault();
                         result.Code = "200";
-                        result.Msg = "查询成功!";
+                        result.Msg = query.ToString();
                     }
                     else
                     {
@@ -459,7 +471,7 @@ namespace BLL
                 var ret = user.GroupJoin(role, a => a.role_id, b => b.role_id, (a, b) => new
                 {
                     user_name = a.user_name,
-                    RoleName = b.Any()?b.FirstOrDefault().role_name:""
+                    RoleName = b.Any() ? b.FirstOrDefault().role_name : ""
                 });
                 result.Code = "200";
                 result.Msg = "操作成功!";

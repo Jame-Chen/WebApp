@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using IDAL;
@@ -62,7 +63,7 @@ namespace BLL
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadEntities(Func<T, bool> whereLambda, bool idTracking = false, bool CreationEnabled = false)
+        public IQueryable<T> LoadEntities(Expression<Func<T, bool>> whereLambda, bool idTracking = false, bool CreationEnabled = true)
         {
             return CurrentRepository.LoadEntities(whereLambda, idTracking, CreationEnabled);
         }
@@ -78,12 +79,12 @@ namespace BLL
         /// <param name="isAsc"></param>
         /// <param name="orderByLambda"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadPageEntities<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda)
+        public IQueryable<T> LoadPageEntities<S>(int pageNum, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda)
         {
             return CurrentRepository.LoadPageEntities<S>(pageNum, pageSize, out total, whereLambda, isAsc, orderByLambda);
         }
 
-        public IQueryable<T> LoadPageEntitiesWithNavigateProperites<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda, Dictionary<string, bool> navigateProperties)
+        public IQueryable<T> LoadPageEntitiesWithNavigateProperites<S>(int pageNum, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda, Dictionary<string, bool> navigateProperties)
         {
             return CurrentRepository.LoadPageEntitiesWithNavigateProperites<S>(pageNum, pageSize, out total, whereLambda, isAsc, orderByLambda, navigateProperties);
         }

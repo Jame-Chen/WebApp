@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -81,7 +82,7 @@ namespace DAL
         /// </summary>
         /// <param name="whereLambda"></param>
         /// <returns></returns>
-       public IQueryable<T> LoadEntities(Func<T, bool> whereLambda, bool idTracking = false, bool CreationEnabled = false)
+        public IQueryable<T> LoadEntities(Expression<Func<T, bool>> whereLambda, bool idTracking = false, bool CreationEnabled = true)
         {
             if (CreationEnabled)
             {
@@ -110,7 +111,7 @@ namespace DAL
         /// <param name="isAsc"></param>
         /// <param name="orderByLambda"></param>
         /// <returns></returns>
-        public IQueryable<T> LoadPageEntities<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda)
+        public IQueryable<T> LoadPageEntities<S>(int pageNum, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda)
         {
             var temp = db.Set<T>().AsNoTracking().Where(whereLambda);
             total = temp.Count();
@@ -141,7 +142,7 @@ namespace DAL
         /// <param name="orderByLambda"></param>
         /// <param name="navigateProperties">要附加的导航属性名称与所附加的属性是否是集合</param>
         /// <returns></returns>
-        public IQueryable<T> LoadPageEntitiesWithNavigateProperites<S>(int pageNum, int pageSize, out int total, Func<T, bool> whereLambda, bool isAsc, Func<T, S> orderByLambda, Dictionary<string, bool> navigateProperties)
+        public IQueryable<T> LoadPageEntitiesWithNavigateProperites<S>(int pageNum, int pageSize, out int total, Expression<Func<T, bool>> whereLambda, bool isAsc, Expression<Func<T, S>> orderByLambda, Dictionary<string, bool> navigateProperties)
         {
             db.Configuration.LazyLoadingEnabled = false;
             var temp = db.Set<T>().Where(whereLambda);
