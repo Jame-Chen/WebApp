@@ -84,6 +84,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="user_id"></param>
         /// <returns></returns>
+        [AllowAnonymous]
         public Result GetUserByID(int user_id)
         {
             return us.GetUserByID(user_id);
@@ -201,5 +202,17 @@ namespace WebAPI.Controllers
         {
             return us.P_EdtUser(user_id);
         }
+
+        /// <summary>
+        /// 获取用户角色名
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [AllowAnonymous]
+        public Result GetUserRoleName() {
+            return us.GetUserRoleName();
+        }
+
+
     }
 }

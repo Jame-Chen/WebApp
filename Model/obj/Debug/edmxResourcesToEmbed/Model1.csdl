@@ -230,6 +230,7 @@
       </Documentation>
     </Property>
     <NavigationProperty Name="TB_UserRole" Relationship="Self.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_Users" ToRole="TB_UserRole" />
+    <Property Name="role_id" Type="Int32" />
   </EntityType>
   <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
     <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />

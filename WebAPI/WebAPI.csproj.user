@@ -11,6 +11,7 @@
     <ProjectView>ShowAllFiles</ProjectView>
     <WebStackScaffolding_DbContextDialogWidth>600</WebStackScaffolding_DbContextDialogWidth>
     <NameOfLastUsedPublishProfile>WebApiRelease</NameOfLastUsedPublishProfile>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

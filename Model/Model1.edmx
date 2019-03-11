@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="sysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="sysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Attributes">
           <Key>
             <PropertyRef Name="id" />
@@ -90,6 +90,7 @@
           <Property Name="modifytime" Type="date" />
           <Property Name="remark" Type="varchar" MaxLength="1000" />
           <Property Name="url" Type="varchar" MaxLength="200" />
+          <Property Name="role_id" Type="int" />
         </EntityType>
         <Association Name="FK_Attributes_Student">
           <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
@@ -181,8 +182,7 @@
             <End Role="TB_UserRole" EntitySet="TB_UserRole" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="sysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -416,6 +416,7 @@
             </Documentation>
           </Property>
           <NavigationProperty Name="TB_UserRole" Relationship="Self.FK_TB_USERR_REFERENCE_TB_USERS" FromRole="TB_Users" ToRole="TB_UserRole" />
+          <Property Name="role_id" Type="Int32" />
         </EntityType>
         <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
           <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
@@ -585,6 +586,7 @@
           <EntitySetMapping Name="TB_Users">
             <EntityTypeMapping TypeName="sysModel.TB_Users">
               <MappingFragment StoreEntitySet="TB_Users">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
                 <ScalarProperty Name="user_id" ColumnName="user_id" />
                 <ScalarProperty Name="user_name" ColumnName="user_name" />
                 <ScalarProperty Name="user_password" ColumnName="user_password" />
