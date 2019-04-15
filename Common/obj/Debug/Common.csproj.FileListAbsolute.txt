@@ -17,3 +17,9 @@ C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.csproj.CoreCompileInp
 C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.dll
 C:\Users\Admin\Downloads\EFMNVCApp\Common\obj\Debug\Common.pdb
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\NPOI.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\NPOI.OOXML.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\Administrator\EFMVCApp\Common\bin\Debug\NPOI.xml

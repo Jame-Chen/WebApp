@@ -18,8 +18,7 @@ namespace BLL
         public Result AssigningRoles(int user_id, int[] roles)
         {
             Result result = new Result();
-            try
-            {
+          
                 if (user_id != 0 && roles.Count() > 0)
                 {
                     List<TB_UserRole> userrolelist = LoadEntities(s => s.user_id == user_id).ToList();
@@ -43,12 +42,7 @@ namespace BLL
                     result.Code = "400";
                     result.Msg = "userid和角色不能为空!";
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+         
             return result;
         }
     }

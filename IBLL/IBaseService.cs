@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using IDAL;
+using Model;
 
 
 namespace IBLL
@@ -16,11 +17,11 @@ namespace IBLL
 
         void SetCurrentRepository();
 
-        T AddEntity(T entity);
+        Result AddEntity(T entity);
 
-        bool UpdateEntity(T entity);
+        Result UpdateEntity(T entity);
 
-        bool DeleteEntity(T entity);
+        Result DeleteEntity(T entity);
 
         IQueryable<T> LoadEntities(Expression<Func<T, bool>> whereLambda, bool idTracking = false, bool CreationEnabled = true);
 

@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A56DBC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BFECC282-31B9-4FBF-890D-EDF1CE4AE106}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{B13DF580-6C22-4BC4-AB23-3C0542E305E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{BFECC282-31B9-4FBF-890D-EDF1CE4AE106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFECC282-31B9-4FBF-890D-EDF1CE4AE106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFECC282-31B9-4FBF-890D-EDF1CE4AE106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

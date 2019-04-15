@@ -41,3 +41,4 @@ C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.csproj.CoreCompileInputs.
 C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.dll
 C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.pdb
+C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

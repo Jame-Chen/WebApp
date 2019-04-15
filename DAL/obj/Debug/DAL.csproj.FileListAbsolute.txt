@@ -48,3 +48,4 @@ C:\Users\Admin\Downloads\EFMNVCApp\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.ca
 C:\Users\Admin\Downloads\EFMNVCApp\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\DAL\obj\Debug\DAL.dll
 C:\Users\Admin\Downloads\EFMNVCApp\DAL\obj\Debug\DAL.pdb
+C:\Users\Administrator\EFMVCApp\DAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

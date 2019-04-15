@@ -32,5 +32,10 @@ namespace BLL
             }
             _dbSession.Save();
         }
+
+        public void test()
+        {
+          
+        }
     }
 }

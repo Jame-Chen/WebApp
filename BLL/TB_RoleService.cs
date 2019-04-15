@@ -17,8 +17,8 @@ namespace BLL
         public Result AddRole(TB_Role Roles)
         {
             Result result = new Result();
-            try
-            {
+          
+           
                 if (LoadEntities(s => s.role_name == Roles.role_name).Any())
                 {
                     result.Code = "400";
@@ -32,12 +32,7 @@ namespace BLL
                     result.Code = "200";
                     result.Msg = "添加成功!";
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+          
             return result;
         }
         /// <summary>
@@ -48,8 +43,8 @@ namespace BLL
         public Result EdtRole(TB_Role Roles)
         {
             Result result = new Result();
-            try
-            {
+          
+         
                 if (Roles.role_id == 0)
                 {
                     result.Code = "400";
@@ -72,12 +67,7 @@ namespace BLL
                     }
 
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+         
             return result;
         }
         /// <summary>
@@ -88,8 +78,8 @@ namespace BLL
         public Result DelRole(TB_Role Roles)
         {
             Result result = new Result();
-            try
-            {
+          
+          
                 if (Roles.role_id == 0)
                 {
                     result.Code = "400";
@@ -109,12 +99,7 @@ namespace BLL
                         result.Msg = "该角色不存在!";
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+         
             return result;
         }
         /// <summary>
@@ -125,8 +110,8 @@ namespace BLL
         public Result GetRoleByID(int role_id)
         {
             Result result = new Result();
-            try
-            {
+          
+           
                 if (role_id == 0)
                 {
                     result.Code = "400";
@@ -146,12 +131,7 @@ namespace BLL
                         result.Msg = "该角色不存在!";
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+         
             return result;
         }
         /// <summary>
@@ -165,8 +145,8 @@ namespace BLL
         public Result GetRoleByWhere(int Page, int pageSize, string RoleName)
         {
             Result result = new Result();
-            try
-            {
+          
+           
                 int total = 0;
                 var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 1 ? 10 : pageSize, out total, s => true, true, o => o.createtime);
                 if (!string.IsNullOrEmpty(RoleName))
@@ -177,12 +157,7 @@ namespace BLL
                 result.Code = "200";
                 result.Msg = "查询成功!";
                 result.Data = query.ToList();
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+          
             return result;
         }
     }

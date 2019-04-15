@@ -17,27 +17,22 @@ namespace BLL
         public Result AddMenu(TB_Menu Menus)
         {
             Result result = new Result();
-            try
-            {
-                if (LoadEntities(s => s.menu_name == Menus.menu_name).Any())
-                {
-                    result.Code = "400";
-                    result.Msg = "该名称已存在!";
-                }
-                else
-                {
 
-                    Menus.status = "1";
-                    result.Data = AddEntity(Menus);
-                    result.Code = "200";
-                    result.Msg = "添加成功!";
-                }
-            }
-            catch (Exception e)
+
+            if (LoadEntities(s => s.menu_name == Menus.menu_name).Any())
             {
-                result.Code = "500";
-                result.Msg = e.Message;
+                result.Code = "400";
+                result.Msg = "该名称已存在!";
             }
+            else
+            {
+
+                Menus.status = "1";
+                result.Data = AddEntity(Menus);
+                result.Code = "200";
+                result.Msg = "添加成功!";
+            }
+
             return result;
         }
         /// <summary>
@@ -48,34 +43,28 @@ namespace BLL
         public Result EdtMenu(TB_Menu Menus)
         {
             Result result = new Result();
-            try
+
+            if (Menus.menu_id == 0)
             {
-                if (Menus.menu_id == 0)
+                result.Code = "400";
+                result.Msg = "要修改的ID不能为空!";
+            }
+            else
+            {
+                if (LoadEntities(s => s.menu_id == Menus.menu_id).Any())
                 {
-                    result.Code = "400";
-                    result.Msg = "要修改的ID不能为空!";
+                    UpdateEntity(Menus);
+                    result.Code = "200";
+                    result.Msg = "修改成功!";
                 }
                 else
                 {
-                    if (LoadEntities(s => s.menu_id == Menus.menu_id).Any())
-                    {
-                        UpdateEntity(Menus);
-                        result.Code = "200";
-                        result.Msg = "修改成功!";
-                    }
-                    else
-                    {
-                        result.Code = "400";
-                        result.Msg = "该菜单不存在!";
-                    }
-
+                    result.Code = "400";
+                    result.Msg = "该菜单不存在!";
                 }
+
             }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+
             return result;
         }
         /// <summary>
@@ -86,33 +75,27 @@ namespace BLL
         public Result DelMenu(TB_Menu Menus)
         {
             Result result = new Result();
-            try
+
+            if (Menus.menu_id == 0)
             {
-                if (Menus.menu_id == 0)
+                result.Code = "400";
+                result.Msg = "要删除的ID不能为空!";
+            }
+            else
+            {
+                if (LoadEntities(s => s.menu_id == Menus.menu_id).Any())
                 {
-                    result.Code = "400";
-                    result.Msg = "要删除的ID不能为空!";
+                    DeleteEntity(Menus);
+                    result.Code = "200";
+                    result.Msg = "删除成功!";
                 }
                 else
                 {
-                    if (LoadEntities(s => s.menu_id == Menus.menu_id).Any())
-                    {
-                        DeleteEntity(Menus);
-                        result.Code = "200";
-                        result.Msg = "删除成功!";
-                    }
-                    else
-                    {
-                        result.Code = "400";
-                        result.Msg = "该菜单不存在!";
-                    }
+                    result.Code = "400";
+                    result.Msg = "该菜单不存在!";
                 }
             }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+
             return result;
         }
         /// <summary>
@@ -123,33 +106,27 @@ namespace BLL
         public Result GetMenuByID(int menu_id)
         {
             Result result = new Result();
-            try
+
+            if (menu_id == 0)
             {
-                if (menu_id == 0)
+                result.Code = "400";
+                result.Msg = "ID不能为空!";
+            }
+            else
+            {
+                if (LoadEntities(s => s.menu_id == menu_id).Any())
                 {
-                    result.Code = "400";
-                    result.Msg = "ID不能为空!";
+                    result.Data = LoadEntities(s => s.menu_id == menu_id).FirstOrDefault();
+                    result.Code = "200";
+                    result.Msg = "查询成功!";
                 }
                 else
                 {
-                    if (LoadEntities(s => s.menu_id == menu_id).Any())
-                    {
-                        result.Data = LoadEntities(s => s.menu_id == menu_id).FirstOrDefault();
-                        result.Code = "200";
-                        result.Msg = "查询成功!";
-                    }
-                    else
-                    {
-                        result.Code = "400";
-                        result.Msg = "该菜单不存在!";
-                    }
+                    result.Code = "400";
+                    result.Msg = "该菜单不存在!";
                 }
             }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+
             return result;
         }
         /// <summary>
@@ -163,24 +140,18 @@ namespace BLL
         public Result GetMenuByWhere(int Page, int pageSize, string MenuName)
         {
             Result result = new Result();
-            try
-            {
-                int total = 0;
-                var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.sort_order);
-                if (!string.IsNullOrEmpty(MenuName))
-                {
-                    query = query.Where(w => w.menu_name.Contains(MenuName));
-                }
 
-                result.Code = "200";
-                result.Msg = "查询成功!";
-                result.Data = query.ToList();
-            }
-            catch (Exception e)
+            int total = 0;
+            var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.sort_order);
+            if (!string.IsNullOrEmpty(MenuName))
             {
-                result.Code = "500";
-                result.Msg = e.Message;
+                query = query.Where(w => w.menu_name.Contains(MenuName));
             }
+
+            result.Code = "200";
+            result.Msg = "查询成功!";
+            result.Data = query.ToList();
+
             return result;
         }
     }

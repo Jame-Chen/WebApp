@@ -73,3 +73,7 @@ C:\Users\Admin\Downloads\EFMNVCApp\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.ca
 C:\Users\Admin\Downloads\EFMNVCApp\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\BLL\obj\Debug\BLL.dll
 C:\Users\Admin\Downloads\EFMNVCApp\BLL\obj\Debug\BLL.pdb
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\NPOI.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\EFMVCApp\BLL\bin\Debug\NPOI.xml

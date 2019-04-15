@@ -17,27 +17,22 @@ namespace BLL
         public Result AddDepartment(TB_Department Departments)
         {
             Result result = new Result();
-            try
-            {
-                if (LoadEntities(s => s.department_name == Departments.department_name).Any())
-                {
-                    result.Code = "400";
-                    result.Msg = "该名称已存在!";
-                }
-                else
-                {
 
-                    Departments.status = "1";
-                    result.Data = AddEntity(Departments);
-                    result.Code = "200";
-                    result.Msg = "添加成功!";
-                }
-            }
-            catch (Exception e)
+
+            if (LoadEntities(s => s.department_name == Departments.department_name).Any())
             {
-                result.Code = "500";
-                result.Msg = e.Message;
+                result.Code = "400";
+                result.Msg = "该名称已存在!";
             }
+            else
+            {
+
+                Departments.status = "1";
+                result.Data = AddEntity(Departments);
+                result.Code = "200";
+                result.Msg = "添加成功!";
+            }
+
             return result;
         }
         /// <summary>
@@ -48,34 +43,28 @@ namespace BLL
         public Result EdtDepartment(TB_Department Departments)
         {
             Result result = new Result();
-            try
+
+            if (Departments.department_id == 0)
             {
-                if (Departments.department_id == 0)
+                result.Code = "400";
+                result.Msg = "要修改的ID不能为空!";
+            }
+            else
+            {
+                if (LoadEntities(s => s.department_id == Departments.department_id).Any())
                 {
-                    result.Code = "400";
-                    result.Msg = "要修改的ID不能为空!";
+                    UpdateEntity(Departments);
+                    result.Code = "200";
+                    result.Msg = "修改成功!";
                 }
                 else
                 {
-                    if (LoadEntities(s => s.department_id == Departments.department_id).Any())
-                    {
-                        UpdateEntity(Departments);
-                        result.Code = "200";
-                        result.Msg = "修改成功!";
-                    }
-                    else
-                    {
-                        result.Code = "400";
-                        result.Msg = "该部门不存在!";
-                    }
-
+                    result.Code = "400";
+                    result.Msg = "该部门不存在!";
                 }
+
             }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+
             return result;
         }
         /// <summary>
@@ -86,33 +75,28 @@ namespace BLL
         public Result DelDepartment(TB_Department Departments)
         {
             Result result = new Result();
-            try
+
+
+            if (Departments.department_id == 0)
             {
-                if (Departments.department_id == 0)
+                result.Code = "400";
+                result.Msg = "要删除的ID不能为空!";
+            }
+            else
+            {
+                if (LoadEntities(s => s.department_id == Departments.department_id).Any())
                 {
-                    result.Code = "400";
-                    result.Msg = "要删除的ID不能为空!";
+                    DeleteEntity(Departments);
+                    result.Code = "200";
+                    result.Msg = "删除成功!";
                 }
                 else
                 {
-                    if (LoadEntities(s => s.department_id == Departments.department_id).Any())
-                    {
-                        DeleteEntity(Departments);
-                        result.Code = "200";
-                        result.Msg = "删除成功!";
-                    }
-                    else
-                    {
-                        result.Code = "400";
-                        result.Msg = "该部门不存在!";
-                    }
+                    result.Code = "400";
+                    result.Msg = "该部门不存在!";
                 }
             }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+
             return result;
         }
         /// <summary>
@@ -123,33 +107,28 @@ namespace BLL
         public Result GetDepartmentByID(int department_id)
         {
             Result result = new Result();
-            try
+
+
+            if (department_id == 0)
             {
-                if (department_id == 0)
+                result.Code = "400";
+                result.Msg = "ID不能为空!";
+            }
+            else
+            {
+                if (LoadEntities(s => s.department_id == department_id).Any())
                 {
-                    result.Code = "400";
-                    result.Msg = "ID不能为空!";
+                    result.Data = LoadEntities(s => s.department_id == department_id).FirstOrDefault();
+                    result.Code = "200";
+                    result.Msg = "查询成功!";
                 }
                 else
                 {
-                    if (LoadEntities(s => s.department_id == department_id).Any())
-                    {
-                        result.Data = LoadEntities(s => s.department_id == department_id).FirstOrDefault();
-                        result.Code = "200";
-                        result.Msg = "查询成功!";
-                    }
-                    else
-                    {
-                        result.Code = "400";
-                        result.Msg = "该部门不存在!";
-                    }
+                    result.Code = "400";
+                    result.Msg = "该部门不存在!";
                 }
             }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
+
             return result;
         }
         /// <summary>
@@ -163,24 +142,16 @@ namespace BLL
         public Result GetDepartmentByWhere(int Page, int pageSize, string DepartmentName)
         {
             Result result = new Result();
-            try
+            int total = 0;
+            var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.department_id);
+            if (!string.IsNullOrEmpty(DepartmentName))
             {
-                int total = 0;
-                var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.department_id);
-                if (!string.IsNullOrEmpty(DepartmentName))
-                {
-                    query = query.Where(w => w.department_name.Contains(DepartmentName));
-                }
+                query = query.Where(w => w.department_name.Contains(DepartmentName));
+            }
+            result.Code = "200";
+            result.Msg = "查询成功!";
+            result.Data = query.ToList();
 
-                result.Code = "200";
-                result.Msg = "查询成功!";
-                result.Data = query.ToList();
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-            }
             return result;
         }
     }

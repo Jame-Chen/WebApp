@@ -14,8 +14,8 @@ using WebAPI.Filter;
 
 namespace WebAPI.Controllers
 {
-    [RequestAuthorizeAttribute]
-    [ModelValidationAttribute]
+    
+    
     public class RoleController : ApiController
     {
         TB_RoleService ts = new TB_RoleService();

@@ -34,3 +34,4 @@ C:\Users\Admin\Downloads\EFMNVCApp\Model\obj\Debug\Model.dll
 C:\Users\Admin\Downloads\EFMNVCApp\Model\obj\Debug\Model.pdb
 C:\Users\Admin\Downloads\EFMNVCApp\Model\obj\Debug\Model.csprojAssemblyReference.cache
 C:\Users\Admin\Downloads\EFMNVCApp\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Administrator\EFMVCApp\Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

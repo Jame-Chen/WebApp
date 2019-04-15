@@ -10,8 +10,8 @@ using WebAPI.Filter;
 
 namespace WebAPI.Controllers
 {
-    [RequestAuthorizeAttribute]
-    [ModelValidationAttribute]
+    
+    
     public class DepartmentController : ApiController
     {
         TB_DepartmentService db = new TB_DepartmentService();

@@ -213,3 +213,7 @@ C:\Users\Admin\Downloads\EFMNVCApp\WebAPI\obj\Debug\WebAPI.csproj.CoreCompileInp
 C:\Users\Admin\Downloads\EFMNVCApp\WebAPI\obj\Debug\WebAPI.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\WebAPI\obj\Debug\WebAPI.dll
 C:\Users\Admin\Downloads\EFMNVCApp\WebAPI\obj\Debug\WebAPI.pdb
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\NPOI.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\EFMVCApp\WebAPI\bin\NPOI.xml

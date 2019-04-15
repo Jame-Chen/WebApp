@@ -10,8 +10,8 @@ using WebAPI.Filter;
 
 namespace WebAPI.Controllers
 {
-    [RequestAuthorizeAttribute]
-    [ModelValidationAttribute]
+    
+    
     public class MenuController : ApiController
     {
         TB_MenuService ts = new TB_MenuService();

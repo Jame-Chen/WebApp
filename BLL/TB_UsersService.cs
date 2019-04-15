@@ -22,17 +22,9 @@ namespace BLL
     {
         TB_UserRoleService tus = new TB_UserRoleService();
         TB_RoleService trole = new TB_RoleService();
-        ILog logger;
-        public TB_UsersService()
-        {
-            InitLog4Net();
-            logger = LogManager.GetLogger(typeof(TB_UsersService));
-        }
-        private static void InitLog4Net()
-        {
-            var logCfg = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "log4net.config");
-            XmlConfigurator.ConfigureAndWatch(logCfg);
-        }
+       
+    
+       
         //校验用户名密码
         public bool ValidateUser(string LoginName, string PassWord)
         {
@@ -89,8 +81,7 @@ namespace BLL
                 Code = "404",
                 Msg = "token不能为空!"
             };
-            try
-            {
+          
                 if (!string.IsNullOrEmpty(encryptTicket))
                 {
                     //解密Ticket
@@ -118,13 +109,7 @@ namespace BLL
                     }
 
                 }
-            }
-            catch (Exception e)
-            {
-                r.Code = "500";
-                r.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+           
             return r;
         }
         /// <summary>
@@ -134,8 +119,8 @@ namespace BLL
         public Result Login(string LoginName, string PassWord)
         {
             Result r = new Result();
-            try
-            {
+          
+           
                 PassWord = EncryptionMD5.EncryptString(PassWord);
                 if (!ValidateUser(LoginName, PassWord))
                 {
@@ -156,13 +141,7 @@ namespace BLL
                 r.Code = "200";
                 r.Msg = "登录成功!";
                 r.Data = Users;
-            }
-            catch (Exception e)
-            {
-                r.Code = "500";
-                r.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+          
             return r;
         }
         /// <summary>
@@ -173,8 +152,7 @@ namespace BLL
         public Result AddUser(TB_Users users)
         {
             Result result = new Result();
-            try
-            {
+          
                 if (LoadEntities(s => s.user_name == users.user_name).Any())
                 {
                     result.Code = "400";
@@ -189,13 +167,7 @@ namespace BLL
                     result.Code = "200";
                     result.Msg = "添加成功!";
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+           
             return result;
         }
         /// <summary>
@@ -206,8 +178,7 @@ namespace BLL
         public Result EdtUser(TB_Users users)
         {
             Result result = new Result();
-            try
-            {
+          
                 if (users.user_id == 0)
                 {
                     result.Code = "400";
@@ -230,13 +201,7 @@ namespace BLL
                     }
 
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+         
             return result;
         }
         /// <summary>
@@ -247,8 +212,7 @@ namespace BLL
         public Result DelUser(TB_Users users)
         {
             Result result = new Result();
-            try
-            {
+          
                 if (users.user_id == 0)
                 {
                     result.Code = "400";
@@ -268,13 +232,7 @@ namespace BLL
                         result.Msg = "该用户不存在!";
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+           
             return result;
         }
         /// <summary>
@@ -285,8 +243,7 @@ namespace BLL
         public Result GetUserByID(int user_id)
         {
             Result result = new Result();
-            try
-            {
+          
                 if (user_id == 0)
                 {
                     result.Code = "400";
@@ -318,13 +275,7 @@ namespace BLL
                         result.Msg = "该用户不存在!";
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+          
             return result;
         }
         /// <summary>
@@ -338,8 +289,7 @@ namespace BLL
         public Result GetUserByWhere(int Page, int pageSize, string UserName, string DepID)
         {
             Result result = new Result();
-            try
-            {
+          
                 int total = 0;
                 var query = LoadPageEntities(Page == 0 ? 1 : Page, pageSize == 0 ? 10 : pageSize, out total, s => true, true, o => o.createtime);
                 if (!string.IsNullOrEmpty(UserName))
@@ -353,13 +303,7 @@ namespace BLL
                 result.Code = "200";
                 result.Msg = "查询成功!";
                 result.Data = query.ToList();
-            }
-            catch (Exception e)
-            {
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+           
             return result;
         }
         /// <summary>
@@ -371,8 +315,7 @@ namespace BLL
         public Result UploadAvatar(int user_id, HttpFileCollection file)
         {
             Result result = new Result();
-            try
-            {
+          
                 // 文件上传后的保存路径
                 string filePath = HttpContext.Current.Server.MapPath("~/Uploads/");
                 if (!Directory.Exists(filePath))
@@ -392,28 +335,14 @@ namespace BLL
                 result.Code = "200";
                 result.Msg = "上传成功!";
                 result.Data = fileName;
-            }
-            catch (DbEntityValidationException e)
-            {
-                foreach (var validationErrors in e.EntityValidationErrors)
-                {
-                    foreach (var validationError in validationErrors.ValidationErrors)
-                    {
-                        logger.Error("UploadAvatar:" + validationErrors.Entry.Entity.GetType().FullName + "," + validationError.PropertyName + "," + validationError.ErrorMessage);
-                    }
-                }
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+          
             return result;
         }
 
         public Result P_User(int user_id)
         {
             Result result = new Result();
-            try
-            {
+          
                 string pro = "exec p_user @user_id";
                 SqlParameter[] param = new SqlParameter[]{
                 new SqlParameter{ParameterName="@user_id",Value=user_id}
@@ -423,22 +352,14 @@ namespace BLL
                 result.Code = "200";
                 result.Msg = "查询成功!";
                 result.Data = ret.ToList();
-            }
-            catch (Exception e)
-            {
-
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+          
             return result;
         }
 
         public Result P_EdtUser(int user_id)
         {
             Result result = new Result();
-            try
-            {
+          
                 string sql = "update tb_users set remark='1' where user_id=@user_id";
                 SqlParameter[] param = new SqlParameter[]{
                 new SqlParameter{ParameterName="@user_id",Value=user_id}
@@ -448,14 +369,7 @@ namespace BLL
                 result.Code = "200";
                 result.Msg = "操作成功!";
                 result.Data = ret;
-            }
-            catch (Exception e)
-            {
-
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+         
             return result;
         }
 
@@ -463,8 +377,7 @@ namespace BLL
         public Result GetUserRoleName()
         {
             Result result = new Result();
-            try
-            {
+          
                 IQueryable<TB_Role> role = trole.LoadEntities(l => true, false, true);
                 IQueryable<TB_Users> user = LoadEntities(l => true, false, true);
                 //Lambda左连接
@@ -476,14 +389,7 @@ namespace BLL
                 result.Code = "200";
                 result.Msg = "操作成功!";
                 result.Data = ret;
-            }
-            catch (Exception e)
-            {
-
-                result.Code = "500";
-                result.Msg = e.Message;
-                logger.Error(e.Message);
-            }
+          
             return result;
         }
     }

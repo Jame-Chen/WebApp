@@ -17,7 +17,9 @@ namespace WebAPI
             // Web API configuration and services
             //跨域配置
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
-
+            config.Filters.Add(new ModelValidationAttribute());
+            config.Filters.Add(new RequestAuthorizeAttribute());
+            config.Filters.Add(new ExceptionFilter());
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -38,7 +40,7 @@ namespace WebAPI
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.Converters.Add(
                new Newtonsoft.Json.Converters.IsoDateTimeConverter()
                {
-                   DateTimeFormat = "yyyy-MM-dd hh:mm:ss"
+                   DateTimeFormat = "yyyy-MM-dd HH:mm:ss"
                });
         }
     }

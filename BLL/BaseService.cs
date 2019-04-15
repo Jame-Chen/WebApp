@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IDAL;
 using DAL;
+using Model;
 
 namespace BLL
 {
@@ -29,11 +30,15 @@ namespace BLL
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public T AddEntity(T entity)
+        public Result AddEntity(T entity)
         {
+            Result result = new Result();
             var addEntity = CurrentRepository.AddEntity(entity);
             _dbSession.Save();
-            return addEntity;
+            result.Code = "200";
+            result.Msg = "操作成功!";
+            result.Data = addEntity;
+            return result;
         }
 
         /// <summary>
@@ -41,10 +46,14 @@ namespace BLL
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool UpdateEntity(T entity)
+        public Result UpdateEntity(T entity)
         {
+            Result result = new Result();
             CurrentRepository.UpdateEntity(entity);
-            return _dbSession.Save() > 0;
+            _dbSession.Save();
+            result.Code = "200";
+            result.Msg = "操作成功!";
+            return result;
         }
 
         /// <summary>
@@ -52,10 +61,14 @@ namespace BLL
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool DeleteEntity(T entity)
+        public Result DeleteEntity(T entity)
         {
+            Result result = new Result();
             CurrentRepository.DeleteEntity(entity);
-            return _dbSession.Save() > 0;
+            _dbSession.Save();
+            result.Code = "200";
+            result.Msg = "操作成功!";
+            return result;
         }
 
         /// <summary>

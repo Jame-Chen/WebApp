@@ -19,8 +19,8 @@ using System.Web.Hosting;
 
 namespace WebAPI.Controllers
 {
-    [RequestAuthorizeAttribute]
-    [ModelValidationAttribute]
+    
+    
     public class UsersController : ApiController
     {
         TB_UsersService us = new TB_UsersService();
