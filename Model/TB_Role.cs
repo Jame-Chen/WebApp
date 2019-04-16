@@ -23,39 +23,39 @@ namespace Model
         {
             this.TB_MenuRole = new HashSet<TB_MenuRole>();
             this.TB_UserRole = new HashSet<TB_UserRole>();
-        }
-        /// <summary>
-        /// 角色ID
+    	}
+    			    /// <summary>
+        /// 
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
-        [Display(Name = "角色ID")]
         [Key]
+    
         public int role_id { get; set; }
         /// <summary>
-        /// 角色名称
+        /// 
         /// </summary>
-        [Display(Name = "角色名称")]
         [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
         [StringLength(50,ErrorMessage="最多只能输入50个字符")]
+    
         public string role_name { get; set; }
         /// <summary>
-        /// 描述
+        /// 
         /// </summary>
-        [Display(Name = "描述")]
         [MaxLength(500,ErrorMessage="最多只能输入500个字符")]
         [StringLength(500,ErrorMessage="最多只能输入500个字符")]
+    
         public string description { get; set; }
         /// <summary>
-        /// 创建时间
+        /// 
         /// </summary>
-        [Display(Name = "创建时间")]
         [DataType(DataType.DateTime)]
+    
         public System.DateTime? createtime { get; set; }
         /// <summary>
-        /// 修改时间
+        /// 
         /// </summary>
-        [Display(Name = "修改时间")]
         [DataType(DataType.DateTime)]
+    
         public System.DateTime? modifytime { get; set; }
     
        

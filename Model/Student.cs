@@ -22,38 +22,46 @@ namespace Model
     public Student()
         {
             this.Attributes = new HashSet<Attributes>();
-        }
-        /// <summary>
+    	}
+    			    /// <summary>
         /// 
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
         [Key]
+    
         public int Id { get; set; }
         /// <summary>
         /// 
         /// </summary>
+    
         public int? Age { get; set; }
         /// <summary>
-        /// 
+        /// 名称
         /// </summary>
+        [Display(Name = "名称")]
         [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
         [StringLength(10,ErrorMessage="最多只能输入10个字符")]
+    
         public string Name { get; set; }
         /// <summary>
         /// 
         /// </summary>
+    
         public int? Sex { get; set; }
         /// <summary>
         /// 
         /// </summary>
+    
         public decimal? Chinese { get; set; }
         /// <summary>
         /// 
         /// </summary>
+    
         public decimal? Math { get; set; }
         /// <summary>
         /// 
         /// </summary>
+    
         public decimal? English { get; set; }
     
        

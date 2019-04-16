@@ -21,24 +21,14 @@ namespace Model
     {
     public TB_UserRole()
         {
-        }
-        /// <summary>
-        /// 主键
+    	}
+    			    /// <summary>
+        /// 
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
-        [Display(Name = "主键")]
         [Key]
+    
         public int id { get; set; }
-        /// <summary>
-        /// 角色名称
-        /// </summary>
-        [Display(Name = "角色名称")]
-        public int? role_id { get; set; }
-        /// <summary>
-        /// 用户名称
-        /// </summary>
-        [Display(Name = "用户名称")]
-        public int? user_id { get; set; }
     
          public virtual TB_Role TB_Role { get; set; }
          public virtual TB_Users TB_Users { get; set; }

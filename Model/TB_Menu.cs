@@ -22,62 +22,62 @@ namespace Model
     public TB_Menu()
         {
             this.TB_MenuRole = new HashSet<TB_MenuRole>();
-        }
-        /// <summary>
-        /// 菜单ID
+    	}
+    			    /// <summary>
+        /// 
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
-        [Display(Name = "菜单ID")]
         [Key]
+    
         public int menu_id { get; set; }
         /// <summary>
-        /// 菜单名称
+        /// 
         /// </summary>
-        [Display(Name = "菜单名称")]
         [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
         [StringLength(50,ErrorMessage="最多只能输入50个字符")]
+    
         public string menu_name { get; set; }
         /// <summary>
-        /// 菜单url
+        /// 
         /// </summary>
-        [Display(Name = "菜单url")]
         [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
         [StringLength(50,ErrorMessage="最多只能输入50个字符")]
+    
         public string menu_url { get; set; }
         /// <summary>
-        /// 父级名称
+        /// 
         /// </summary>
-        [Display(Name = "父级名称")]
         [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
         [StringLength(50,ErrorMessage="最多只能输入50个字符")]
+    
         public string parent_id { get; set; }
         /// <summary>
-        /// 菜单等级
+        /// 
         /// </summary>
-        [Display(Name = "菜单等级")]
         [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
         [StringLength(10,ErrorMessage="最多只能输入10个字符")]
+    
         public string menu_level { get; set; }
         /// <summary>
-        /// 排序字段
+        /// 
         /// </summary>
-        [Display(Name = "排序字段")]
         [MaxLength(50,ErrorMessage="最多只能输入50个字符")]
         [StringLength(50,ErrorMessage="最多只能输入50个字符")]
+    
         public string sort_order { get; set; }
         /// <summary>
-        /// 状态
+        /// 
         /// </summary>
-        [Display(Name = "状态")]
         [MaxLength(10,ErrorMessage="最多只能输入10个字符")]
         [StringLength(10,ErrorMessage="最多只能输入10个字符")]
+    
         public string status { get; set; }
         /// <summary>
-        /// 备注
+        /// 
         /// </summary>
-        [Display(Name = "备注")]
         [MaxLength(1000,ErrorMessage="最多只能输入1000个字符")]
         [StringLength(1000,ErrorMessage="最多只能输入1000个字符")]
+    
         public string remark { get; set; }
     
        

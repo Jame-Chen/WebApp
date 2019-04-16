@@ -1,13 +1,35 @@
-﻿<#@ template language="C#" debug="false" hostspecific="true"#>
-<#@ include file="EF6.Utility.CS.ttinclude"#><#@ 
- output extension=".cs"#><#
+﻿<#@ template language="C#" debug="true" hostspecific="true"#>
+<#@ include file="EF6.Utility.CS.ttinclude"#>
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ output extension=".cs"#>
 
+<# 
+	string connectionString = "Data Source=.;Initial Catalog=sys;User ID=sa;Password=123456;"; 
+    SqlConnection conn = new SqlConnection(connectionString); 
+    conn.Open(); 
+    System.Data.DataTable schema = conn.GetSchema("TABLES"); 
+    string selectQuery = "select * from @tableName"; 
+    SqlCommand command = new SqlCommand(selectQuery,conn); 
+    SqlDataAdapter ad = new SqlDataAdapter(command); 
+    System.Data.DataSet ds = new DataSet();
+ 
+    string propQuery = "SELECT 表名=sobj.name,字段名=scol.name,字段说明=sprop.[value] FROM syscolumns as scol inner join sys.sysobjects as sobj on scol.id=sobj.id and sobj.xtype='U' and sobj.name<>'dtproperties' left join sys.extended_properties as sprop on scol.id=sprop.major_id and scol.colid=sprop.minor_id where sobj.name='@tableName' and scol.name='@columnName'"; 
+    SqlCommand command2 = new SqlCommand(propQuery,conn); 
+    SqlDataAdapter ad2 = new SqlDataAdapter(command2); 
+    System.Data.DataSet ds2 = new DataSet();
+
+ #>
+ <#
 const string inputFile = @"Model1.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
 var typeMapper = new TypeMapper(code, ef, textTransform.Errors);
-var	fileManager = EntityFrameworkTemplateFileManager.Create(this);
+var fileManager = EntityFrameworkTemplateFileManager.Create(this);
 var itemCollection = new EdmMetadataLoader(textTransform.Host, textTransform.Errors).CreateEdmItemCollection(inputFile);
 var codeStringGenerator = new CodeStringGenerator(code, typeMapper, ef);
 
@@ -41,9 +63,9 @@ using System.ComponentModel.DataAnnotations;
 public <#=code.Escape(entity)#>()
     {
 <#
-  var propertiesWithDefaultValues = typeMapper.GetPropertiesWithDefaultValues(entity);
-      var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
-    var complexProperties = typeMapper.GetComplexProperties(entity);
+        var propertiesWithDefaultValues = typeMapper.GetPropertiesWithDefaultValues(entity);
+        var collectionNavigationProperties = typeMapper.GetCollectionNavigationProperties(entity);
+        var complexProperties = typeMapper.GetComplexProperties(entity);
         foreach (var edmProperty in propertiesWithDefaultValues)
         {
 #>
@@ -60,13 +82,13 @@ public <#=code.Escape(entity)#>()
 
         foreach (var complexProperty in complexProperties)
         {
-#>
-        this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
-<#
-        }
-#>
-    }
-<#
+			#>
+					this.<#=code.Escape(complexProperty)#> = new <#=typeMapper.GetTypeName(complexProperty.TypeUsage)#>();
+			<#
+	    }
+			#>
+	}
+			<#
 
 
     var simpleProperties = typeMapper.GetSimpleProperties(entity);
@@ -74,21 +96,15 @@ public <#=code.Escape(entity)#>()
     {
         foreach (var edmProperty in simpleProperties)
         {
-		  if (edmProperty.Documentation != null && edmProperty.Documentation.Summary != null)
-                {
-                    if(!entity.KeyMembers.Contains(edmProperty.Name))
-                        summary=edmProperty.Documentation.Summary.ToLower().Replace("id","名称");
-                    else
-                        summary=edmProperty.Documentation.Summary;
-                }
-                else
-                {
-                    summary="";
-                }
+             ds2.Tables.Clear();
+             command2.CommandText = propQuery.Replace("@tableName",entity.Name); 
+             command2.CommandText = command2.CommandText.Replace("@columnName",edmProperty.Name); 
+             ad2.Fill(ds2);
+			 if(ds2.Tables[0].Rows.Count>0){
+             summary=ds2.Tables[0].Rows[0].ItemArray[2].ToString();
+             }
 #>
-    <#        //if(edmProperty.Name.ToLower() == "id")
-                // continue;var a=edmProperty.Nullable;
-                
+    <#        
                 var keyName=""; 
                 if(entity.KeyMembers.Contains(edmProperty.Name))          
                     keyName="[Key]";
@@ -109,7 +125,8 @@ public <#=code.Escape(entity)#>()
                 else if (edmProperty.Name.ToLower().Contains("password"))
                     dataType="[DataType(DataType.Password)]";
   
-    #>/// <summary>
+    #>
+/// <summary>
     /// <#=summary#>
     /// </summary>
 <#                if(!string.IsNullOrWhiteSpace(required)){ #>
@@ -125,6 +142,7 @@ public <#=code.Escape(entity)#>()
 <#                    } if(!string.IsNullOrWhiteSpace(keyName)){ #>
     <#=                        keyName #>
 <#                } #>
+
     <#=codeStringGenerator.Property(edmProperty)#>
 <#
         }

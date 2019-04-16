@@ -5,19 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1e7a14e6af9c4c3582a9d62848d85da6" Name="Diagram1" ZoomLevel="100" ShowGrid="false">
-        <EntityTypeShape EntityType="sysModel.Student" Width="1.5" PointX="5.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="sysModel.TB_Department" Width="1.5" PointX="2.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="sysModel.TB_Menu" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="sysModel.TB_MenuRole" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="sysModel.TB_Role" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="sysModel.TB_UserRole" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="sysModel.TB_Users" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <AssociationConnector Association="sysModel.FK_TB_MENUR_REFERENCE_TB_MENU" ManuallyRouted="false" />
-        <AssociationConnector Association="sysModel.FK_TB_MENUR_REFERENCE_TB_ROLE" ManuallyRouted="false" />
-        <AssociationConnector Association="sysModel.FK_TB_USERR_REFERENCE_TB_ROLE" ManuallyRouted="false" />
-        <AssociationConnector Association="sysModel.FK_TB_USERR_REFERENCE_TB_USERS" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="sysModel.Attributes" Width="1.5" PointX="8" PointY="2.5" />
+        <EntityTypeShape EntityType="sysModel.Attributes" Width="1.5" PointX="8" PointY="2.75" />
+        <EntityTypeShape EntityType="sysModel.Student" Width="1.5" PointX="5.75" PointY="2.25" />
+        <EntityTypeShape EntityType="sysModel.TB_Department" Width="1.5" PointX="2.75" PointY="7.125" />
+        <EntityTypeShape EntityType="sysModel.TB_Menu" Width="1.5" PointX="0.75" PointY="12.125" />
+        <EntityTypeShape EntityType="sysModel.TB_MenuRole" Width="1.5" PointX="3" PointY="3.5" />
+        <EntityTypeShape EntityType="sysModel.TB_Role" Width="1.5" PointX="0.75" PointY="3.375" />
+        <EntityTypeShape EntityType="sysModel.TB_UserRole" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="sysModel.TB_Users" Width="1.5" PointX="0.75" PointY="7.375" />
         <AssociationConnector Association="sysModel.FK_Attributes_Student" />
+        <AssociationConnector Association="sysModel.FK_TB_MENUR_REFERENCE_TB_MENU" />
+        <AssociationConnector Association="sysModel.FK_TB_MENUR_REFERENCE_TB_ROLE" />
+        <AssociationConnector Association="sysModel.FK_TB_USERR_REFERENCE_TB_ROLE" />
+        <AssociationConnector Association="sysModel.FK_TB_USERR_REFERENCE_TB_USERS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

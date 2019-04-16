@@ -24,16 +24,8 @@ namespace ConsoleTest
 
             //var students = db.Set<ClassTab>().Where(w => w.ClassName.Contains("1"));
 
-            StudentService ss = new StudentService();
-            for (int i = 0; i < 5; i++)
-            {
-                Console.WriteLine("----第" + (i + 1) + "次调用-------");
-                Console.WriteLine("----time:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff")+ "-------");
-                List<Student> list = ss.LoadEntities(l => true, true).ToList();
-                Console.WriteLine("----time:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff") + "-------");
-                Student s = list.Find(f => f.Sex == 1);
-                Console.WriteLine("----time:" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:ffff") + "-------");
-            }
+            SysDBEntities db = new SysDBEntities();
+           
            
             //foreach (var item in students)
             //{

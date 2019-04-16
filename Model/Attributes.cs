@@ -21,20 +21,24 @@ namespace Model
     {
     public Attributes()
         {
-        }
-        /// <summary>
+            this.Student = new HashSet<Student>();
+    	}
+    			    /// <summary>
         /// 
         /// </summary>
         [Required(ErrorMessage = "请输入{0}")]
         [Key]
+    
         public int id { get; set; }
         /// <summary>
         /// 
         /// </summary>
         [MaxLength(25,ErrorMessage="最多只能输入25个字符")]
         [StringLength(25,ErrorMessage="最多只能输入25个字符")]
+    
         public string Hobbies { get; set; }
     
-         public virtual Student Student { get; set; }
+       
+         public virtual ICollection<Student> Student { get; set; }
     }
 }
