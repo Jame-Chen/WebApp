@@ -25,13 +25,25 @@ namespace Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Attributes> Attributes { get; set; }
-        public virtual DbSet<Student> Student { get; set; }
-        public virtual DbSet<TB_Department> TB_Department { get; set; }
-        public virtual DbSet<TB_Menu> TB_Menu { get; set; }
-        public virtual DbSet<TB_MenuRole> TB_MenuRole { get; set; }
-        public virtual DbSet<TB_Role> TB_Role { get; set; }
-        public virtual DbSet<TB_UserRole> TB_UserRole { get; set; }
-        public virtual DbSet<TB_Users> TB_Users { get; set; }
+        public virtual DbSet<FileUploader> FileUploader { get; set; }
+        public virtual DbSet<SysAnnouncement> SysAnnouncement { get; set; }
+        public virtual DbSet<SysDepartment> SysDepartment { get; set; }
+        public virtual DbSet<SysDocumentSysDepartment> SysDocumentSysDepartment { get; set; }
+        public virtual DbSet<SysDocumentSysPerson> SysDocumentSysPerson { get; set; }
+        public virtual DbSet<SysEmail> SysEmail { get; set; }
+        public virtual DbSet<SysEmailTemp> SysEmailTemp { get; set; }
+        public virtual DbSet<SysException> SysException { get; set; }
+        public virtual DbSet<SysField> SysField { get; set; }
+        public virtual DbSet<SysLog> SysLog { get; set; }
+        public virtual DbSet<SysMenu> SysMenu { get; set; }
+        public virtual DbSet<SysMenuSysOperation> SysMenuSysOperation { get; set; }
+        public virtual DbSet<SysMenuSysRoleSysOperation> SysMenuSysRoleSysOperation { get; set; }
+        public virtual DbSet<SysMessage> SysMessage { get; set; }
+        public virtual DbSet<SysMessageTemp> SysMessageTemp { get; set; }
+        public virtual DbSet<SysNotice> SysNotice { get; set; }
+        public virtual DbSet<SysOperation> SysOperation { get; set; }
+        public virtual DbSet<SysPerson> SysPerson { get; set; }
+        public virtual DbSet<SysRole> SysRole { get; set; }
+        public virtual DbSet<SysRoleSysPerson> SysRoleSysPerson { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      Microsoft SQL Server 2008                    */
-/* Created on:     2019/4/12 17:40:11                           */
+/* Created on:     2019/4/16 17:19:47                           */
 /*==============================================================*/
 
 
@@ -1076,10 +1076,10 @@ go
 /* Table: SysDocumentSysDepartment                              */
 /*==============================================================*/
 create table SysDocumentSysDepartment (
-   ID                   nvarchar(36)         not null default SYS_GUID(),
+   Id                   nvarchar(36)         not null,
    SysDepartmentId      nvarchar(36)         not null,
    Sys_Id               nvarchar(36)         not null,
-   constraint PK_SYSDOCUMENTSYSDEPARTMENT primary key (ID)
+   constraint PK_SYSDOCUMENTSYSDEPARTMENT primary key (Id)
 )
 go
 
@@ -1102,21 +1102,21 @@ go
 
 if exists(select 1 from sys.extended_properties p where
       p.major_id = object_id('SysDocumentSysDepartment')
-  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ID')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'Id')
 )
 begin
    declare @CurrentUser sysname
 select @CurrentUser = user_name()
 execute sp_dropextendedproperty 'MS_Description', 
-   'user', @CurrentUser, 'table', 'SysDocumentSysDepartment', 'column', 'ID'
+   'user', @CurrentUser, 'table', 'SysDocumentSysDepartment', 'column', 'Id'
 
 end
 
 
 select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
-   'ID',
-   'user', @CurrentUser, 'table', 'SysDocumentSysDepartment', 'column', 'ID'
+   'Id',
+   'user', @CurrentUser, 'table', 'SysDocumentSysDepartment', 'column', 'Id'
 go
 
 if exists(select 1 from sys.extended_properties p where
@@ -1161,10 +1161,10 @@ go
 /* Table: SysDocumentSysPerson                                  */
 /*==============================================================*/
 create table SysDocumentSysPerson (
-   ID                   nvarchar(36)         not null default SYS_GUID(),
+   Id                   nvarchar(36)         not null,
    SysPersonId          nvarchar(36)         not null,
    SysSysDocumentId_Id  nvarchar(36)         not null,
-   constraint PK_SYSDOCUMENTSYSPERSON primary key (ID)
+   constraint PK_SYSDOCUMENTSYSPERSON primary key (Id)
 )
 go
 
@@ -1187,21 +1187,21 @@ go
 
 if exists(select 1 from sys.extended_properties p where
       p.major_id = object_id('SysDocumentSysPerson')
-  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ID')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'Id')
 )
 begin
    declare @CurrentUser sysname
 select @CurrentUser = user_name()
 execute sp_dropextendedproperty 'MS_Description', 
-   'user', @CurrentUser, 'table', 'SysDocumentSysPerson', 'column', 'ID'
+   'user', @CurrentUser, 'table', 'SysDocumentSysPerson', 'column', 'Id'
 
 end
 
 
 select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
-   'ID',
-   'user', @CurrentUser, 'table', 'SysDocumentSysPerson', 'column', 'ID'
+   'Id',
+   'user', @CurrentUser, 'table', 'SysDocumentSysPerson', 'column', 'Id'
 go
 
 if exists(select 1 from sys.extended_properties p where
@@ -2687,10 +2687,10 @@ go
 /* Table: SysMenuSysOperation                                   */
 /*==============================================================*/
 create table SysMenuSysOperation (
-   ID                   nvarchar(36)         not null default SYS_GUID(),
+   Id                   nvarchar(36)         not null,
    SysMenuId            nvarchar(36)         not null,
    SysOperationId       nvarchar(36)         not null,
-   constraint PK_SYSMENUSYSOPERATION primary key (ID, SysMenuId, SysOperationId)
+   constraint PK_SYSMENUSYSOPERATION primary key (Id)
 )
 go
 
@@ -2713,21 +2713,21 @@ go
 
 if exists(select 1 from sys.extended_properties p where
       p.major_id = object_id('SysMenuSysOperation')
-  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ID')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'Id')
 )
 begin
    declare @CurrentUser sysname
 select @CurrentUser = user_name()
 execute sp_dropextendedproperty 'MS_Description', 
-   'user', @CurrentUser, 'table', 'SysMenuSysOperation', 'column', 'ID'
+   'user', @CurrentUser, 'table', 'SysMenuSysOperation', 'column', 'Id'
 
 end
 
 
 select @CurrentUser = user_name()
 execute sp_addextendedproperty 'MS_Description', 
-   'ID',
-   'user', @CurrentUser, 'table', 'SysMenuSysOperation', 'column', 'ID'
+   'Id',
+   'user', @CurrentUser, 'table', 'SysMenuSysOperation', 'column', 'Id'
 go
 
 if exists(select 1 from sys.extended_properties p where
@@ -4293,10 +4293,10 @@ go
 /* Table: SysRoleSysPerson                                      */
 /*==============================================================*/
 create table dbo.SysRoleSysPerson (
-   ID                   nvarchar(36)         not null default SYS_GUID(),
+   Id                   nvarchar(36)         not null,
    SysPersonId          nvarchar(36)         collate Chinese_PRC_CI_AS not null,
    SysRoleId            nvarchar(36)         collate Chinese_PRC_CI_AS not null,
-   constraint PK_SYSROLESYSPERSON primary key (ID, SysPersonId, SysRoleId)
+   constraint PK_SYSROLESYSPERSON primary key (Id)
          on "PRIMARY"
 )
 on "PRIMARY"
@@ -4318,18 +4318,18 @@ go
 
 if exists(select 1 from sys.extended_properties p where
       p.major_id = object_id('dbo.SysRoleSysPerson')
-  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'ID')
+  and p.minor_id = (select c.column_id from sys.columns c where c.object_id = p.major_id and c.name = 'Id')
 )
 begin
    execute sp_dropextendedproperty 'MS_Description', 
-   'user', 'dbo', 'table', 'SysRoleSysPerson', 'column', 'ID'
+   'user', 'dbo', 'table', 'SysRoleSysPerson', 'column', 'Id'
 
 end
 
 
 execute sp_addextendedproperty 'MS_Description', 
-   'ID',
-   'user', 'dbo', 'table', 'SysRoleSysPerson', 'column', 'ID'
+   'Id',
+   'user', 'dbo', 'table', 'SysRoleSysPerson', 'column', 'Id'
 go
 
 if exists(select 1 from sys.extended_properties p where

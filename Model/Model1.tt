@@ -8,7 +8,7 @@
 <#@ output extension=".cs"#>
 
 <# 
-	string connectionString = "Data Source=.;Initial Catalog=sys;User ID=sa;Password=123456;"; 
+	string connectionString = "Data Source=.;Initial Catalog=SysDB;User ID=sa;Password=123456;"; 
     SqlConnection conn = new SqlConnection(connectionString); 
     conn.Open(); 
     System.Data.DataTable schema = conn.GetSchema("TABLES"); 
