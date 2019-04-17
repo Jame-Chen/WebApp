@@ -162,6 +162,7 @@ public <#=code.Escape(entity)#>()
     <#=codeStringGenerator.Property(edmProperty)#>
 <#
         }
+		conn.Close();
     }
 
     if (complexProperties.Any())
