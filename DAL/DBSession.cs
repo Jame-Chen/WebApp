@@ -14,67 +14,163 @@ namespace DAL
 	//统一管理上下文的各种操作
     public partial class DbSession : IDbSession
     {  
-				public IAttributesRepository AttributesRepository
+				public IFileUploaderRepository FileUploaderRepository
         {
             get
             {
-                return new AttributesRepository();
+                return new FileUploaderRepository();
             }
         }
 
-				public IStudentRepository StudentRepository
+				public ISysAnnouncementRepository SysAnnouncementRepository
         {
             get
             {
-                return new StudentRepository();
+                return new SysAnnouncementRepository();
             }
         }
 
-				public ITB_DepartmentRepository TB_DepartmentRepository
+				public ISysDepartmentRepository SysDepartmentRepository
         {
             get
             {
-                return new TB_DepartmentRepository();
+                return new SysDepartmentRepository();
             }
         }
 
-				public ITB_MenuRepository TB_MenuRepository
+				public ISysDocumentSysDepartmentRepository SysDocumentSysDepartmentRepository
         {
             get
             {
-                return new TB_MenuRepository();
+                return new SysDocumentSysDepartmentRepository();
             }
         }
 
-				public ITB_MenuRoleRepository TB_MenuRoleRepository
+				public ISysDocumentSysPersonRepository SysDocumentSysPersonRepository
         {
             get
             {
-                return new TB_MenuRoleRepository();
+                return new SysDocumentSysPersonRepository();
             }
         }
 
-				public ITB_RoleRepository TB_RoleRepository
+				public ISysEmailRepository SysEmailRepository
         {
             get
             {
-                return new TB_RoleRepository();
+                return new SysEmailRepository();
             }
         }
 
-				public ITB_UserRoleRepository TB_UserRoleRepository
+				public ISysEmailTempRepository SysEmailTempRepository
         {
             get
             {
-                return new TB_UserRoleRepository();
+                return new SysEmailTempRepository();
             }
         }
 
-				public ITB_UsersRepository TB_UsersRepository
+				public ISysExceptionRepository SysExceptionRepository
         {
             get
             {
-                return new TB_UsersRepository();
+                return new SysExceptionRepository();
+            }
+        }
+
+				public ISysFieldRepository SysFieldRepository
+        {
+            get
+            {
+                return new SysFieldRepository();
+            }
+        }
+
+				public ISysLogRepository SysLogRepository
+        {
+            get
+            {
+                return new SysLogRepository();
+            }
+        }
+
+				public ISysMenuRepository SysMenuRepository
+        {
+            get
+            {
+                return new SysMenuRepository();
+            }
+        }
+
+				public ISysMenuSysOperationRepository SysMenuSysOperationRepository
+        {
+            get
+            {
+                return new SysMenuSysOperationRepository();
+            }
+        }
+
+				public ISysMenuSysRoleSysOperationRepository SysMenuSysRoleSysOperationRepository
+        {
+            get
+            {
+                return new SysMenuSysRoleSysOperationRepository();
+            }
+        }
+
+				public ISysMessageRepository SysMessageRepository
+        {
+            get
+            {
+                return new SysMessageRepository();
+            }
+        }
+
+				public ISysMessageTempRepository SysMessageTempRepository
+        {
+            get
+            {
+                return new SysMessageTempRepository();
+            }
+        }
+
+				public ISysNoticeRepository SysNoticeRepository
+        {
+            get
+            {
+                return new SysNoticeRepository();
+            }
+        }
+
+				public ISysOperationRepository SysOperationRepository
+        {
+            get
+            {
+                return new SysOperationRepository();
+            }
+        }
+
+				public ISysPersonRepository SysPersonRepository
+        {
+            get
+            {
+                return new SysPersonRepository();
+            }
+        }
+
+				public ISysRoleRepository SysRoleRepository
+        {
+            get
+            {
+                return new SysRoleRepository();
+            }
+        }
+
+				public ISysRoleSysPersonRepository SysRoleSysPersonRepository
+        {
+            get
+            {
+                return new SysRoleSysPersonRepository();
             }
         }
 

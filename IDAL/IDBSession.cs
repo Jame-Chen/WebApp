@@ -14,21 +14,45 @@ namespace IDAL
 	//统一管理上下文的各种操作
     public interface IDbSession
     {  
-				IAttributesRepository AttributesRepository{ get; }
+				IFileUploaderRepository FileUploaderRepository{ get; }
 
-				IStudentRepository StudentRepository{ get; }
+				ISysAnnouncementRepository SysAnnouncementRepository{ get; }
 
-				ITB_DepartmentRepository TB_DepartmentRepository{ get; }
+				ISysDepartmentRepository SysDepartmentRepository{ get; }
 
-				ITB_MenuRepository TB_MenuRepository{ get; }
+				ISysDocumentSysDepartmentRepository SysDocumentSysDepartmentRepository{ get; }
 
-				ITB_MenuRoleRepository TB_MenuRoleRepository{ get; }
+				ISysDocumentSysPersonRepository SysDocumentSysPersonRepository{ get; }
 
-				ITB_RoleRepository TB_RoleRepository{ get; }
+				ISysEmailRepository SysEmailRepository{ get; }
 
-				ITB_UserRoleRepository TB_UserRoleRepository{ get; }
+				ISysEmailTempRepository SysEmailTempRepository{ get; }
 
-				ITB_UsersRepository TB_UsersRepository{ get; }
+				ISysExceptionRepository SysExceptionRepository{ get; }
+
+				ISysFieldRepository SysFieldRepository{ get; }
+
+				ISysLogRepository SysLogRepository{ get; }
+
+				ISysMenuRepository SysMenuRepository{ get; }
+
+				ISysMenuSysOperationRepository SysMenuSysOperationRepository{ get; }
+
+				ISysMenuSysRoleSysOperationRepository SysMenuSysRoleSysOperationRepository{ get; }
+
+				ISysMessageRepository SysMessageRepository{ get; }
+
+				ISysMessageTempRepository SysMessageTempRepository{ get; }
+
+				ISysNoticeRepository SysNoticeRepository{ get; }
+
+				ISysOperationRepository SysOperationRepository{ get; }
+
+				ISysPersonRepository SysPersonRepository{ get; }
+
+				ISysRoleRepository SysRoleRepository{ get; }
+
+				ISysRoleSysPersonRepository SysRoleSysPersonRepository{ get; }
 
 		
         int Save();       

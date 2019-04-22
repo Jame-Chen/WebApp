@@ -99,3 +99,7 @@ C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\Common.dll
 C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\System.Net.Http.Formatting.dll
 C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\log4net.xml
 C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\Common.pdb
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\NPOI.dll
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\ICSharpCode.SharpZipLib.dll
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\NPOI.xml
+C:\Users\Administrator\EFMVCApp\EFMVCApp\bin\zh-Hans\EntityFramework.SqlServer.resources.dll

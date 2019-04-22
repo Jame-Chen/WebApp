@@ -14,35 +14,83 @@ using Model;
 namespace IBLL
 {
 		
-	public interface IAttributesService:IBaseService<Attributes>
+	public interface IFileUploaderService:IBaseService<FileUploader>
     {
     }
 		
-	public interface IStudentService:IBaseService<Student>
+	public interface ISysAnnouncementService:IBaseService<SysAnnouncement>
     {
     }
 		
-	public interface ITB_DepartmentService:IBaseService<TB_Department>
+	public interface ISysDepartmentService:IBaseService<SysDepartment>
     {
     }
 		
-	public interface ITB_MenuService:IBaseService<TB_Menu>
+	public interface ISysDocumentSysDepartmentService:IBaseService<SysDocumentSysDepartment>
     {
     }
 		
-	public interface ITB_MenuRoleService:IBaseService<TB_MenuRole>
+	public interface ISysDocumentSysPersonService:IBaseService<SysDocumentSysPerson>
     {
     }
 		
-	public interface ITB_RoleService:IBaseService<TB_Role>
+	public interface ISysEmailService:IBaseService<SysEmail>
     {
     }
 		
-	public interface ITB_UserRoleService:IBaseService<TB_UserRole>
+	public interface ISysEmailTempService:IBaseService<SysEmailTemp>
     {
     }
 		
-	public interface ITB_UsersService:IBaseService<TB_Users>
+	public interface ISysExceptionService:IBaseService<SysException>
+    {
+    }
+		
+	public interface ISysFieldService:IBaseService<SysField>
+    {
+    }
+		
+	public interface ISysLogService:IBaseService<SysLog>
+    {
+    }
+		
+	public interface ISysMenuService:IBaseService<SysMenu>
+    {
+    }
+		
+	public interface ISysMenuSysOperationService:IBaseService<SysMenuSysOperation>
+    {
+    }
+		
+	public interface ISysMenuSysRoleSysOperationService:IBaseService<SysMenuSysRoleSysOperation>
+    {
+    }
+		
+	public interface ISysMessageService:IBaseService<SysMessage>
+    {
+    }
+		
+	public interface ISysMessageTempService:IBaseService<SysMessageTemp>
+    {
+    }
+		
+	public interface ISysNoticeService:IBaseService<SysNotice>
+    {
+    }
+		
+	public interface ISysOperationService:IBaseService<SysOperation>
+    {
+    }
+		
+	public interface ISysPersonService:IBaseService<SysPerson>
+    {
+    }
+		
+	public interface ISysRoleService:IBaseService<SysRole>
+    {
+    }
+		
+	public interface ISysRoleSysPersonService:IBaseService<SysRoleSysPerson>
     {
     }
 	    

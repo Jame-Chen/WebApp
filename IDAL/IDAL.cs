@@ -12,35 +12,83 @@ using Model;
 namespace IDAL
 {
 		
-	public interface IAttributesRepository : IBaseRepository<Attributes>
+	public interface IFileUploaderRepository : IBaseRepository<FileUploader>
     {
     }
 		
-	public interface IStudentRepository : IBaseRepository<Student>
+	public interface ISysAnnouncementRepository : IBaseRepository<SysAnnouncement>
     {
     }
 		
-	public interface ITB_DepartmentRepository : IBaseRepository<TB_Department>
+	public interface ISysDepartmentRepository : IBaseRepository<SysDepartment>
     {
     }
 		
-	public interface ITB_MenuRepository : IBaseRepository<TB_Menu>
+	public interface ISysDocumentSysDepartmentRepository : IBaseRepository<SysDocumentSysDepartment>
     {
     }
 		
-	public interface ITB_MenuRoleRepository : IBaseRepository<TB_MenuRole>
+	public interface ISysDocumentSysPersonRepository : IBaseRepository<SysDocumentSysPerson>
     {
     }
 		
-	public interface ITB_RoleRepository : IBaseRepository<TB_Role>
+	public interface ISysEmailRepository : IBaseRepository<SysEmail>
     {
     }
 		
-	public interface ITB_UserRoleRepository : IBaseRepository<TB_UserRole>
+	public interface ISysEmailTempRepository : IBaseRepository<SysEmailTemp>
     {
     }
 		
-	public interface ITB_UsersRepository : IBaseRepository<TB_Users>
+	public interface ISysExceptionRepository : IBaseRepository<SysException>
+    {
+    }
+		
+	public interface ISysFieldRepository : IBaseRepository<SysField>
+    {
+    }
+		
+	public interface ISysLogRepository : IBaseRepository<SysLog>
+    {
+    }
+		
+	public interface ISysMenuRepository : IBaseRepository<SysMenu>
+    {
+    }
+		
+	public interface ISysMenuSysOperationRepository : IBaseRepository<SysMenuSysOperation>
+    {
+    }
+		
+	public interface ISysMenuSysRoleSysOperationRepository : IBaseRepository<SysMenuSysRoleSysOperation>
+    {
+    }
+		
+	public interface ISysMessageRepository : IBaseRepository<SysMessage>
+    {
+    }
+		
+	public interface ISysMessageTempRepository : IBaseRepository<SysMessageTemp>
+    {
+    }
+		
+	public interface ISysNoticeRepository : IBaseRepository<SysNotice>
+    {
+    }
+		
+	public interface ISysOperationRepository : IBaseRepository<SysOperation>
+    {
+    }
+		
+	public interface ISysPersonRepository : IBaseRepository<SysPerson>
+    {
+    }
+		
+	public interface ISysRoleRepository : IBaseRepository<SysRole>
+    {
+    }
+		
+	public interface ISysRoleSysPersonRepository : IBaseRepository<SysRoleSysPerson>
     {
     }
 	    

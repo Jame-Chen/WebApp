@@ -35,8 +35,6 @@ namespace BLL
             Result result = new Result();
             var addEntity = CurrentRepository.AddEntity(entity);
             _dbSession.Save();
-            result.Code = "200";
-            result.Msg = "操作成功!";
             result.Data = addEntity;
             return result;
         }
@@ -51,8 +49,6 @@ namespace BLL
             Result result = new Result();
             CurrentRepository.UpdateEntity(entity);
             _dbSession.Save();
-            result.Code = "200";
-            result.Msg = "操作成功!";
             return result;
         }
 
@@ -66,8 +62,6 @@ namespace BLL
             Result result = new Result();
             CurrentRepository.DeleteEntity(entity);
             _dbSession.Save();
-            result.Code = "200";
-            result.Msg = "操作成功!";
             return result;
         }
 

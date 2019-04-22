@@ -128,6 +128,7 @@ namespace BLL
                     r.Msg = "用户名或密码错误";
                     return r;
                 }
+           
                 FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(0, LoginName, DateTime.Now,
                                DateTime.Now.AddHours(1), true, string.Format("{0}&{1}", LoginName, PassWord),
                                FormsAuthentication.FormsCookiePath);

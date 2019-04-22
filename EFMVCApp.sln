@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{B13DF580-6C22-4BC4-AB23-3C0542E305E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model_Oralce", "Model_Oralce\Model_Oralce.csproj", "{F55E9707-FB74-4473-8FC3-08F35F14782F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B13DF580-6C22-4BC4-AB23-3C0542E305E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F55E9707-FB74-4473-8FC3-08F35F14782F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55E9707-FB74-4473-8FC3-08F35F14782F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55E9707-FB74-4473-8FC3-08F35F14782F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55E9707-FB74-4473-8FC3-08F35F14782F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,5 +90,6 @@ Global
 		{B0BCC83C-C8D3-428A-906B-E8430EC45974} = {89A68C97-7A89-4731-8A2C-FF98E65B5732}
 		{4B1F5FBD-EF78-4790-8995-4FB1950602F5} = {5CDFFE61-1DD6-4F17-AC15-BA2B716C0C97}
 		{9A38FDD9-507C-4C19-8B71-795B1C56B3CD} = {5CDFFE61-1DD6-4F17-AC15-BA2B716C0C97}
+		{F55E9707-FB74-4473-8FC3-08F35F14782F} = {8EBF230A-4D61-4F92-B161-48066C3A0402}
 	EndGlobalSection
 EndGlobal

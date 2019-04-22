@@ -1,180 +1,302 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="sysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Attributes">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="stuid" Type="int" />
-    <Property Name="Hobbies" Type="nvarchar" MaxLength="25" />
-  </EntityType>
-  <EntityType Name="Student">
+  <EntityType Name="FileUploader">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Age" Type="int" />
-    <Property Name="Name" Type="nvarchar" MaxLength="10" />
-    <Property Name="Sex" Type="int" />
-    <Property Name="Chinese" Type="decimal" Precision="5" Scale="2" />
-    <Property Name="Math" Type="decimal" Precision="5" Scale="2" />
-    <Property Name="English" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Path" Type="nvarchar" MaxLength="200" />
+    <Property Name="FullPath" Type="varchar" MaxLength="500" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="200" />
+    <Property Name="Size" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="TB_Department">
+  <EntityType Name="SysAnnouncement">
     <Key>
-      <PropertyRef Name="department_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="department_name" Type="varchar" MaxLength="50" />
-    <Property Name="parent_id" Type="int" />
-    <Property Name="department_level" Type="varchar" MaxLength="10" />
-    <Property Name="status" Type="varchar" MaxLength="10" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="TB_Menu">
+  <EntityType Name="SysDepartment">
     <Key>
-      <PropertyRef Name="menu_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="menu_name" Type="varchar" MaxLength="50" />
-    <Property Name="menu_url" Type="varchar" MaxLength="50" />
-    <Property Name="parent_id" Type="varchar" MaxLength="50" />
-    <Property Name="menu_level" Type="varchar" MaxLength="10" />
-    <Property Name="sort_order" Type="varchar" MaxLength="50" />
-    <Property Name="status" Type="varchar" MaxLength="10" />
-    <Property Name="remark" Type="varchar" MaxLength="1000" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="TB_MenuRole">
+  <EntityType Name="SysDocumentSysDepartment">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="role_id" Type="int" />
-    <Property Name="menu_id" Type="int" />
-    <Property Name="role_type" Type="varchar" MaxLength="10" />
-    <Property Name="button_id" Type="varchar" MaxLength="50" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysDepartmentId" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Sys_Id" Type="nvarchar" MaxLength="36" Nullable="false" />
   </EntityType>
-  <EntityType Name="TB_Role">
+  <EntityType Name="SysDocumentSysPerson">
     <Key>
-      <PropertyRef Name="role_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="role_name" Type="varchar" MaxLength="50" />
-    <Property Name="description" Type="varchar" MaxLength="500" />
-    <Property Name="createtime" Type="date" />
-    <Property Name="modifytime" Type="date" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysPersonId" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysSysDocumentId_Id" Type="nvarchar" MaxLength="36" Nullable="false" />
   </EntityType>
-  <EntityType Name="TB_UserRole">
+  <EntityType Name="SysEmail">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="role_id" Type="int" />
-    <Property Name="user_id" Type="int" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysMailId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Content" Type="ntext" />
+    <Property Name="Reply_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="Mail_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReadTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <EntityType Name="TB_Users">
+  <EntityType Name="SysEmailTemp">
     <Key>
-      <PropertyRef Name="user_id" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="user_name" Type="varchar" MaxLength="50" />
-    <Property Name="user_password" Type="varchar" MaxLength="50" />
-    <Property Name="fullname" Type="varchar" MaxLength="50" />
-    <Property Name="department_id" Type="int" />
-    <Property Name="status" Type="varchar" MaxLength="10" />
-    <Property Name="createtime" Type="date" />
-    <Property Name="modifytime" Type="date" />
-    <Property Name="remark" Type="varchar" MaxLength="1000" />
-    <Property Name="url" Type="varchar" MaxLength="200" />
-    <Property Name="role_id" Type="int" />
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Mail_name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Content" Type="ntext" />
+    <Property Name="Reply_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsDefault" Type="nvarchar" MaxLength="200" />
+    <Property Name="Mail_type" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
   </EntityType>
-  <Association Name="FK_Attributes_Student">
-    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
-    <End Role="Attributes" Type="Self.Attributes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Student">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Attributes">
-        <PropertyRef Name="stuid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TB_MENUR_REFERENCE_TB_MENU">
-    <End Role="TB_Menu" Type="Self.TB_Menu" Multiplicity="0..1" />
-    <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TB_Menu">
-        <PropertyRef Name="menu_id" />
-      </Principal>
-      <Dependent Role="TB_MenuRole">
-        <PropertyRef Name="menu_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TB_MENUR_REFERENCE_TB_ROLE">
-    <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
-    <End Role="TB_MenuRole" Type="Self.TB_MenuRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TB_Role">
-        <PropertyRef Name="role_id" />
-      </Principal>
-      <Dependent Role="TB_MenuRole">
-        <PropertyRef Name="role_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TB_USERR_REFERENCE_TB_ROLE">
-    <End Role="TB_Role" Type="Self.TB_Role" Multiplicity="0..1" />
-    <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TB_Role">
-        <PropertyRef Name="role_id" />
-      </Principal>
-      <Dependent Role="TB_UserRole">
-        <PropertyRef Name="role_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TB_USERR_REFERENCE_TB_USERS">
-    <End Role="TB_Users" Type="Self.TB_Users" Multiplicity="0..1" />
-    <End Role="TB_UserRole" Type="Self.TB_UserRole" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TB_Users">
-        <PropertyRef Name="user_id" />
-      </Principal>
-      <Dependent Role="TB_UserRole">
-        <PropertyRef Name="user_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <EntityType Name="SysException">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="LeiXing" Type="nvarchar" MaxLength="200" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Result" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysField">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="MyTexts" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" MaxLength="36" />
+    <Property Name="MyTables" Type="nvarchar" MaxLength="200" />
+    <Property Name="MyColums" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="PersonId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Result" Type="nvarchar" MaxLength="200" />
+    <Property Name="MenuId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Ip" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysMenu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ParentId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Url" Type="nvarchar" MaxLength="200" />
+    <Property Name="Iconic" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsLeaf" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysMenuSysOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysMenuId" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysOperationId" Type="nvarchar" MaxLength="36" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysMenuSysRoleSysOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysMenuId" Type="nvarchar" MaxLength="36" />
+    <Property Name="SysOperationId" Type="nvarchar" MaxLength="36" />
+    <Property Name="SysRoleId" Type="nvarchar" MaxLength="36" />
+  </EntityType>
+  <EntityType Name="SysMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="400" />
+    <Property Name="SysMessageTempId" Type="nvarchar" MaxLength="36" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="ReadTime" Type="datetime" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysMessageTemp">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="MessageName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Content" Type="nvarchar" MaxLength="400" />
+    <Property Name="IsDefault" Type="nvarchar" MaxLength="200" />
+    <Property Name="MessageType" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysNotice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="4000" />
+    <Property Name="LostTime" Type="datetime" />
+    <Property Name="PersonId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" />
+    <Property Name="Function" Type="nvarchar" MaxLength="200" />
+    <Property Name="Iconic" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="MyName" Type="nvarchar" MaxLength="200" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="SurePassword" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="200" />
+    <Property Name="SysDepartmentId" Type="nvarchar" MaxLength="36" />
+    <Property Name="Position" Type="nvarchar" MaxLength="200" />
+    <Property Name="MobilePhoneNumber" Type="nvarchar" MaxLength="200" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="200" />
+    <Property Name="Province" Type="nvarchar" MaxLength="200" />
+    <Property Name="City" Type="nvarchar" MaxLength="200" />
+    <Property Name="Village" Type="nvarchar" MaxLength="200" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="200" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+    <Property Name="State" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="LogonNum" Type="int" />
+    <Property Name="LogonTime" Type="datetime" />
+    <Property Name="LogonIP" Type="nvarchar" MaxLength="200" />
+    <Property Name="LastLogonTime" Type="datetime" />
+    <Property Name="LastLogonIP" Type="nvarchar" MaxLength="200" />
+    <Property Name="PageStyle" Type="nvarchar" MaxLength="200" />
+    <Property Name="UpdatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" />
+    <Property Name="HDpic" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="4000" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="CreatePerson" Type="nvarchar" MaxLength="200" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdatePerson" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="SysRoleSysPerson">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysPersonId" Type="nvarchar" MaxLength="36" Nullable="false" />
+    <Property Name="SysRoleId" Type="nvarchar" MaxLength="36" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="sysModelStoreContainer">
-    <EntitySet Name="Attributes" EntityType="Self.Attributes" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_Department" EntityType="Self.TB_Department" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_Menu" EntityType="Self.TB_Menu" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_MenuRole" EntityType="Self.TB_MenuRole" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_Role" EntityType="Self.TB_Role" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_UserRole" EntityType="Self.TB_UserRole" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TB_Users" EntityType="Self.TB_Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Attributes_Student" Association="Self.FK_Attributes_Student">
-      <End Role="Student" EntitySet="Student" />
-      <End Role="Attributes" EntitySet="Attributes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_MENU" Association="Self.FK_TB_MENUR_REFERENCE_TB_MENU">
-      <End Role="TB_Menu" EntitySet="TB_Menu" />
-      <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TB_MENUR_REFERENCE_TB_ROLE" Association="Self.FK_TB_MENUR_REFERENCE_TB_ROLE">
-      <End Role="TB_Role" EntitySet="TB_Role" />
-      <End Role="TB_MenuRole" EntitySet="TB_MenuRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_ROLE" Association="Self.FK_TB_USERR_REFERENCE_TB_ROLE">
-      <End Role="TB_Role" EntitySet="TB_Role" />
-      <End Role="TB_UserRole" EntitySet="TB_UserRole" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TB_USERR_REFERENCE_TB_USERS" Association="Self.FK_TB_USERR_REFERENCE_TB_USERS">
-      <End Role="TB_Users" EntitySet="TB_Users" />
-      <End Role="TB_UserRole" EntitySet="TB_UserRole" />
-    </AssociationSet>
+    <EntitySet Name="FileUploader" EntityType="Self.FileUploader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysAnnouncement" EntityType="Self.SysAnnouncement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysDepartment" EntityType="Self.SysDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysDocumentSysDepartment" EntityType="Self.SysDocumentSysDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysDocumentSysPerson" EntityType="Self.SysDocumentSysPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysEmail" EntityType="Self.SysEmail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysEmailTemp" EntityType="Self.SysEmailTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysException" EntityType="Self.SysException" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysField" EntityType="Self.SysField" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysLog" EntityType="Self.SysLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMenu" EntityType="Self.SysMenu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMenuSysOperation" EntityType="Self.SysMenuSysOperation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMenuSysRoleSysOperation" EntityType="Self.SysMenuSysRoleSysOperation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMessage" EntityType="Self.SysMessage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysMessageTemp" EntityType="Self.SysMessageTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysNotice" EntityType="Self.SysNotice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysOperation" EntityType="Self.SysOperation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysPerson" EntityType="Self.SysPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysRole" EntityType="Self.SysRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysRoleSysPerson" EntityType="Self.SysRoleSysPerson" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -64,13 +64,6 @@
       <DependentUpon>BLL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudentService.cs" />
-    <Compile Include="TB_DepartmentService.cs" />
-    <Compile Include="TB_MenuRoleService.cs" />
-    <Compile Include="TB_MenuService.cs" />
-    <Compile Include="TB_RoleService.cs" />
-    <Compile Include="TB_UserRoleService.cs" />
-    <Compile Include="TB_UsersService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

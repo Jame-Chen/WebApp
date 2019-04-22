@@ -13,35 +13,83 @@ using IDAL;
 namespace DAL
 {
 	
-	public partial class AttributesRepository : BaseRepository<Attributes>,IAttributesRepository
+	public partial class FileUploaderRepository : BaseRepository<FileUploader>,IFileUploaderRepository
     {
     }
 	
-	public partial class StudentRepository : BaseRepository<Student>,IStudentRepository
+	public partial class SysAnnouncementRepository : BaseRepository<SysAnnouncement>,ISysAnnouncementRepository
     {
     }
 	
-	public partial class TB_DepartmentRepository : BaseRepository<TB_Department>,ITB_DepartmentRepository
+	public partial class SysDepartmentRepository : BaseRepository<SysDepartment>,ISysDepartmentRepository
     {
     }
 	
-	public partial class TB_MenuRepository : BaseRepository<TB_Menu>,ITB_MenuRepository
+	public partial class SysDocumentSysDepartmentRepository : BaseRepository<SysDocumentSysDepartment>,ISysDocumentSysDepartmentRepository
     {
     }
 	
-	public partial class TB_MenuRoleRepository : BaseRepository<TB_MenuRole>,ITB_MenuRoleRepository
+	public partial class SysDocumentSysPersonRepository : BaseRepository<SysDocumentSysPerson>,ISysDocumentSysPersonRepository
     {
     }
 	
-	public partial class TB_RoleRepository : BaseRepository<TB_Role>,ITB_RoleRepository
+	public partial class SysEmailRepository : BaseRepository<SysEmail>,ISysEmailRepository
     {
     }
 	
-	public partial class TB_UserRoleRepository : BaseRepository<TB_UserRole>,ITB_UserRoleRepository
+	public partial class SysEmailTempRepository : BaseRepository<SysEmailTemp>,ISysEmailTempRepository
     {
     }
 	
-	public partial class TB_UsersRepository : BaseRepository<TB_Users>,ITB_UsersRepository
+	public partial class SysExceptionRepository : BaseRepository<SysException>,ISysExceptionRepository
+    {
+    }
+	
+	public partial class SysFieldRepository : BaseRepository<SysField>,ISysFieldRepository
+    {
+    }
+	
+	public partial class SysLogRepository : BaseRepository<SysLog>,ISysLogRepository
+    {
+    }
+	
+	public partial class SysMenuRepository : BaseRepository<SysMenu>,ISysMenuRepository
+    {
+    }
+	
+	public partial class SysMenuSysOperationRepository : BaseRepository<SysMenuSysOperation>,ISysMenuSysOperationRepository
+    {
+    }
+	
+	public partial class SysMenuSysRoleSysOperationRepository : BaseRepository<SysMenuSysRoleSysOperation>,ISysMenuSysRoleSysOperationRepository
+    {
+    }
+	
+	public partial class SysMessageRepository : BaseRepository<SysMessage>,ISysMessageRepository
+    {
+    }
+	
+	public partial class SysMessageTempRepository : BaseRepository<SysMessageTemp>,ISysMessageTempRepository
+    {
+    }
+	
+	public partial class SysNoticeRepository : BaseRepository<SysNotice>,ISysNoticeRepository
+    {
+    }
+	
+	public partial class SysOperationRepository : BaseRepository<SysOperation>,ISysOperationRepository
+    {
+    }
+	
+	public partial class SysPersonRepository : BaseRepository<SysPerson>,ISysPersonRepository
+    {
+    }
+	
+	public partial class SysRoleRepository : BaseRepository<SysRole>,ISysRoleRepository
+    {
+    }
+	
+	public partial class SysRoleSysPersonRepository : BaseRepository<SysRoleSysPerson>,ISysRoleSysPersonRepository
     {
     }
 	    
