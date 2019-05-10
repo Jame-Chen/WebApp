@@ -18,14 +18,24 @@ namespace Filters
             var modelState = filterContext.Controller.ViewData.ModelState;
             if (!modelState.IsValid)
             {
-                var errorMessage = modelState.Values
-               .SelectMany(m => m.Errors)
-               .Select(m => m.ErrorMessage)
-               .First();
+                string error = string.Empty;
+                foreach (var key in modelState.Keys)
+                {
+                    var state = modelState[key];
+                    if (state.Errors.Any())
+                    {
+                        error = key + ":" + state.Errors.First().ErrorMessage;
+                        if (state.Errors.First().Exception != null)
+                        {
+                            error += "|" + state.Errors.First().Exception.Message;
+                        }
+                        break;
+                    }
+                }
                 //直接响应验证结果
                 filterContext.Result = new JsonResult()
                 {
-                    Data = new Result() { Code = "500", Msg = errorMessage }
+                    Data = new Result() { Code = "500", Msg = error }
                 };
             }
         }

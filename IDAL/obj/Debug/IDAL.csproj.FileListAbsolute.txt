@@ -42,3 +42,17 @@ C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.dll
 C:\Users\Admin\Downloads\EFMNVCApp\IDAL\obj\Debug\IDAL.pdb
 C:\Users\Administrator\EFMVCApp\IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\IDAL.dll.config
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\IDAL.dll
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\IDAL.pdb
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\EntityFramework.dll
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\Model.dll
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\Model.pdb
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\EntityFramework.xml
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\陈静\Git项目\WebApp\IDAL\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\陈静\Git项目\WebApp\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+D:\陈静\Git项目\WebApp\IDAL\obj\Debug\IDAL.dll
+D:\陈静\Git项目\WebApp\IDAL\obj\Debug\IDAL.pdb

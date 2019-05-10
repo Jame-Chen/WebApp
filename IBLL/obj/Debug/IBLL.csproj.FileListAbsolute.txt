@@ -38,3 +38,15 @@ C:\Users\Admin\Downloads\EFMNVCApp\IBLL\obj\Debug\IBLL.csproj.CoreCompileInputs.
 C:\Users\Admin\Downloads\EFMNVCApp\IBLL\obj\Debug\IBLL.csproj.CopyComplete
 C:\Users\Admin\Downloads\EFMNVCApp\IBLL\obj\Debug\IBLL.dll
 C:\Users\Admin\Downloads\EFMNVCApp\IBLL\obj\Debug\IBLL.pdb
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\IBLL.dll
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\IBLL.pdb
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\IDAL.dll
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\Model.dll
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\EntityFramework.dll
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\IDAL.pdb
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\Model.pdb
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\EntityFramework.xml
+D:\陈静\Git项目\WebApp\IBLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\陈静\Git项目\WebApp\IBLL\obj\Debug\IBLL.csprojResolveAssemblyReference.cache
+D:\陈静\Git项目\WebApp\IBLL\obj\Debug\IBLL.dll
+D:\陈静\Git项目\WebApp\IBLL\obj\Debug\IBLL.pdb

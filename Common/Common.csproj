@@ -75,7 +75,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CacheHelper.cs" />
     <Compile Include="CookieHelper.cs" />
+    <Compile Include="EmailHelper.cs" />
     <Compile Include="EncryptionMD5.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="NPOIHelper.cs" />
