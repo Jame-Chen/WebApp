@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SysMenuController.cs" />
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Filters\ExceptionFilter.cs" />
     <Compile Include="Filters\ModelValidationAttribute.cs" />
@@ -311,10 +312,11 @@
     <Content Include="Scripts\layui-v2.4.5\文档与示例\在线示例.url" />
     <Content Include="Scripts\layui-v2.4.5\文档与示例\快速上手.url" />
     <Content Include="Scripts\layui-v2.4.5\更新日志.url" />
-    <Content Include="Views\Shared\_LayoutLayui.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Home\Form.cshtml" />
+    <Content Include="Views\SysMenu\TopMenu.cshtml" />
+    <Content Include="Views\SysMenu\LeftMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

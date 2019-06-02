@@ -16,12 +16,23 @@ namespace Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var modelState = filterContext.Controller.ViewData.ModelState;
+            // var errorMessage = modelState.Values.SelectMany(m => m.Errors).Select(m => m.ErrorMessage).First();
+            var errorMessage = "";
             if (!modelState.IsValid)
             {
-                var errorMessage = modelState.Values
-               .SelectMany(m => m.Errors)
-               .Select(m => m.ErrorMessage)
-               .First();
+                foreach (var key in modelState.Keys)
+                {
+                    var state = modelState[key];
+                    if (state.Errors.Any())
+                    {
+                        errorMessage = key + ":" + state.Errors.First().ErrorMessage;
+                        if (state.Errors.First().Exception != null)
+                        {
+                            errorMessage += "|" + state.Errors.First().Exception.Message;
+                        }
+                        break;
+                    }
+                }
                 //直接响应验证结果
                 filterContext.Result = new JsonResult()
                 {
