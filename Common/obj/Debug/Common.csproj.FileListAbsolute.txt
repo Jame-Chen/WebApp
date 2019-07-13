@@ -35,8 +35,8 @@ C:\Users\Admin\Documents\EFMVCApp\Common\bin\Debug\System.Net.Http.Formatting.dl
 C:\Users\Admin\Documents\EFMVCApp\Common\bin\Debug\System.Net.Http.Primitives.dll
 C:\Users\Admin\Documents\EFMVCApp\Common\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Admin\Documents\EFMVCApp\Common\bin\Debug\NPOI.xml
-C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csprojAssemblyReference.cache
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.dll
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.pdb
+C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csprojAssemblyReference.cache

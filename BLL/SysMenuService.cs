@@ -11,7 +11,7 @@ namespace BLL
     public partial class SysMenuService
     {
 
-        public List<SysMenu> GetMenu()
+        public  List<SysMenu> GetMenu()
         {
             List<SysMenu> list = (List<SysMenu>)CacheHelper.GetCache("SysMenu");
             if (list == null)

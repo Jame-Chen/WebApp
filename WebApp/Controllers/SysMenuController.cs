@@ -1,4 +1,4 @@
-﻿using BLL;
+﻿using IBLL;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,12 @@ namespace EFMVCApp.Controllers
 {
     public class SysMenuController : Controller
     {
-        SysMenuService sysmenuservice = new SysMenuService();
+        private ISysMenuService SysMenuService;
+
+        public SysMenuController(ISysMenuService SysMenuService)
+        {
+            this.SysMenuService = SysMenuService;
+        }
         // GET: SysMenu
         public ActionResult Index()
         {
@@ -19,17 +24,17 @@ namespace EFMVCApp.Controllers
 
         public ActionResult TopMenu()
         {
-            List<SysMenu> model = sysmenuservice.GetTopMenu();
+            List<SysMenu> model = SysMenuService.GetTopMenu();
             return PartialView(model);
         }
 
         public ActionResult LeftMenu(string ParentId)
         {
-            List<SysMenu> model = sysmenuservice.GetLeftMenu(ParentId);
-            ViewBag.pName= sysmenuservice.GetMenu().Where(w => w.Id == model.FirstOrDefault().ParentId).FirstOrDefault().Name;
+            List<SysMenu> model = SysMenuService.GetLeftMenu(ParentId);
+            ViewBag.pName = SysMenuService.GetMenu().Where(w => w.Id == model.FirstOrDefault().ParentId).FirstOrDefault().Name;
             return PartialView(model);
         }
 
-       
+
     }
 }
