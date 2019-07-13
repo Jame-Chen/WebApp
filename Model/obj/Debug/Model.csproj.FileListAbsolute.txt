@@ -48,4 +48,3 @@ C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.csproj.CoreCompileInputs
 C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.dll
 C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.pdb
-C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.csprojAssemblyReference.cache

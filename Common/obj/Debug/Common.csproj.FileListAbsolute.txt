@@ -39,4 +39,3 @@ C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csproj.CoreCompileInpu
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csproj.CopyComplete
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.dll
 C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.pdb
-C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csprojAssemblyReference.cache

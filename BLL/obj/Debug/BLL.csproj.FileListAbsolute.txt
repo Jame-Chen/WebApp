@@ -112,3 +112,6 @@ C:\Users\Admin\Documents\EFMVCApp\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cac
 C:\Users\Admin\Documents\EFMVCApp\BLL\obj\Debug\BLL.csproj.CopyComplete
 C:\Users\Admin\Documents\EFMVCApp\BLL\obj\Debug\BLL.dll
 C:\Users\Admin\Documents\EFMVCApp\BLL\obj\Debug\BLL.pdb
+C:\Users\Admin\Documents\EFMVCApp\WebApp\bin\BLL.dll.config
+C:\Users\Admin\Documents\EFMVCApp\WebApp\bin\BLL.dll
+C:\Users\Admin\Documents\EFMVCApp\WebApp\bin\BLL.pdb
