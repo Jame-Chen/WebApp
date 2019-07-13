@@ -328,10 +328,6 @@
     <Content Include="Views\SysMenu\LeftMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{bfecc282-31b9-4fbf-890d-edf1ce4ae106}</Project>
-      <Name>Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{b0bcc83c-c8d3-428a-906b-e8430ec45974}</Project>
       <Name>IBLL</Name>
