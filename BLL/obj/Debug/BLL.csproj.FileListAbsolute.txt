@@ -115,3 +115,9 @@ C:\Users\Admin\Documents\EFMVCApp\BLL\obj\Debug\BLL.pdb
 C:\Users\Admin\Documents\EFMVCApp\WebApp\bin\BLL.dll.config
 C:\Users\Admin\Documents\EFMVCApp\WebApp\bin\BLL.dll
 C:\Users\Admin\Documents\EFMVCApp\WebApp\bin\BLL.pdb
+D:\陈静\Git项目\WebApp\WebApp\bin\BLL.dll.config
+D:\陈静\Git项目\WebApp\WebApp\bin\BLL.dll
+D:\陈静\Git项目\WebApp\WebApp\bin\BLL.pdb
+D:\陈静\Git项目\WebApp\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\陈静\Git项目\WebApp\BLL\obj\Debug\BLL.dll
+D:\陈静\Git项目\WebApp\BLL\obj\Debug\BLL.pdb

@@ -48,3 +48,14 @@ C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.csproj.CoreCompileInputs
 C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.dll
 C:\Users\Admin\Documents\EFMVCApp\Model\obj\Debug\Model.pdb
+D:\陈静\Git项目\WebApp\Model\bin\Debug\Model.dll.config
+D:\陈静\Git项目\WebApp\Model\bin\Debug\Model.dll
+D:\陈静\Git项目\WebApp\Model\bin\Debug\Model.pdb
+D:\陈静\Git项目\WebApp\Model\bin\Debug\EntityFramework.dll
+D:\陈静\Git项目\WebApp\Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\陈静\Git项目\WebApp\Model\bin\Debug\EntityFramework.xml
+D:\陈静\Git项目\WebApp\Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\陈静\Git项目\WebApp\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\陈静\Git项目\WebApp\Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\陈静\Git项目\WebApp\Model\obj\Debug\Model.dll
+D:\陈静\Git项目\WebApp\Model\obj\Debug\Model.pdb
