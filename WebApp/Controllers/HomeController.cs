@@ -6,18 +6,21 @@ using System.Web.Mvc;
 
 namespace EFMVCApp.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         // GET: Home
-     
+
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Form() {
+        public ActionResult Form()
+        {
             return View();
         }
+
+     
     }
 }

@@ -16,18 +16,19 @@ namespace Filters
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var modelState = filterContext.Controller.ViewData.ModelState;
+            // var errorMessage = modelState.Values.SelectMany(m => m.Errors).Select(m => m.ErrorMessage).First();
+            var errorMessage = "";
             if (!modelState.IsValid)
             {
-                string error = string.Empty;
                 foreach (var key in modelState.Keys)
                 {
                     var state = modelState[key];
                     if (state.Errors.Any())
                     {
-                        error = key + ":" + state.Errors.First().ErrorMessage;
+                        errorMessage = key + ":" + state.Errors.First().ErrorMessage;
                         if (state.Errors.First().Exception != null)
                         {
-                            error += "|" + state.Errors.First().Exception.Message;
+                            errorMessage += "|" + state.Errors.First().Exception.Message;
                         }
                         break;
                     }
@@ -35,7 +36,7 @@ namespace Filters
                 //直接响应验证结果
                 filterContext.Result = new JsonResult()
                 {
-                    Data = new Result() { Code = "500", Msg = error }
+                    Data = new Result() { Code = "500", Msg = errorMessage }
                 };
             }
         }

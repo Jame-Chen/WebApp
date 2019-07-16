@@ -4,15 +4,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>通用权限系统</title>
+    <link href="~/Scripts/layui-v2.4.5/layui/css/layui.css" rel="stylesheet" />
+    @*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
     @RenderSection("styles", required: false)
 </head>
-<body style="overflow:hidden;">
+<body>
     @RenderBody()
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")*@
     <script src="~/Scripts/Common.js"></script>
+  
     @RenderSection("scripts", required: false)
 </body>
 </html>
