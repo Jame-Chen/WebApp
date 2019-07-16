@@ -326,6 +326,7 @@
     <Content Include="Views\Home\Form.cshtml" />
     <Content Include="Views\SysMenu\TopMenu.cshtml" />
     <Content Include="Views\SysMenu\LeftMenu.cshtml" />
+    <Content Include="unity.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

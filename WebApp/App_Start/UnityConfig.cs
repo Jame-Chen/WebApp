@@ -9,6 +9,7 @@ using IBLL;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using System.Configuration;
+using System.Web;
 
 namespace EFMVCApp
 {
@@ -23,8 +24,14 @@ namespace EFMVCApp
 
             // e.g. container.RegisterType<ITestService, TestService>();
 
-            UnityConfigurationSection config = (UnityConfigurationSection)ConfigurationManager.GetSection(UnityConfigurationSection.SectionName);
-            config.Configure(container, "defaultContainer");
+            //UnityConfigurationSection config = (UnityConfigurationSection)ConfigurationManager.GetSection(UnityConfigurationSection.SectionName);
+            //config.Configure(container, "defaultContainer");
+
+            var fileMap = new ExeConfigurationFileMap { ExeConfigFilename = HttpContext.Current.Server.MapPath("~/Unity.config") };
+            Configuration configuration =
+                ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+            var unitySection = (UnityConfigurationSection)configuration.GetSection("unity");
+            container.LoadConfiguration(unitySection);
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
