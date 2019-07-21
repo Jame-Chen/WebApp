@@ -65,6 +65,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysMenuService.cs" />
+    <Compile Include="SysPersonService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

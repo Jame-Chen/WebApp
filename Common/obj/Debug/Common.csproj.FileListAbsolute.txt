@@ -52,3 +52,4 @@ D:\陈静\Git项目\WebApp\Common\bin\Debug\System.Net.Http.Primitives.dll
 D:\陈静\Git项目\WebApp\Common\bin\Debug\NPOI.xml
 D:\陈静\Git项目\WebApp\Common\obj\Debug\Common.dll
 D:\陈静\Git项目\WebApp\Common\obj\Debug\Common.pdb
+C:\Users\Admin\Documents\EFMVCApp\Common\obj\Debug\Common.csprojAssemblyReference.cache

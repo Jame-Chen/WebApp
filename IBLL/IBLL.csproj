@@ -46,6 +46,7 @@
       <DependentUpon>IBLL.tt</DependentUpon>
     </Compile>
     <Compile Include="ISysMenuService.cs" />
+    <Compile Include="ISysPersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

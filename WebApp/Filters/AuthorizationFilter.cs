@@ -5,19 +5,31 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Security;
+using Common;
 using Model;
 
 namespace Filters
 {
-     [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class, Inherited = true, AllowMultiple = true)]
     public class AuthorizationFilter : FilterAttribute, IAuthorizationFilter
     {
         public void OnAuthorization(AuthorizationContext filterContext)
         {
             //得到用户登录的信息
-            SysPerson CurrentUserInfo = HttpContext.Current.Session["UserInfo"] as SysPerson;
+            //SysPerson CurrentUserInfo = HttpContext.Current.Session["UserInfo"] as SysPerson;
+            // HttpContext.Current.User.Identity.IsAuthenticated 判断用户是否登陆
+
+            //判断是否跳过授权过滤器
+            if (filterContext.ActionDescriptor.IsDefined(typeof(AllowAnonymousAttribute), true)
+                || filterContext.ActionDescriptor.ControllerDescriptor.IsDefined(typeof(AllowAnonymousAttribute), true))
+            {
+                return;
+            }
+         
+
             //判断用户是否为空
-            if (CurrentUserInfo == null)
+            if (!HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 if (filterContext.HttpContext.Request.IsAjaxRequest())
                 {
@@ -44,6 +56,9 @@ namespace Filters
                          );
                 }
             }
+
         }
+
+
     }
 }

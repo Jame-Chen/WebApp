@@ -9,14 +9,14 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">
                         <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
-                        管理员
+                        @ViewBag.UserName
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="">基本资料</a></dd>
                         <dd><a href="">安全设置</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">退了</a></li>
+                <li class="layui-nav-item"><a href="#" id="signoff">退了</a></li>
             </ul>
         </div>
 
@@ -55,7 +55,18 @@
                 , form = layui.form
                 , element = layui.element
                 , $ = layui.$ //重点处
-          
+            //全局的ajax访问，处理ajax清求时sesion超时
+            $.ajaxSetup({
+                contentType: "application/x-www-form-urlencoded;charset=utf-8",
+                complete: function (XMLHttpRequest, textStatus) {
+                    //通过XMLHttpRequest取得响应头，sessionstatus，
+                    var sessionstatus = XMLHttpRequest.getResponseHeader("sessionstatus");
+                    if (sessionstatus == "timeout") {
+                        //如果超时就处理 ，指定要跳转的页面
+                        window.location = "/Login/Index";
+                    }
+                }
+            });
             //导航竖线隐藏;
             $(".layui-breadcrumb span").hide();
 
@@ -84,7 +95,7 @@
                 var pname = $(this).text();
                 $("#pname").text(pname);
                 $("#pname").nextAll().hide();
-            }) 
+            })
 
             //左侧菜单点击
             $(".leftmenu").click(function () {
@@ -101,7 +112,19 @@
                 $("#pname").nextAll().show();
             }
 
+            $("#signoff").click(function () {
+                $.post("/Home/SignOff", function (data) {
+                    if (data.Code = "200") {
+                        location.href = "/Login/Index";
+                    } else {
+                        layer.alert(data.Msg, {
+                            title: '提示信息'
+                        })
+                    }
+                })
+            })
+
         });
-        
+
     </script>
 </body>

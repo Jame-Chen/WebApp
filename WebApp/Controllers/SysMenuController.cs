@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace EFMVCApp.Controllers
 {
+    [AllowAnonymous]
     public class SysMenuController : Controller
     {
         private ISysMenuService SysMenuService;
